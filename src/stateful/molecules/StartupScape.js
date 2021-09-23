@@ -7,10 +7,15 @@ import * as d3 from "d3";
 
 import "./StartupScape.css";
 
-const [WIDTH, HEIGHT] = [1600, 900];
+const WIDTH = 1440;
+const HEIGHT = WIDTH * 9 / 16;
 const CATEGORY_RECT_RADIUS = 12;
 const CATEGORY_TITLE_RECT_PADDING_P = 0.1;
-const TREEMAP_PADDING = 24;
+const TREEMAP_PADDING_INNER = 18;
+const TREEMAP_PADDING_OUTER = 2;
+const TREEMAP_PADDING_TOP = 6;
+const HEADER_GAP = 12;
+
 
 function Treemap({ data, width, height }) {
   const svgRef = useRef(null);
@@ -24,7 +29,8 @@ function Treemap({ data, width, height }) {
       .sum((d) => d.value)
       .sort((a, b) => b.value - a.value);
 
-    const treemapRoot = d3.treemap().size([width, height]).padding(TREEMAP_PADDING)(root);
+    const treemap = d3.treemap().size([width, height  -HEADER_GAP]).paddingOuter(TREEMAP_PADDING_OUTER).paddingInner(TREEMAP_PADDING_INNER).paddingTop(TREEMAP_PADDING_TOP);
+    const treemapRoot = treemap(root);
 
     const nodes = svg
       .selectAll("g")
@@ -43,18 +49,26 @@ function Treemap({ data, width, height }) {
     //   .append("rect")
     //   .attr("x", 0)
     //   .attr("y", 0)
-    //   .attr("width", (d) => nodeWidth(d))
+    //   .attr("width", (d) => nodeWidth(d) )
     //   .attr("height", (d) => nodeHeight(d))
-    //   .attr("fill", (d) => CATEGORY_TO_COLOR[d.data.name])
-    //   .attr("fill-opacity", 0.1)
-    //   .attr("stroke", 'black');
+    //   .attr("fill", "yellow")
+    //   .attr("stroke", "red");
+
+      nodes
+        .filter((d) => d.data.type === "startup")
+        .append("image")
+        .attr("href", (d) => d.data.link)
+        .attr("x", (d) => 0)
+        .attr("y", (d) => HEADER_GAP)
+        .attr("width", (d) => nodeWidth(d))
+        .attr("height", (d) => nodeHeight(d) );
 
     nodes
       .filter((d) => d.data.type === "category")
       .append("rect")
       .attr("class", "rect-category")
       .attr("x", 0)
-      .attr("y", 0)
+      .attr("y", HEADER_GAP)
       .attr("rx", CATEGORY_RECT_RADIUS)
       .attr("ry", CATEGORY_RECT_RADIUS)
       .attr("width", (d) => nodeWidth(d) )
@@ -66,7 +80,7 @@ function Treemap({ data, width, height }) {
         .filter((d) => d.data.type === "category")
         .append("rect")
         .attr("x", (d) => nodeWidth(d)  * CATEGORY_TITLE_RECT_PADDING_P)
-        .attr("y", -CATEGORY_RECT_RADIUS)
+        .attr("y", -CATEGORY_RECT_RADIUS + HEADER_GAP)
         .attr("rx", CATEGORY_RECT_RADIUS)
         .attr("ry", CATEGORY_RECT_RADIUS)
         .attr("width", (d) => nodeWidth(d) * (1 - CATEGORY_TITLE_RECT_PADDING_P * 2))
@@ -77,25 +91,15 @@ function Treemap({ data, width, height }) {
         .filter((d) => d.data.type === "category")
         .append("text")
         .attr("x", (d) => nodeWidth(d) / 2)
-        .attr("y", 0)
+        .attr("y", HEADER_GAP)
         .attr("width", (d) => nodeWidth(d))
         .attr("height", (d) => nodeHeight(d))
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
         .attr("font-size", (d) =>
-          Math.min((d.x1 - d.x0) / d.data.name.length, 24)
+          Math.min(nodeWidth(d) / d.data.name.length, 18)
         )
         .text((d) => d.data.name);
-
-    nodes
-      .filter((d) => d.data.type === "startup")
-      .append("image")
-      .attr("href", (d) => d.data.link)
-      .attr("x", (d) => 0)
-      .attr("y", (d) => 0)
-      .attr("width", (d) => nodeWidth(d))
-      .attr("height", (d) => nodeHeight(d) );
-
 
   }
 
@@ -130,7 +134,8 @@ export default class StartupScape extends Component {
     }
 
     return (
-      <div>
+      <div className="div-startup-scape">
+        <h1>Startups in Sri Lanka</h1>
         <Treemap data={treemapData} height={HEIGHT} width={WIDTH} />
       </div>
     );

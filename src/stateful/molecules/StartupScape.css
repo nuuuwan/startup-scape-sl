@@ -4,9 +4,18 @@ text {
 }
 
 svg {
-	margin: 12px;
+	display: block;
+	margin: auto;
 }
 
 .rect-category {
 	stroke-width: 3px;
+}
+
+h1 {
+	text-align: center;
+}
+
+.div-startup-scape {
+	width: calc(100% - 320px);
 }
