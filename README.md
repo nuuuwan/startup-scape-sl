@@ -9,3 +9,4 @@
   * Cleaned README
   * Lint options
   * Updated package.json browserslist
+  *  [2021-09-23 01:50PM] Initial files
