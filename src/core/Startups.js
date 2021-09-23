@@ -10,7 +10,7 @@ export default class Startups {
   }
 
   static async getTreeMapData() {
-    const startups = (await Startups.getAll()).splice(0, 60);
+    const startups = (await Startups.getAll()).splice(0, 30);
     const categoryToStartupID = startups.reduce(function (
       categoryToStartupID,
       startup

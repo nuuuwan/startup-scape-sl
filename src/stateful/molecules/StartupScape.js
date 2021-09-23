@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Startups from "../../core/Startups.js";
-import { CATEGORY_TO_COLOR } from "../../constants/CategoryColorConstants.js";
+import { CATEGORY_TO_COLOR } from "../../constants/CategoryConstants.js";
 
 import { useRef, useEffect } from "react";
 import * as d3 from "d3";

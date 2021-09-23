@@ -43,3 +43,5 @@ export const CATEGORY_TO_COLOR = {
   "Travel & Tourism": "darkgreen",
   "UI / UX": "black",
 };
+
+export const CATEGORIES = Object.keys(CATEGORY_TO_COLOR);
