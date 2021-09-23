@@ -1,0 +1,12 @@
+/* stylelint-disable selector-max-type */
+text {
+	font-family: sans-serif;
+}
+
+svg {
+	margin: 12px;
+}
+
+.rect-category {
+	stroke-width: 3px;
+}

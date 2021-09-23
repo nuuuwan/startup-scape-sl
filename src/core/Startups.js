@@ -11,7 +11,6 @@ export default class Startups {
 
   static async getTreeMapData() {
     const startups = (await Startups.getAll()).splice(0, 30);
-    console.debug(startups);
     const categoryToStartupID = startups.reduce(function (
       categoryToStartupID,
       startup
@@ -28,18 +27,21 @@ export default class Startups {
     },
     {});
     return {
+      type: "root",
       name: "startups",
       children: Object.entries(categoryToStartupID).map(function ([
         category,
         startupMap,
       ]) {
         return {
+          type: "category",
           name: category,
           children: Object.entries(startupMap).map(function ([
             startupID,
             startup,
           ]) {
             return {
+              type: "startup",
               name: startupID,
               value: 1,
               link: startup.remote_img_url,
