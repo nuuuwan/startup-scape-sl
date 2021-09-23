@@ -18,8 +18,8 @@ export default class HomePage extends Component {
 
   onChangeCategory(category, isSelected) {
     let categoryToIsSelected = this.state.categoryToIsSelected;
-    if (categoryToIsSelected.category !== isSelected) {
-      categoryToIsSelected.category = isSelected;
+    if (categoryToIsSelected[category] !== isSelected) {
+      categoryToIsSelected[category] = isSelected;
       this.setState({categoryToIsSelected});
     }
   }
