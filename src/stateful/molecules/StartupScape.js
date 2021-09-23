@@ -98,7 +98,8 @@ export default class StartupScape extends Component {
   }
 
   async componentDidMount() {
-    const treemapData = await Startups.getTreeMapData();
+    const {categoryToIsSelected} = this.props;
+    const treemapData = await Startups.getTreeMapData(categoryToIsSelected);
     this.setState({ treemapData });
   }
 

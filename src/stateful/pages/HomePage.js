@@ -8,7 +8,7 @@ export default class HomePage extends Component {
     super(props);
     const categoryToIsSelected = CATEGORIES.reduce(
       function(categoryToIsSelected, category) {
-        categoryToIsSelected[category] = true;
+        categoryToIsSelected[category] = false;
         return categoryToIsSelected;
       },
       {},
@@ -26,10 +26,11 @@ export default class HomePage extends Component {
 
   render() {
     const {categoryToIsSelected} = this.state;
+    const key = JSON.stringify(categoryToIsSelected);
     return (
       <div className="div-home-page">
         <CategorySelector categoryToIsSelected={categoryToIsSelected} onChangeCategory={this.onChangeCategory.bind(this)}/>
-        <StartupScape categoryToIsSelected={categoryToIsSelected} />
+        <StartupScape key={key} categoryToIsSelected={categoryToIsSelected} />
       </div>
     );
   }

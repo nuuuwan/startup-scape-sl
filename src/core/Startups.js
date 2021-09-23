@@ -9,8 +9,25 @@ export default class Startups {
     return await WWW.json(URL);
   }
 
-  static async getTreeMapData() {
-    const startups = (await Startups.getAll()).splice(0, 30);
+  static async getFiltered(categoryToIsSelected) {
+    function filterCategory(startup) {
+      const  categories = startup['category_list'];
+      for (const category of categories){
+        if (categoryToIsSelected[category]) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    return (await Startups.getAll())
+      .filter(filterCategory)
+      .splice(0, 30);
+
+  }
+
+  static async getTreeMapData(categoryToIsSelected) {
+    const startups = (await Startups.getFiltered(categoryToIsSelected)).splice(0, 30);
     const categoryToStartupID = startups.reduce(function (
       categoryToStartupID,
       startup
