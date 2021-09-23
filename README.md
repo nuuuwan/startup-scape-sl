@@ -11,3 +11,4 @@
   * Updated package.json browserslist
   *  [2021-09-23 01:50PM] Initial files
   *  [2021-09-23 02:05PM] Data loading works
+  *  [2021-09-23 03:00PM] Basic visual with images
