@@ -13,3 +13,4 @@
   *  [2021-09-23 02:05PM] Data loading works
   *  [2021-09-23 03:00PM] Basic visual with images
   *  [2021-09-23 03:35PM] Fixed lint
+  *  [2021-09-23 04:51PM] Various minor

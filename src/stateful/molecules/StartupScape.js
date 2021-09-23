@@ -9,7 +9,7 @@ import "./StartupScape.css";
 
 const [WIDTH, HEIGHT] = [1600, 900];
 const CATEGORY_PADDING = 12;
-const STARTUP_PADDING = 24;
+const STARTUP_PADDING = 3;
 
 function Treemap({ data, width, height }) {
   const svgRef = useRef(null);
@@ -50,8 +50,8 @@ function Treemap({ data, width, height }) {
       .attr("href", (d) => d.data.link)
       .attr("x", STARTUP_PADDING)
       .attr("y", STARTUP_PADDING)
-      .attr("width", (d) => d.x1 - d.x0 - STARTUP_PADDING * 2)
-      .attr("height", (d) => d.y1 - d.y0 - STARTUP_PADDING * 2);
+      .attr("width", (d) => Math.max(0, d.x1 - d.x0 - STARTUP_PADDING * 2))
+      .attr("height", (d) => Math.max(0, d.y1 - d.y0 - STARTUP_PADDING * 2));
 
     nodes
       .filter((d) => d.data.type === "category")
