@@ -15,3 +15,5 @@
   *  [2021-09-23 03:35PM] Fixed lint
   *  [2021-09-23 04:51PM] Various minor
   *  [2021-09-23 04:55PM] Category Selector - Stub Complete
+* [2021-09-23 04:55PM] Add Category Filter
+  *  [2021-09-23 04:55PM] Updated README
