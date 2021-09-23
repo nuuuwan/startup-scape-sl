@@ -1,8 +1,8 @@
 .div-category-selector {
-  width: 100%;
+	width: 100%;
+	padding: 12px;
 }
 
 .div-category-selector-item {
-  float: left;
-  width: 20%;
+	font-size: 12px;
 }

@@ -1,0 +1,27 @@
+.div-filter-panel {
+	position: fixed;
+	top: 12px;
+	right: 12px;
+	z-index: 100000;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	max-width: 400px;
+	max-height: 50vh;
+	background: #fcfcfc;
+}
+
+.div-button {
+	float: right;
+	max-width: 32px;
+	margin: 12px;
+	padding: 12px;
+	border-radius: 12px;
+	background: lightgray;
+	color: gray;
+	font-size: 12px;
+}
+
+.span-button:hover {
+	background: gray;
+	color: lightgray;
+}

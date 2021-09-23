@@ -11,23 +11,23 @@ export default class Startups {
 
   static async getFiltered(categoryToIsSelected) {
     function filterCategory(startup) {
-      const  categories = startup['category_list'];
-      for (const category of categories){
+      const categories = startup["category_list"];
+      for (const category of categories) {
         if (categoryToIsSelected[category]) {
           return true;
         }
       }
       return false;
-    };
+    }
 
-    return (await Startups.getAll())
-      .filter(filterCategory)
-      .splice(0, 30);
-
+    return (await Startups.getAll()).filter(filterCategory).splice(0, 30);
   }
 
   static async getTreeMapData(categoryToIsSelected) {
-    const startups = (await Startups.getFiltered(categoryToIsSelected)).splice(0, 30);
+    const startups = (await Startups.getFiltered(categoryToIsSelected)).splice(
+      0,
+      30
+    );
     const categoryToStartupID = startups.reduce(function (
       categoryToStartupID,
       startup
