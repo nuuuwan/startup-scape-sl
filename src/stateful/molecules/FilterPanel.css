@@ -46,3 +46,12 @@
 	width: 18px;
 	height: 18px;
 }
+
+.div-multi-select {
+	font-size: 9px;
+	color: lightgray;
+}
+
+.div-multi-select:hover {
+	color: orange;
+}

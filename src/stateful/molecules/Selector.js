@@ -8,11 +8,31 @@ export default class Selector extends Component {
     this.props.onChange(value, isSelected);
   }
 
+  onClickSelectAll() {
+    this.props.onClickSelectAll();
+  }
+
+  onClickUnSelectAll() {
+    this.props.onClickUnSelectAll();
+  }
+
   render() {
-    const { valueToIsSelected } = this.props;
+    const { valueToIsSelected, onClickSelectAll } = this.props;
+
+    const renderedMultiSelectors = (onClickSelectAll) ? (
+      <div>
+      <div className="div-select-all div-multi-select" onClick={this.onClickSelectAll.bind(this)}>
+        Select All
+      </div>
+      <div className="div-unselect-all div-multi-select" onClick={this.onClickUnSelectAll.bind(this)}>
+        Un-Select All
+      </div>
+      </div>
+    ): null;
 
     return (
       <div className="div-selector">
+        {renderedMultiSelectors}
         {Object.entries(valueToIsSelected).map(
           function ([value, isSelected], iValue) {
             const key = `div-selector-item-${iValue}`;

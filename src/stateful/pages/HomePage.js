@@ -8,9 +8,9 @@ import FilterPanel from "../molecules/FilterPanel.js";
 
 import './HomePage.css';
 
-function getGenericToIsSelected(values) {
+function getGenericToIsSelected(values, isSelected) {
   return values.reduce(function (valueToIsSelected, value) {
-    valueToIsSelected[value] = true;
+    valueToIsSelected[value] = isSelected;
     return valueToIsSelected;
   }, {});
 }
@@ -27,9 +27,9 @@ function getCountSelected(valueToIsSelected) {
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
-    const categoryToIsSelected = getGenericToIsSelected(CATEGORIES);
-    const startupStageToIsSelected = getGenericToIsSelected(STARTUP_STAGES);
-    const fundingStageToIsSelected = getGenericToIsSelected(FUNDING_STAGES);
+    const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, true);
+    const startupStageToIsSelected = getGenericToIsSelected(STARTUP_STAGES, true);
+    const fundingStageToIsSelected = getGenericToIsSelected(FUNDING_STAGES, true);
 
     this.state = {
       startupStageToIsSelected,
@@ -63,6 +63,15 @@ export default class HomePage extends Component {
     }
     fundingStageToIsSelected[fundingStage] = isSelected;
     this.setState({ fundingStageToIsSelected });
+  }
+
+  onClickSelectAllCategories() {
+    const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, true);
+    this.setState({ categoryToIsSelected });
+  }
+  onClickUnSelectAllCategories() {
+    const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, false);
+    this.setState({ categoryToIsSelected });
   }
 
   renderSubTitle() {
@@ -107,6 +116,8 @@ export default class HomePage extends Component {
           onChangeCategory={this.onChangeCategory.bind(this)}
           onChangeStartupStage={this.onChangeStartupStage.bind(this)}
           onChangeFundingStage={this.onChangeFundingStage.bind(this)}
+          onClickSelectAllCategories={this.onClickSelectAllCategories.bind(this)}
+          onClickUnSelectAllCategories={this.onClickUnSelectAllCategories.bind(this)}
         />
         <StartupScape
           key={key}
