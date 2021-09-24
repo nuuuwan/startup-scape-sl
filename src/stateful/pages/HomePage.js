@@ -110,7 +110,7 @@ export default class HomePage extends Component {
 
     let displayStartupStage = "";
     if (nStartupStages > 0) {
-      if (nStartupStages == 6) {
+      if (nStartupStages === 6) {
         displayStartupStage = " (all)";
       } else {
         displayStartupStage += " (" + selectedStartupStages.join(", ") + ")";
@@ -119,7 +119,7 @@ export default class HomePage extends Component {
 
     let displayFundingStage = "";
     if (nFundingStages > 0) {
-      if (nFundingStages == 9) {
+      if (nFundingStages === 9) {
         displayFundingStage = " (all)";
       } else {
         displayFundingStage += " (" + selectedFundingStages.join(", ") + ")";

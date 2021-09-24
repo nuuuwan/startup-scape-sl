@@ -38,3 +38,4 @@
   *  [2021-09-24 02:53PM] Updated README
   *  [2021-09-24 02:56PM] New TreeMap class
   *  [2021-09-24 03:24PM] Pre-Merge
+  *  [2021-09-24 03:28PM] Fixed lint issues
