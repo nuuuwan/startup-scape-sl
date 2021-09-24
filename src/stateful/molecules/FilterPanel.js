@@ -43,10 +43,6 @@ export default class FilterPanel extends Component {
           ✖️
         </div>
         <Selector
-          valueToIsSelected={categoryToIsSelected}
-          onChange={onChangeCategory}
-        />
-        <Selector
           valueToIsSelected={startupStageToIsSelected}
           onChange={onChangeStartupStage}
         />
@@ -54,6 +50,11 @@ export default class FilterPanel extends Component {
           valueToIsSelected={fundingStageToIsSelected}
           onChange={onChangeFundingStage}
         />
+        <Selector
+          valueToIsSelected={categoryToIsSelected}
+          onChange={onChangeCategory}
+        />
+        
       </div>
     );
   }
