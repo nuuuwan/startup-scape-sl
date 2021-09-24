@@ -153,6 +153,12 @@ export default class HomePage extends Component {
           <strong>Startups</strong> in Sri Lanka
         </div>
         <div className="div-sub-title">{this.renderSubTitle()}</div>
+        <div className="div-disclaimer">
+          {"This listing might not be exhaustive " +
+            "· Categories, startup status and funding status" +
+            " are self-reported by the startups " +
+            "· Each startup might be categorized into multiple categories"}
+        </div>
 
         <FilterPanel
           categoryToIsSelected={categoryToIsSelected}

@@ -5,6 +5,8 @@
 ## Features TODO
 
 * Add Detailed information about Startups
+* Add urls for filters
+* Download image
 
 ## Revision History
 
@@ -39,3 +41,4 @@
   *  [2021-09-24 03:28PM] Fixed lint issues
 * [2021-09-24 03:30PM] Add Detailed information about Startups
   *  [2021-09-24 03:31PM] Hide filter by default
+  *  [2021-09-24 03:35PM] Added disclaimer

@@ -18,9 +18,16 @@
 }
 
 .div-source {
-	margin: 12px;
+	margin: auto;
 	margin-bottom: 24px;
 	color: lightgray;
 	font-size: 18px;
 	text-align: center;
+}
+
+.div-disclaimer {
+  width: 50%;
+  margin: auto;
+	font-size: 9px;
+  text-align: center;
 }
