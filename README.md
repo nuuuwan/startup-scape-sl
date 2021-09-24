@@ -35,3 +35,5 @@
   *  [2021-09-24 02:31PM] Added select all
   *  [2021-09-24 02:38PM] done
   *  [2021-09-24 02:38PM] Pre-Merge
+* [2021-09-24 02:53PM] Fix formatting issues in TreeMap
+  *  [2021-09-24 02:53PM] Updated README
