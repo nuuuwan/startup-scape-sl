@@ -11,14 +11,14 @@ function renderLinkableItems(itemsList) {
     if (item.includes("@")) {
       renderedItem = (
         <div className="div-link-item">
-          <img className="img-icon" src={imageEmail} />
+          <img className="img-icon" src={imageEmail} alt="mailto" />
           <a href={"mailto:" + item}>{item}</a>
         </div>
       );
     } else if (!Number.isNaN(parseInt(item))) {
       renderedItem = (
         <div className="div-link-item">
-          <img className="img-icon" src={imagePhone} />
+          <img className="img-icon" src={imagePhone} alt={"tel"} />
           <a href={"tel:" + item}>{item}</a>
         </div>
       );
@@ -56,9 +56,9 @@ export default function StartupInfo(props) {
   );
   const founderStr = renderLinkableItems(startup["founder_info_list_raw"]);
 
-  let url = startup['url'];
-  if (!url.toLowerCase().includes('http')) {
-    url = 'http://' + url;
+  let url = startup["url"];
+  if (!url.toLowerCase().includes("http")) {
+    url = "http://" + url;
   }
 
   return (

@@ -4,7 +4,6 @@
 
 ## Features TODO
 
-* Add Detailed information about Startups
 * Download image
 * Add urls for filters
 
@@ -50,3 +49,4 @@
   *  [2021-09-24 04:33PM] Basic StartupInfo Stub
   *  [2021-09-24 04:49PM] Basic info
   *  [2021-09-24 06:30PM] Added icons
+  *  [2021-09-24 07:08PM] Done
