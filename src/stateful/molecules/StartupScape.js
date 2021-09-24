@@ -1,7 +1,6 @@
 import { Component } from "react";
 import Startups from "../../core/Startups.js";
 import { CATEGORY_TO_COLOR } from "../../constants/CategoryConstants.js";
-
 import { useRef, useEffect } from "react";
 import * as d3 from "d3";
 
@@ -49,19 +48,15 @@ function Treemap({ data, width, height }) {
       return d.y1 - d.y0;
     }
 
-    // nodes
-    //   .append("rect")
-    //   .attr("x", 0)
-    //   .attr("y", 0)
-    //   .attr("width", (d) => nodeWidth(d) )
-    //   .attr("height", (d) => nodeHeight(d))
-    //   .attr("fill", "yellow")
-    //   .attr("stroke", "red");
+    function getImage(d) {
+      const imageFileOnly = d.data.imageFileOnly;
+      return require("../../assets/images/startup_images/" + imageFileOnly).default;
+    }
 
     nodes
       .filter((d) => d.data.type === "startup")
       .append("image")
-      .attr("href", (d) => d.data.link)
+      .attr("xlink:href", (d) => getImage(d))
       .attr("x", (d) => 0)
       .attr("y", (d) => HEADER_GAP)
       .attr("width", (d) => nodeWidth(d))

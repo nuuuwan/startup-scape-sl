@@ -1,9 +1,11 @@
 import { WWW } from "@nuuuwan/utils-js-dev";
 import { TEST_MODE } from "../constants/Constants.js";
 
+
 const URL =
   "https://raw.githubusercontent.com" +
   "/nuuuwan/startups_lk/data/startups_lk.json";
+
 
 export default class Startups {
   static async getAll() {
@@ -59,11 +61,12 @@ export default class Startups {
             startupID,
             startup,
           ]) {
+            const imageFileOnly = startup['image_file_only'];
             return {
               type: "startup",
               name: startupID,
               value: 1,
-              link: startup.remote_img_url,
+              imageFileOnly: imageFileOnly,
             };
           }),
         };

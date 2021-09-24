@@ -6,12 +6,11 @@
 
 * Various Initial
 * [2021-09-23 04:55PM] Add Category Filter
-  *  [2021-09-23 04:55PM] Updated README
   *  [2021-09-23 05:18PM] Added categoryToIsSelected on Home Page
   *  [2021-09-23 05:23PM] Clickable Selector
   *  [2021-09-23 05:35PM] Working filters
   *  [2021-09-23 06:57PM] TreeMap Padding
   *  [2021-09-23 07:21PM] Fixed padding issues
-  *  [2021-09-24 11:15AM] Done
+  *  [2021-09-24 11:15AM] #DONE
 * [2021-09-24 11:15AM] Add Local Data
-  *  [2021-09-24 11:15AM] Updated README
+  *  [2021-09-24 12:16PM] Got image loading to work
