@@ -20,3 +20,4 @@
   *  [2021-09-24 12:35PM] Removed tests
 * [2021-09-24 01:26PM] Add Filters for Startup and Funding Stage
   *  [2021-09-24 01:26PM] Updated README
+  *  [2021-09-24 01:30PM] Added (Generic) Selector

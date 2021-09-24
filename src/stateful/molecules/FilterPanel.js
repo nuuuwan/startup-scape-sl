@@ -1,5 +1,5 @@
 import { Component } from "react";
-import CategorySelector from "./CategorySelector.js";
+import Selector from "./Selector.js";
 
 import "./FilterPanel.css";
 
@@ -35,9 +35,9 @@ export default class FilterPanel extends Component {
         >
           ✖️
         </div>
-        <CategorySelector
-          categoryToIsSelected={categoryToIsSelected}
-          onChangeCategory={onChangeCategory}
+        <Selector
+          valueToIsSelected={categoryToIsSelected}
+          onChange={onChangeCategory}
         />
       </div>
     );
