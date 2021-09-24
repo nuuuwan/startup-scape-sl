@@ -112,7 +112,7 @@ export default class HomePage extends Component {
     });
     return (
       <div className="div-home-page">
-        <div className="div-title">Startups in Sri Lanka</div>
+        <div className="div-title"><strong>Startups</strong> in Sri Lanka</div>
         <div className="div-sub-title">{this.renderSubTitle()}</div>
 
         <FilterPanel

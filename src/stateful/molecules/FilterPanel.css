@@ -5,9 +5,9 @@
 	z-index: 100000;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	width: 200px;
+	width: 240px;
 	max-height: 50vh;
-	padding: 36px;
+	padding: 48px;
 	border: 1px solid lightgray;
 	border-radius: 24px;
 	background: #f4f4f0;
@@ -45,7 +45,7 @@
 }
 
 .div-multi-select {
-	color: lightgray;
+	color: gray;
 	font-size: 9px;
 }
 

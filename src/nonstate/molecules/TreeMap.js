@@ -2,13 +2,13 @@ import { CATEGORY_TO_COLOR } from "../../constants/CategoryConstants.js";
 import { useRef, useEffect } from "react";
 import * as d3 from "d3";
 
-import './TreeMap.css';
+import "./TreeMap.css";
 
 const CATEGORY_RECT_RADIUS = 12;
 const CATEGORY_TITLE_RECT_PADDING_P = 0.1;
 const TREEMAP_PADDING_INNER = 6;
-const TREEMAP_PADDING_OUTER = 6;
-const TREEMAP_PADDING_TOP = 6;
+const TREEMAP_PADDING_OUTER = 3;
+const TREEMAP_PADDING_TOP = 3;
 const HEADER_GAP = 12;
 
 export default function TreeMap({ data, width, height }) {
