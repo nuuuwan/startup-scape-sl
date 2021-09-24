@@ -1,4 +1,5 @@
 import { WWW } from "@nuuuwan/utils-js-dev";
+import { TEST_MODE } from "../constants/Constants.js";
 
 const URL =
   "https://raw.githubusercontent.com" +
@@ -20,14 +21,15 @@ export default class Startups {
       return false;
     }
 
-    return (await Startups.getAll()).filter(filterCategory).splice(0, 30);
+    const startups = (await Startups.getAll()).filter(filterCategory);
+    if (TEST_MODE) {
+      return startups.slice(0, 50);
+    }
+    return startups;
   }
 
   static async getTreeMapData(categoryToIsSelected) {
-    const startups = (await Startups.getFiltered(categoryToIsSelected)).splice(
-      0,
-      30
-    );
+    const startups = await Startups.getFiltered(categoryToIsSelected);
     const categoryToStartupID = startups.reduce(function (
       categoryToStartupID,
       startup

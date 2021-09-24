@@ -10,12 +10,12 @@ export default class HomePage extends Component {
       categoryToIsSelected,
       category
     ) {
-      categoryToIsSelected[category] = false;
+      categoryToIsSelected[category] = true;
       return categoryToIsSelected;
     },
     {});
 
-    categoryToIsSelected['Machine Learning'] = true;
+    // categoryToIsSelected['Machine Learning'] = true;
 
     this.state = { categoryToIsSelected };
   }
