@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/startup-scape-sl/static/css/main.b898d936.chunk.css",
-    "main.js": "/startup-scape-sl/static/js/main.aa18a851.chunk.js",
-    "main.js.map": "/startup-scape-sl/static/js/main.aa18a851.chunk.js.map",
+    "main.js": "/startup-scape-sl/static/js/main.10203382.chunk.js",
+    "main.js.map": "/startup-scape-sl/static/js/main.10203382.chunk.js.map",
     "runtime-main.js": "/startup-scape-sl/static/js/runtime-main.7540e13f.js",
     "runtime-main.js.map": "/startup-scape-sl/static/js/runtime-main.7540e13f.js.map",
     "static/js/2.50089249.chunk.js": "/startup-scape-sl/static/js/2.50089249.chunk.js",
@@ -390,13 +390,12 @@
     "static/media/image.zipro-international-pvt-ltd-.png": "/startup-scape-sl/static/media/image.zipro-international-pvt-ltd-.1466d0e2.png",
     "static/media/image.zircon-host.png": "/startup-scape-sl/static/media/image.zircon-host.c7f04f5f.png",
     "static/media/image.zodiumvalley-pvt-ltd-.png": "/startup-scape-sl/static/media/image.zodiumvalley-pvt-ltd-.b8bbb059.png",
-    "static/media/qrcode_app.dfe13a28.png": "/startup-scape-sl/static/media/qrcode_app.dfe13a28.png",
     "static/media/telephone.421642a7.svg": "/startup-scape-sl/static/media/telephone.421642a7.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.7540e13f.js",
     "static/js/2.50089249.chunk.js",
     "static/css/main.b898d936.chunk.css",
-    "static/js/main.aa18a851.chunk.js"
+    "static/js/main.10203382.chunk.js"
   ]
 }
