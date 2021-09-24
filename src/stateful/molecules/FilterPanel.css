@@ -2,27 +2,25 @@
 	position: fixed;
 	top: 0px;
 	right: -240px;
-	z-index: 100000;
-	overflow-x: hidden;
-	overflow-y: scroll;
 	width: 240px;
 	max-height: 100vh;
 	padding: 12px;
 	background: #fcfcfc;
-	opacity: 0.98;
-	border-left: 2px solid gray;
-
 }
 
 .div-filter-panel-visible {
 	right: 0px;
 	transition: right 0.5s;
+	border-left: 2px solid gray;
+	overflow-x: hidden;
+	overflow-y: scroll;
+
 }
 
 .div-button {
 	position: fixed;
-	top: 12px;
-	right: 12px;
+	top: 6px;
+	right: 6px;
 	float: right;
 	width: 18px;
 	height: 18px;
