@@ -16,3 +16,41 @@
 	overflow-y: scroll;
 
 }
+
+.div-startup-name {
+	font-size: 24px;
+	font-weight: 300;
+}
+
+.div-startup-tagline {
+	font-size: 12px;
+	font-style: italic;
+	margin-bottom: 12px;
+}
+
+.div-startup-description {
+	font-size: 18px;
+	margin-bottom: 24px;
+}
+
+.div-label {
+	font-size: 12px;
+	color: gray;
+	margin-top: 24px;
+	font-weight: 300;
+}
+
+
+.img-startup {
+	max-height: 32px;
+}
+
+a {
+	text-decoration: none;
+	color: gray;
+}
+
+a:hover {
+	text-decoration: none;
+	color: orange;
+}
