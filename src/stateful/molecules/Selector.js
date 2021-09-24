@@ -19,16 +19,22 @@ export default class Selector extends Component {
   render() {
     const { valueToIsSelected, onClickSelectAll } = this.props;
 
-    const renderedMultiSelectors = (onClickSelectAll) ? (
+    const renderedMultiSelectors = onClickSelectAll ? (
       <div>
-      <div className="div-select-all div-multi-select" onClick={this.onClickSelectAll.bind(this)}>
-        Select All
+        <div
+          className="div-select-all div-multi-select"
+          onClick={this.onClickSelectAll.bind(this)}
+        >
+          Select All
+        </div>
+        <div
+          className="div-unselect-all div-multi-select"
+          onClick={this.onClickUnSelectAll.bind(this)}
+        >
+          Un-Select All
+        </div>
       </div>
-      <div className="div-unselect-all div-multi-select" onClick={this.onClickUnSelectAll.bind(this)}>
-        Un-Select All
-      </div>
-      </div>
-    ): null;
+    ) : null;
 
     return (
       <div className="div-selector">
@@ -36,10 +42,12 @@ export default class Selector extends Component {
         {Object.entries(valueToIsSelected).map(
           function ([value, isSelected], iValue) {
             const key = `div-selector-item-${iValue}`;
-            const classNameLabel = 'label' + (isSelected ? ' label-selected' : '');
+            const classNameLabel =
+              "label" + (isSelected ? " label-selected" : "");
             return (
               <div className="div-selector-item" key={key}>
                 <input
+                  className="input-checkbox"
                   type="checkbox"
                   value={value}
                   checked={isSelected}

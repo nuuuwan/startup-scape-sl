@@ -4,7 +4,6 @@
 
 ## Features TODO
 
-* Add Informative Header & Footer
 * Fix formatting issues in TreeMap
 * Add Detailed information about Startups
 
@@ -34,3 +33,4 @@
   *  [2021-09-24 02:13PM] Changed filter buttons
   *  [2021-09-24 02:20PM] Moved format again
   *  [2021-09-24 02:31PM] Added select all
+  *  [2021-09-24 02:38PM] done

@@ -2,11 +2,11 @@ import { Component } from "react";
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
-import Startups from '../../core/Startups.js';
+import Startups from "../../core/Startups.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 
-import './HomePage.css';
+import "./HomePage.css";
 
 function getGenericToIsSelected(values, isSelected) {
   return values.reduce(function (valueToIsSelected, value) {
@@ -17,19 +17,23 @@ function getGenericToIsSelected(values, isSelected) {
 
 function getCountSelected(valueToIsSelected) {
   const selectedValues = Object.entries(valueToIsSelected).filter(
-    ([value, isSelected]) => isSelected,
+    ([value, isSelected]) => isSelected
   );
   return selectedValues.length;
 }
-
-
 
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
     const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, true);
-    const startupStageToIsSelected = getGenericToIsSelected(STARTUP_STAGES, true);
-    const fundingStageToIsSelected = getGenericToIsSelected(FUNDING_STAGES, true);
+    const startupStageToIsSelected = getGenericToIsSelected(
+      STARTUP_STAGES,
+      true
+    );
+    const fundingStageToIsSelected = getGenericToIsSelected(
+      FUNDING_STAGES,
+      true
+    );
 
     this.state = {
       startupStageToIsSelected,
@@ -81,9 +85,11 @@ export default class HomePage extends Component {
       fundingStageToIsSelected,
     } = this.state;
 
-    const startups = Startups.getFiltered(categoryToIsSelected,
-    startupStageToIsSelected,
-    fundingStageToIsSelected,)
+    const startups = Startups.getFiltered(
+      categoryToIsSelected,
+      startupStageToIsSelected,
+      fundingStageToIsSelected
+    );
 
     const n = startups.length;
     const nCategories = getCountSelected(categoryToIsSelected);
@@ -116,8 +122,12 @@ export default class HomePage extends Component {
           onChangeCategory={this.onChangeCategory.bind(this)}
           onChangeStartupStage={this.onChangeStartupStage.bind(this)}
           onChangeFundingStage={this.onChangeFundingStage.bind(this)}
-          onClickSelectAllCategories={this.onClickSelectAllCategories.bind(this)}
-          onClickUnSelectAllCategories={this.onClickUnSelectAllCategories.bind(this)}
+          onClickSelectAllCategories={this.onClickSelectAllCategories.bind(
+            this
+          )}
+          onClickUnSelectAllCategories={this.onClickUnSelectAllCategories.bind(
+            this
+          )}
         />
         <StartupScape
           key={key}
@@ -126,7 +136,9 @@ export default class HomePage extends Component {
           fundingStageToIsSelected={fundingStageToIsSelected}
         />
 
-        <div className="div-source">{'Data by startupsl.lk · Visualization by @nuuuwan'}</div>
+        <div className="div-source">
+          {"Data by startupsl.lk · Visualization by @nuuuwan"}
+        </div>
       </div>
     );
   }

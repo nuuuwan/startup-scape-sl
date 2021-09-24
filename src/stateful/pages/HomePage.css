@@ -1,26 +1,25 @@
 .div-home-page {
-  margin: auto;
-  padding: 6px;
-
+	margin: auto;
+	padding: 6px;
 }
-.div-title {
-  font-size: 36px;
-  text-align: center;
-  margin: 12px;
 
+.div-title {
+	margin: 12px;
+	font-size: 36px;
+	text-align: center;
 }
 
 .div-sub-title {
-  font-size: 27px;
-  color: gray;
-  text-align: center;
-  margin: 12px;
+	margin: 12px;
+	color: gray;
+	font-size: 27px;
+	text-align: center;
 }
 
 .div-source {
-  font-size: 18px;
-  color: lightgray;
-  margin-bottom: 24px;
-  text-align: center;
-  margin: 12px;
+	margin: 12px;
+	margin-bottom: 24px;
+	color: lightgray;
+	font-size: 18px;
+	text-align: center;
 }
