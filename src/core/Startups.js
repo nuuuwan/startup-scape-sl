@@ -2,6 +2,8 @@ import { TEST_MODE } from "../constants/Constants.js";
 
 const startups = require("../assets/data/startups.json");
 
+const OTHER_CATEGORY_LIMIT = 5;
+
 export default class Startups {
   static getAll() {
     return startups;
@@ -75,7 +77,7 @@ export default class Startups {
     console.debug(categoryToN);
     const otherCategories = Object.entries(categoryToN)
       .filter(function ([category, nCategory]) {
-        return nCategory < 10;
+        return nCategory < OTHER_CATEGORY_LIMIT;
       })
       .map(([category, nCategory]) => category);
 

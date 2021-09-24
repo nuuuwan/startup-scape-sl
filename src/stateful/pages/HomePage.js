@@ -11,6 +11,7 @@ import imageDownload from "../../assets/images/download.png";
 import imageQRCodeApp from "../../assets/images/qrcode_app.png";
 import "./HomePage.css";
 
+const URL_APP = 'https://nuuuwan.github.io/startup-scape-sl'
 const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
 const URL_NUUUWAN = "https://twitter.com/nuuuwan";
 const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL";
@@ -211,11 +212,13 @@ export default class HomePage extends Component {
         </div>
 
         <div className="div-home-page-inner" ref={this.ref}>
-          <img
-            className="img-qrcode-app"
-            src={imageQRCodeApp}
-            alt="qrcode-app"
-          />
+          <a href={URL_APP}  target="_blank" rel="noreferrer">
+            <img
+              className="img-qrcode-app"
+              src={imageQRCodeApp}
+              alt="qrcode-app"
+            />
+          </a>  
 
           {this.renderTitle()}
           {this.renderSubTitle()}
