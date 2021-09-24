@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/startups_lk_app/static/css/main.ee991866.chunk.css",
-    "main.js": "/startups_lk_app/static/js/main.6429781b.chunk.js",
-    "main.js.map": "/startups_lk_app/static/js/main.6429781b.chunk.js.map",
+    "main.css": "/startups_lk_app/static/css/main.b898d936.chunk.css",
+    "main.js": "/startups_lk_app/static/js/main.23bc3451.chunk.js",
+    "main.js.map": "/startups_lk_app/static/js/main.23bc3451.chunk.js.map",
     "runtime-main.js": "/startups_lk_app/static/js/runtime-main.b8dfa18d.js",
     "runtime-main.js.map": "/startups_lk_app/static/js/runtime-main.b8dfa18d.js.map",
-    "static/js/2.fbc3fd67.chunk.js": "/startups_lk_app/static/js/2.fbc3fd67.chunk.js",
-    "static/js/2.fbc3fd67.chunk.js.map": "/startups_lk_app/static/js/2.fbc3fd67.chunk.js.map",
+    "static/js/2.24de0398.chunk.js": "/startups_lk_app/static/js/2.24de0398.chunk.js",
+    "static/js/2.24de0398.chunk.js.map": "/startups_lk_app/static/js/2.24de0398.chunk.js.map",
     "static/js/3.fcfe2b38.chunk.js": "/startups_lk_app/static/js/3.fcfe2b38.chunk.js",
     "static/js/3.fcfe2b38.chunk.js.map": "/startups_lk_app/static/js/3.fcfe2b38.chunk.js.map",
     "index.html": "/startups_lk_app/index.html",
-    "static/css/main.ee991866.chunk.css.map": "/startups_lk_app/static/css/main.ee991866.chunk.css.map",
-    "static/js/2.fbc3fd67.chunk.js.LICENSE.txt": "/startups_lk_app/static/js/2.fbc3fd67.chunk.js.LICENSE.txt",
+    "static/css/main.b898d936.chunk.css.map": "/startups_lk_app/static/css/main.b898d936.chunk.css.map",
+    "static/js/2.24de0398.chunk.js.LICENSE.txt": "/startups_lk_app/static/js/2.24de0398.chunk.js.LICENSE.txt",
     "static/media/email.a5dcd85d.svg": "/startups_lk_app/static/media/email.a5dcd85d.svg",
     "static/media/image.360-digital-solutions-pvt-ltd.png": "/startups_lk_app/static/media/image.360-digital-solutions-pvt-ltd.6615bb8e.png",
     "static/media/image.360-labs.png": "/startups_lk_app/static/media/image.360-labs.279c2765.png",
@@ -390,12 +390,13 @@
     "static/media/image.zipro-international-pvt-ltd-.png": "/startups_lk_app/static/media/image.zipro-international-pvt-ltd-.1466d0e2.png",
     "static/media/image.zircon-host.png": "/startups_lk_app/static/media/image.zircon-host.c7f04f5f.png",
     "static/media/image.zodiumvalley-pvt-ltd-.png": "/startups_lk_app/static/media/image.zodiumvalley-pvt-ltd-.b8bbb059.png",
+    "static/media/qrcode_app.dfe13a28.png": "/startups_lk_app/static/media/qrcode_app.dfe13a28.png",
     "static/media/telephone.421642a7.svg": "/startups_lk_app/static/media/telephone.421642a7.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b8dfa18d.js",
-    "static/js/2.fbc3fd67.chunk.js",
-    "static/css/main.ee991866.chunk.css",
-    "static/js/main.6429781b.chunk.js"
+    "static/js/2.24de0398.chunk.js",
+    "static/css/main.b898d936.chunk.css",
+    "static/js/main.23bc3451.chunk.js"
   ]
 }
