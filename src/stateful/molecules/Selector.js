@@ -2,7 +2,6 @@ import { Component } from "react";
 import "./Selector.css";
 
 export default class Selector extends Component {
-
   onChange(e) {
     const value = e.target.value;
     const isSelected = e.target.checked;

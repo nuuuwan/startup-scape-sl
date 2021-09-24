@@ -26,7 +26,14 @@ export default class FilterPanel extends Component {
     );
   }
   renderVisible() {
-    const { categoryToIsSelected, onChangeCategory } = this.props;
+    const {
+      categoryToIsSelected,
+      startupStageToIsSelected,
+      fundingStageToIsSelected,
+      onChangeCategory,
+      onChangeStartupStage,
+      onChangeFundingStage,
+    } = this.props;
     return (
       <div>
         <div
@@ -38,6 +45,14 @@ export default class FilterPanel extends Component {
         <Selector
           valueToIsSelected={categoryToIsSelected}
           onChange={onChangeCategory}
+        />
+        <Selector
+          valueToIsSelected={startupStageToIsSelected}
+          onChange={onChangeStartupStage}
+        />
+        <Selector
+          valueToIsSelected={fundingStageToIsSelected}
+          onChange={onChangeFundingStage}
         />
       </div>
     );

@@ -117,8 +117,16 @@ function Treemap({ data, width, height }) {
 
 export default class StartupScape extends Component {
   render() {
-    const { categoryToIsSelected } = this.props;
-    const treemapData = Startups.getTreeMapData(categoryToIsSelected);
+    const {
+      categoryToIsSelected,
+      startupStageToIsSelected,
+      fundingStageToIsSelected,
+    } = this.props;
+    const treemapData = Startups.getTreeMapData(
+      categoryToIsSelected,
+      startupStageToIsSelected,
+      fundingStageToIsSelected
+    );
     return (
       <div className="div-startup-scape">
         <h1>Startups in Sri Lanka</h1>
