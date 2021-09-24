@@ -57,3 +57,4 @@
   *  [2021-09-24 09:07PM] Updated README
   *  [2021-09-24 10:04PM] Basic working version
   *  [2021-09-24 10:50PM] Implemented onClickImage
+  *  [2021-09-24 10:50PM] Lint
