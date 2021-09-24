@@ -43,3 +43,4 @@
   *  [2021-09-24 03:31PM] Hide filter by default
   *  [2021-09-24 03:35PM] Added disclaimer
   *  [2021-09-24 03:37PM] formatted subtitle
+  *  [2021-09-24 03:40PM] Added take screen size
