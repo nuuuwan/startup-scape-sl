@@ -1,6 +1,7 @@
 .div-home-page {
 	margin: auto;
 	padding: 6px;
+	background: white;
 }
 
 .div-title {
@@ -20,7 +21,7 @@
 .div-source {
 	margin: auto;
 	margin-top: 12px;
-	color: lightgray;
+	color: gray;
 	font-size: 18px;
 	text-align: center;
 }
@@ -75,4 +76,12 @@
 .div-button-download:hover {
 	color: orange;
 	cursor: pointer;
+}
+
+.img-qrcode-app {
+	position: fixed;
+	top: 32px;
+	left: 32px;
+	width: 96px;
+	height: 96px;
 }

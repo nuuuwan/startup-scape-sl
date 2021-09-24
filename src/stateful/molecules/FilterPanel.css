@@ -1,7 +1,7 @@
 .div-filter-panel {
 	position: fixed;
 	top: 0;
-	right: -240px;
+	right: -480px;
 	z-index: 20000;
 	width: 240px;
 	height: 100vh;

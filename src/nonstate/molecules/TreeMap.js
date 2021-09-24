@@ -4,7 +4,7 @@ import * as d3 from "d3";
 
 import "./TreeMap.css";
 
-const TREEMAP_PADDING_INNER = 6;
+const TREEMAP_PADDING_INNER = 5;
 const TREEMAP_PADDING_TOP = 24;
 const TREEMAP_PADDING_BOTTOM = 3;
 const TREEMAP_PADDING_OUTER = 3;
@@ -67,20 +67,7 @@ export default function TreeMap(props) {
       .filter((d) => d.data.type === "category")
       .append("div")
       .attr("class", "div-category")
-      .attr(
-        "style",
-        (d) => `border-color: ${CATEGORY_TO_COLOR[d.data.name]}; `
-      );
-
-    nodes
-      .filter((d) => d.data.type === "startup")
-      .append("img")
-      .attr("class", "img-startup")
-      .attr("src", (d) => getImage(d))
-      .on("click", onClickImage);
-
-    nodes
-      .filter((d) => d.data.type === "category")
+      .attr("style", (d) => `border-color: ${CATEGORY_TO_COLOR[d.data.name]}; `)
       .append("div")
       .attr("class", "div-category-title")
       .attr(
@@ -93,6 +80,13 @@ export default function TreeMap(props) {
           )}px; `
       )
       .text((d) => d.data.name);
+
+    nodes
+      .filter((d) => d.data.type === "startup")
+      .append("img")
+      .attr("class", "img-startup")
+      .attr("src", (d) => getImage(d))
+      .on("click", onClickImage);
   }
 
   useEffect(() => {

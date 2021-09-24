@@ -61,21 +61,43 @@ export default class Startups {
       startupStageToIsSelected,
       fundingStageToIsSelected
     );
+
+    const categoryToN = startups.reduce(function (categoryToN, startup) {
+      const categories = startup["category_list"];
+      for (const category of categories) {
+        if (!categoryToN[category]) {
+          categoryToN[category] = 0;
+        }
+        categoryToN[category] += 1;
+      }
+      return categoryToN;
+    }, {});
+    console.debug(categoryToN);
+    const otherCategories = Object.entries(categoryToN)
+      .filter(function ([category, nCategory]) {
+        return nCategory < 10;
+      })
+      .map(([category, nCategory]) => category);
+
     const categoryToStartupID = startups.reduce(function (
       categoryToStartupID,
       startup
     ) {
       const startupID = startup["startup_id"];
       const categories = startup["category_list"];
-      return categories.reduce(function (categoryToStartupID, category) {
+      for (let category of categories) {
+        if (otherCategories.includes(category)) {
+          category = "Other";
+        }
         if (!categoryToStartupID[category]) {
           categoryToStartupID[category] = {};
         }
         categoryToStartupID[category][startupID] = startup;
-        return categoryToStartupID;
-      }, categoryToStartupID);
+      }
+      return categoryToStartupID;
     },
     {});
+
     return {
       type: "root",
       name: "startups",

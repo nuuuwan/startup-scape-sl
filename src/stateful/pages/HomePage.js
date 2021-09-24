@@ -8,8 +8,12 @@ import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 import imageDownload from "../../assets/images/download.png";
-
+import imageQRCodeApp from "../../assets/images/qrcode_app.png";
 import "./HomePage.css";
+
+const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
+const URL_NUUUWAN = "https://twitter.com/nuuuwan";
+const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL";
 
 function getGenericToIsSelected(values, isSelected) {
   return values.reduce(function (valueToIsSelected, value) {
@@ -105,7 +109,7 @@ export default class HomePage extends Component {
       const dataURL = canvas.toDataURL("image/svg+xml");
       let a = document.createElement("a");
       a.href = dataURL;
-      a.download = "somefilename.png";
+      a.download = "startups_lk.png";
       a.click();
     });
   }
@@ -113,15 +117,13 @@ export default class HomePage extends Component {
   renderTitle() {
     return (
       <div className="div-title">
-        StartupScape
-        <strong>
-          {" Sri "}
-          <span className="color-maroon">L</span>
-          <span className="color-orange">a</span>
-          <span className="color-yellow">n</span>
-          <span className="color-green">k</span>
-          <span className="color-black">a</span>
-        </strong>
+        <a href={URL_STARTUPSCAPE} target="_blank" rel="noreferrer">
+          #<span className="color-maroon">S</span>
+          <span className="color-orange">t</span>
+          <span className="color-yellow">a</span>
+          <span className="color-green">r</span>
+          tupScapeSL
+        </a>
       </div>
     );
   }
@@ -208,14 +210,41 @@ export default class HomePage extends Component {
           <img className="img-download" src={imageDownload} alt="Download" />
         </div>
 
-        {this.renderTitle()}
-        {this.renderSubTitle()}
+        <div className="div-home-page-inner" ref={this.ref}>
+          <img
+            className="img-qrcode-app"
+            src={imageQRCodeApp}
+            alt="qrcode-app"
+          />
 
-        <div className="div-disclaimer">
-          {"This listing might not be exhaustive " +
-            "· Categories, startup status and funding status" +
-            " are self-reported by the startups " +
-            "· Each startup might be categorized into multiple categories"}
+          {this.renderTitle()}
+          {this.renderSubTitle()}
+
+          <div className="div-disclaimer">
+            {"This listing might not be exhaustive " +
+              "· Categories, startup status and funding status" +
+              " are self-reported by the startups " +
+              "· Each startup might be categorized into multiple categories"}
+          </div>
+
+          <StartupScape
+            key={key}
+            categoryToIsSelected={categoryToIsSelected}
+            startupStageToIsSelected={startupStageToIsSelected}
+            fundingStageToIsSelected={fundingStageToIsSelected}
+            onClickImage={this.onClickImage.bind(this)}
+          />
+
+          <div className="div-source">
+            Data by{" "}
+            <a href={URL_STARTUPSL_LK} target="_blank" rel="noreferrer">
+              startupsl.lk
+            </a>
+            · Visualization by{" "}
+            <a href={URL_NUUUWAN} target="_blank" rel="noreferrer">
+              @nuuuwan
+            </a>
+          </div>
         </div>
 
         <FilterPanel
@@ -232,17 +261,7 @@ export default class HomePage extends Component {
             this
           )}
         />
-        <StartupScape
-          key={key}
-          categoryToIsSelected={categoryToIsSelected}
-          startupStageToIsSelected={startupStageToIsSelected}
-          fundingStageToIsSelected={fundingStageToIsSelected}
-          onClickImage={this.onClickImage.bind(this)}
-        />
 
-        <div className="div-source">
-          {"Data by startupsl.lk · Visualization by @nuuuwan"}
-        </div>
         <StartupInfo
           startupID={activeStartupID}
           onClickStartupInfoHide={this.onClickStartupInfoHide.bind(this)}
