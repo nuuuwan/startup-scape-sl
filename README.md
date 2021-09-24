@@ -37,3 +37,4 @@
   *  [2021-09-24 02:38PM] Pre-Merge
 * [2021-09-24 02:53PM] Fix formatting issues in TreeMap
   *  [2021-09-24 02:53PM] Updated README
+  *  [2021-09-24 02:56PM] New TreeMap class
