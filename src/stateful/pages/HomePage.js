@@ -1,4 +1,5 @@
-import { Component } from "react";
+import React, { Component } from "react";
+import html2canvas from "html2canvas";
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
@@ -37,6 +38,7 @@ export default class HomePage extends Component {
     );
 
     const activeStartupID = null;
+    this.ref = React.createRef();
 
     this.state = {
       startupStageToIsSelected,
@@ -90,6 +92,19 @@ export default class HomePage extends Component {
   onClickStartupInfoHide() {
     const activeStartupID = null;
     this.setState({ activeStartupID });
+  }
+
+  onClickScreenCapture() {
+    html2canvas(this.ref.current, {
+      allowTaint: true,
+      useCORs: true,
+    }).then((canvas) => {
+      const dataURL = canvas.toDataURL("image/svg+xml");
+      let a = document.createElement("a");
+      a.href = dataURL;
+      a.download = "somefilename.png";
+      a.click();
+    });
   }
 
   renderTitle() {
@@ -186,7 +201,10 @@ export default class HomePage extends Component {
     });
 
     return (
-      <div className="div-home-page">
+      <div className="div-home-page" ref={this.ref}>
+        <button onClick={this.onClickScreenCapture.bind(this)}>
+          Download Image
+        </button>
         {this.renderTitle()}
         {this.renderSubTitle()}
 
