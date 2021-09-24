@@ -7,7 +7,7 @@ import imageFilter from "../../assets/images/filter.png";
 export default class FilterPanel extends Component {
   constructor(props) {
     super(props);
-    this.state = { isVisible: true };
+    this.state = { isVisible: false };
   }
   onMakeVisible() {
     this.setState({ isVisible: true });

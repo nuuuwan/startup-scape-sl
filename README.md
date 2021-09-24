@@ -27,7 +27,6 @@
   *  [2021-09-24 02:01PM] Headers done
   *  [2021-09-24 02:01PM] Pre-Merge
 * [2021-09-24 02:02PM] Various Misc Formatting
-  *  [2021-09-24 02:02PM] Updated README
   *  [2021-09-24 02:02PM] Moved Categories to bottom
   *  [2021-09-24 02:13PM] Changed filter buttons
   *  [2021-09-24 02:20PM] Moved format again
@@ -35,9 +34,8 @@
   *  [2021-09-24 02:38PM] done
   *  [2021-09-24 02:38PM] Pre-Merge
 * [2021-09-24 02:53PM] Fix formatting issues in TreeMap
-  *  [2021-09-24 02:53PM] Updated README
   *  [2021-09-24 02:56PM] New TreeMap class
   *  [2021-09-24 03:24PM] Pre-Merge
   *  [2021-09-24 03:28PM] Fixed lint issues
 * [2021-09-24 03:30PM] Add Detailed information about Startups
-  *  [2021-09-24 03:30PM] Updated README
+  *  [2021-09-24 03:31PM] Hide filter by default
