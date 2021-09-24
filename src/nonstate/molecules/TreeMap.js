@@ -11,7 +11,8 @@ const TREEMAP_PADDING_OUTER = 3;
 const TREEMAP_PADDING_TOP = 3;
 const HEADER_GAP = 12;
 
-export default function TreeMap({ data, width, height }) {
+export default function TreeMap(props) {
+  const { data, width, height, onClickImage } = props;
   const svgRef = useRef(null);
 
   function renderTreeMap() {
@@ -53,6 +54,7 @@ export default function TreeMap({ data, width, height }) {
     nodes
       .filter((d) => d.data.type === "startup")
       .append("image")
+      .on("click", onClickImage)
       .attr("xlink:href", (d) => getImage(d))
       .attr("x", (d) => 0)
       .attr("y", (d) => HEADER_GAP)
@@ -85,6 +87,7 @@ export default function TreeMap({ data, width, height }) {
       )
       .attr("height", (d) => CATEGORY_RECT_RADIUS * 2)
       .attr("fill", "white");
+
 
     nodes
       .filter((d) => d.data.type === "category")

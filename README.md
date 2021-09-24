@@ -5,8 +5,9 @@
 ## Features TODO
 
 * Add Detailed information about Startups
-* Add urls for filters
 * Download image
+* Add urls for filters
+
 
 ## Revision History
 
@@ -46,3 +47,4 @@
   *  [2021-09-24 03:40PM] Added take screen size
   *  [2021-09-24 04:01PM] Smooth Filter Selector
   *  [2021-09-24 04:04PM] Slider Complete
+  *  [2021-09-24 04:33PM] Basic StartupInfo Stub

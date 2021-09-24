@@ -14,6 +14,7 @@ export default class StartupScape extends Component {
       categoryToIsSelected,
       startupStageToIsSelected,
       fundingStageToIsSelected,
+      onClickImage,
     } = this.props;
     const treemapData = Startups.getTreeMapData(
       categoryToIsSelected,
@@ -24,7 +25,7 @@ export default class StartupScape extends Component {
     const width = window.innerWidth - WIDHT_PADDING * 2;
     return (
       <div className="div-startup-scape">
-        <TreeMap data={treemapData} height={height} width={width} />
+        <TreeMap data={treemapData} height={height} width={width} onClickImage={onClickImage}/>
       </div>
     );
   }

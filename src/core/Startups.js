@@ -7,6 +7,21 @@ export default class Startups {
     return startups;
   }
 
+  static getIndex() {
+    const startups = Startups.getAll();
+    return startups.reduce(
+      function(index, startup) {
+        index[startup['startup_id']] = startup;
+        return index;
+      },
+      {},
+    );
+  }
+
+  static getStartup(startupID) {
+    return INDEX[startupID];
+  }
+
   static getFiltered(
     categoryToIsSelected,
     startupStageToIsSelected,
@@ -91,3 +106,5 @@ export default class Startups {
     };
   }
 }
+
+const INDEX = Startups.getIndex();

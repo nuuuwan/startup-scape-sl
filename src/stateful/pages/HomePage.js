@@ -5,6 +5,7 @@ import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
 import Startups from "../../core/Startups.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
+import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 
 import "./HomePage.css";
 
@@ -34,10 +35,13 @@ export default class HomePage extends Component {
       true
     );
 
+    const activeStartupID = null;
+
     this.state = {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       categoryToIsSelected,
+      activeStartupID,
     };
   }
 
@@ -75,6 +79,11 @@ export default class HomePage extends Component {
   onClickUnSelectAllCategories() {
     const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, false);
     this.setState({ categoryToIsSelected });
+  }
+
+  onClickImage(event, d) {
+    const activeStartupID = d.data.name;
+    this.setState({activeStartupID})
   }
 
   renderSubTitle() {
@@ -141,12 +150,14 @@ export default class HomePage extends Component {
       categoryToIsSelected,
       startupStageToIsSelected,
       fundingStageToIsSelected,
+      activeStartupID,
     } = this.state;
     const key = JSON.stringify({
       categoryToIsSelected,
       startupStageToIsSelected,
       fundingStageToIsSelected,
     });
+
     return (
       <div className="div-home-page">
         <div className="div-title">
@@ -179,11 +190,13 @@ export default class HomePage extends Component {
           categoryToIsSelected={categoryToIsSelected}
           startupStageToIsSelected={startupStageToIsSelected}
           fundingStageToIsSelected={fundingStageToIsSelected}
+          onClickImage={this.onClickImage.bind(this)}
         />
 
         <div className="div-source">
           {"Data by startupsl.lk · Visualization by @nuuuwan"}
         </div>
+        <StartupInfo startupID={activeStartupID} />
       </div>
     );
   }
