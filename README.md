@@ -32,3 +32,4 @@
   *  [2021-09-24 02:02PM] Updated README
   *  [2021-09-24 02:02PM] Moved Categories to bottom
   *  [2021-09-24 02:13PM] Changed filter buttons
+  *  [2021-09-24 02:20PM] Moved format again

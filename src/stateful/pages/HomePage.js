@@ -99,7 +99,6 @@ export default class HomePage extends Component {
       <div className="div-home-page">
         <div className="div-title">Startups in Sri Lanka</div>
         <div className="div-sub-title">{this.renderSubTitle()}</div>
-        <div className="div-source">{'Data by startupsl.lk · Visualization by @nuuuwan'}</div>
 
         <FilterPanel
           categoryToIsSelected={categoryToIsSelected}
@@ -115,6 +114,8 @@ export default class HomePage extends Component {
           startupStageToIsSelected={startupStageToIsSelected}
           fundingStageToIsSelected={fundingStageToIsSelected}
         />
+
+        <div className="div-source">{'Data by startupsl.lk · Visualization by @nuuuwan'}</div>
       </div>
     );
   }

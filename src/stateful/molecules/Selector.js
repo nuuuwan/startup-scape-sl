@@ -16,6 +16,7 @@ export default class Selector extends Component {
         {Object.entries(valueToIsSelected).map(
           function ([value, isSelected], iValue) {
             const key = `div-selector-item-${iValue}`;
+            const classNameLabel = 'label' + (isSelected ? ' label-selected' : '');
             return (
               <div className="div-selector-item" key={key}>
                 <input
@@ -24,7 +25,7 @@ export default class Selector extends Component {
                   checked={isSelected}
                   onChange={this.onChange.bind(this)}
                 />
-                <label>{value}</label>
+                <label className={classNameLabel}>{value}</label>
               </div>
             );
           }.bind(this)

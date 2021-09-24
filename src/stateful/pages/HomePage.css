@@ -1,11 +1,12 @@
 .div-home-page {
   margin: auto;
-  padding: 36px;
+  padding: 6px;
 
 }
 .div-title {
   font-size: 36px;
   text-align: center;
+  margin: 12px;
 
 }
 
@@ -13,6 +14,7 @@
   font-size: 27px;
   color: gray;
   text-align: center;
+  margin: 12px;
 }
 
 .div-source {
@@ -20,4 +22,5 @@
   color: lightgray;
   margin-bottom: 24px;
   text-align: center;
+  margin: 12px;
 }

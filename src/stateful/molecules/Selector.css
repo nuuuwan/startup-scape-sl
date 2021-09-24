@@ -6,3 +6,11 @@
 .div-selector-item {
 	font-size: 12px;
 }
+
+.label {
+	color: lightgray;
+}
+
+.label-selected {
+color: black;
+}
