@@ -5,6 +5,7 @@
 ## Features TODO
 
 * Fix formatting issues in TreeMap
+* Other Category
 * Add Detailed information about Startups
 
 ## Revision History
@@ -38,3 +39,4 @@
 * [2021-09-24 02:53PM] Fix formatting issues in TreeMap
   *  [2021-09-24 02:53PM] Updated README
   *  [2021-09-24 02:56PM] New TreeMap class
+  *  [2021-09-24 03:03PM] Mostly Done

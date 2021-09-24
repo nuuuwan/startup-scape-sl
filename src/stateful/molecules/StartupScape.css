@@ -1,16 +1,4 @@
 /* stylelint-disable selector-max-type */
-text {
-	font-family: sans-serif;
-}
-
-svg {
-	display: block;
-	margin: auto;
-}
-
-.rect-category {
-	stroke-width: 3px;
-}
 
 h1 {
 	text-align: center;
