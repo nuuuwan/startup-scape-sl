@@ -39,3 +39,5 @@
   *  [2021-09-24 02:56PM] New TreeMap class
   *  [2021-09-24 03:24PM] Pre-Merge
   *  [2021-09-24 03:28PM] Fixed lint issues
+* [2021-09-24 03:30PM] Add Detailed information about Startups
+  *  [2021-09-24 03:30PM] Updated README
