@@ -2,6 +2,7 @@ import { Component } from "react";
 import Selector from "./Selector.js";
 
 import "./FilterPanel.css";
+import imageFilter from '../../assets/images/filter.png';
 
 export default class FilterPanel extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class FilterPanel extends Component {
         className="div-button div-button-show"
         onClick={this.onMakeVisible.bind(this)}
       >
-        Show Filters
+        <img className="img-filter" src={imageFilter} alt="Filter" />
       </div>
     );
   }
@@ -42,19 +43,28 @@ export default class FilterPanel extends Component {
         >
           ✖️
         </div>
+        <div className="div-filter-label">
+          Filter by Startup Stage
+        </div>
         <Selector
           valueToIsSelected={startupStageToIsSelected}
           onChange={onChangeStartupStage}
         />
+        <div className="div-filter-label">
+          Filter by Funding Stage
+        </div>
         <Selector
           valueToIsSelected={fundingStageToIsSelected}
           onChange={onChangeFundingStage}
         />
+        <div className="div-filter-label">
+          Filter by Startup Category
+        </div>
         <Selector
           valueToIsSelected={categoryToIsSelected}
           onChange={onChangeCategory}
         />
-        
+
       </div>
     );
   }
