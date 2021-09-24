@@ -1,0 +1,13 @@
+.div-home-page {
+  margin: auto;
+  padding: 24px;
+}
+.div-title {
+  font-size: 48px;
+}
+
+.div-sub-title {
+  font-size: 24px;
+  color: gray;
+  margin-bottom: 24px;
+}

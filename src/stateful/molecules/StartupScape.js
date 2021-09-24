@@ -129,7 +129,6 @@ export default class StartupScape extends Component {
     );
     return (
       <div className="div-startup-scape">
-        <h1>Startups in Sri Lanka</h1>
         <Treemap data={treemapData} height={HEIGHT} width={WIDTH} />
       </div>
     );

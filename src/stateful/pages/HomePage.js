@@ -5,12 +5,23 @@ import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 
+import './HomePage.css';
+
 function getGenericToIsSelected(values) {
-  return values.reduce(function (categoryToIsSelected, category) {
-    categoryToIsSelected[category] = true;
-    return categoryToIsSelected;
+  return values.reduce(function (valueToIsSelected, value) {
+    valueToIsSelected[value] = true;
+    return valueToIsSelected;
   }, {});
 }
+
+function getCountSelected(valueToIsSelected) {
+  const selectedValues = Object.entries(valueToIsSelected).filter(
+    ([value, isSelected]) => isSelected,
+  );
+  return selectedValues.length;
+}
+
+
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -53,6 +64,20 @@ export default class HomePage extends Component {
     this.setState({ fundingStageToIsSelected });
   }
 
+  renderSubTitle() {
+    const {
+      categoryToIsSelected,
+      startupStageToIsSelected,
+      fundingStageToIsSelected,
+    } = this.state;
+
+    const nCategories = getCountSelected(categoryToIsSelected);
+    const nStartupStages = getCountSelected(startupStageToIsSelected);
+    const nFundingStages = getCountSelected(fundingStageToIsSelected);
+
+    return `Startups for ${nCategories} categories, ${nStartupStages} startup stages, and ${nFundingStages} funding stages`;
+  }
+
   render() {
     const {
       categoryToIsSelected,
@@ -66,6 +91,9 @@ export default class HomePage extends Component {
     });
     return (
       <div className="div-home-page">
+        <div className="div-title">Startups in Sri Lanka</div>
+        <div className="div-sub-title">{this.renderSubTitle()}</div>
+
         <FilterPanel
           categoryToIsSelected={categoryToIsSelected}
           startupStageToIsSelected={startupStageToIsSelected}
