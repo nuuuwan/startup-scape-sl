@@ -28,3 +28,5 @@
   *  [2021-09-24 01:55PM] Basic Title SubTitle done
   *  [2021-09-24 02:01PM] Headers done
   *  [2021-09-24 02:01PM] Pre-Merge
+* [2021-09-24 02:02PM] Various Misc Formatting
+  *  [2021-09-24 02:02PM] Updated README
