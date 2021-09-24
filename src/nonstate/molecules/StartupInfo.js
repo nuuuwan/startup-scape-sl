@@ -66,7 +66,7 @@ export default function StartupInfo(props) {
       <div className="div-hide" onClick={onClickStartupInfoHide}>
         ×
       </div>
-      <img className="img-startup" src={imgSrc} alt={startup["name"]} />
+      <img className="img-startup-info" src={imgSrc} alt={startup["name"]} />
       <div className="div-startup-name">{startup["name"]}</div>
       <div className="div-startup-tagline">"{startup["tagline"]}"</div>
       <div className="div-startup-description">{startup["description"]}</div>

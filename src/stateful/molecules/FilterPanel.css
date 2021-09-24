@@ -2,11 +2,11 @@
 	position: fixed;
 	top: 0;
 	right: -240px;
+	z-index: 20000;
 	width: 240px;
 	height: 100vh;
 	padding: 12px;
 	background: #fcfcfc;
-	z-index: 20000;
 }
 
 .div-filter-panel-visible {
@@ -44,6 +44,7 @@
 .img-filter {
 	width: 18px;
 	height: 18px;
+		cursor: pointer;
 }
 
 .div-multi-select {

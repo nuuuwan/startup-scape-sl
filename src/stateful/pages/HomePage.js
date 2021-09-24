@@ -8,6 +8,7 @@ import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 import imageClick from "../../assets/images/click.png";
+import imageDownload from "../../assets/images/download.png";
 
 import "./HomePage.css";
 
@@ -98,8 +99,9 @@ export default class HomePage extends Component {
     html2canvas(this.ref.current, {
       allowTaint: true,
       useCORs: true,
-      width: 2000,
-      height: 2000,
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scale: 5,
     }).then((canvas) => {
       const dataURL = canvas.toDataURL("image/svg+xml");
       let a = document.createElement("a");
@@ -196,6 +198,7 @@ export default class HomePage extends Component {
       fundingStageToIsSelected,
       activeStartupID,
     } = this.state;
+
     const key = JSON.stringify({
       categoryToIsSelected,
       startupStageToIsSelected,
@@ -204,9 +207,13 @@ export default class HomePage extends Component {
 
     return (
       <div className="div-home-page" ref={this.ref}>
-        <button onClick={this.onClickScreenCapture.bind(this)}>
-          Download Image
-        </button>
+        <div
+          className="div-button-download"
+          onClick={this.onClickScreenCapture.bind(this)}
+        >
+          <img className="img-download" src={imageDownload} alt="Download" />
+        </div>
+
         {this.renderTitle()}
         {this.renderSubTitle()}
 
@@ -246,8 +253,6 @@ export default class HomePage extends Component {
           startupID={activeStartupID}
           onClickStartupInfoHide={this.onClickStartupInfoHide.bind(this)}
         />
-
-
       </div>
     );
   }

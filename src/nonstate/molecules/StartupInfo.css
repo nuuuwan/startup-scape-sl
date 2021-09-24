@@ -3,6 +3,7 @@
 	position: fixed;
 	top: 0;
 	right: -240px;
+	z-index: 20000;
 	width: 240px;
 	height: 100vh;
 	padding: 12px;
@@ -41,7 +42,7 @@
 	font-size: 12px;
 }
 
-.img-startup {
+.img-startup-info {
 	max-height: 32px;
 }
 

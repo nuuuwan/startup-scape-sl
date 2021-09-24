@@ -52,3 +52,27 @@
 .color-black {
 	color: black;
 }
+
+.img-download {
+	width: 18px;
+	height: 18px;
+}
+
+.div-button-download {
+	position: fixed;
+	top: 6px;
+	right: 36px;
+	float: right;
+	width: 18px;
+	height: 18px;
+	margin: 9px;
+	padding: 9px;
+	color: gray;
+	font-size: 14px;
+	text-align: center;
+}
+
+.div-button-download:hover {
+	color: orange;
+	cursor: pointer;
+}
