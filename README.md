@@ -1,6 +1,6 @@
 # React App by nuuuwan
 
-[App Home](https://nuuuwan.github.io/startups_lk_app)
+[App Home](https://nuuuwan.github.io/startup-scape-sl)
 
 ## Features TODO
 
@@ -64,3 +64,4 @@
   *  [2021-09-24 11:21PM] Updated README
   *  [2021-09-25 12:14AM] Done
   *  [2021-09-25 12:14AM] Pre-Merge
+  *  [2021-09-25 12:17AM] Renamed
