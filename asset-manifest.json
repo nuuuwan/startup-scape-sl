@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/startups_lk_app/static/css/main.188a7512.chunk.css",
-    "main.js": "/startups_lk_app/static/js/main.b2a42ec0.chunk.js",
-    "main.js.map": "/startups_lk_app/static/js/main.b2a42ec0.chunk.js.map",
-    "runtime-main.js": "/startups_lk_app/static/js/runtime-main.377180fc.js",
-    "runtime-main.js.map": "/startups_lk_app/static/js/runtime-main.377180fc.js.map",
-    "static/js/2.0342f396.chunk.js": "/startups_lk_app/static/js/2.0342f396.chunk.js",
-    "static/js/2.0342f396.chunk.js.map": "/startups_lk_app/static/js/2.0342f396.chunk.js.map",
-    "static/js/3.6298d4ed.chunk.js": "/startups_lk_app/static/js/3.6298d4ed.chunk.js",
-    "static/js/3.6298d4ed.chunk.js.map": "/startups_lk_app/static/js/3.6298d4ed.chunk.js.map",
+    "main.js": "/startups_lk_app/static/js/main.05a0bf0f.chunk.js",
+    "main.js.map": "/startups_lk_app/static/js/main.05a0bf0f.chunk.js.map",
+    "runtime-main.js": "/startups_lk_app/static/js/runtime-main.b8dfa18d.js",
+    "runtime-main.js.map": "/startups_lk_app/static/js/runtime-main.b8dfa18d.js.map",
+    "static/js/2.fbc3fd67.chunk.js": "/startups_lk_app/static/js/2.fbc3fd67.chunk.js",
+    "static/js/2.fbc3fd67.chunk.js.map": "/startups_lk_app/static/js/2.fbc3fd67.chunk.js.map",
+    "static/js/3.fcfe2b38.chunk.js": "/startups_lk_app/static/js/3.fcfe2b38.chunk.js",
+    "static/js/3.fcfe2b38.chunk.js.map": "/startups_lk_app/static/js/3.fcfe2b38.chunk.js.map",
     "index.html": "/startups_lk_app/index.html",
     "static/css/main.188a7512.chunk.css.map": "/startups_lk_app/static/css/main.188a7512.chunk.css.map",
-    "static/js/2.0342f396.chunk.js.LICENSE.txt": "/startups_lk_app/static/js/2.0342f396.chunk.js.LICENSE.txt",
+    "static/js/2.fbc3fd67.chunk.js.LICENSE.txt": "/startups_lk_app/static/js/2.fbc3fd67.chunk.js.LICENSE.txt",
     "static/media/click.2f5f9ea2.png": "/startups_lk_app/static/media/click.2f5f9ea2.png",
     "static/media/email.a5dcd85d.svg": "/startups_lk_app/static/media/email.a5dcd85d.svg",
     "static/media/image.360-digital-solutions-pvt-ltd.png": "/startups_lk_app/static/media/image.360-digital-solutions-pvt-ltd.6615bb8e.png",
@@ -77,6 +77,7 @@
     "static/media/image.ceytech-systems-solutions-pvt-ltd-.png": "/startups_lk_app/static/media/image.ceytech-systems-solutions-pvt-ltd-.c44d3c70.png",
     "static/media/image.cipher-labz-pvt-ltd-.png": "/startups_lk_app/static/media/image.cipher-labz-pvt-ltd-.6275534e.png",
     "static/media/image.circuitbreakers-robotics.png": "/startups_lk_app/static/media/image.circuitbreakers-robotics.2ff1feab.png",
+    "static/media/image.cloudedesign.png": "/startups_lk_app/static/media/image.cloudedesign.2f8951a0.png",
     "static/media/image.clover-partners.png": "/startups_lk_app/static/media/image.clover-partners.513d2ca1.png",
     "static/media/image.cn-associates.png": "/startups_lk_app/static/media/image.cn-associates.d00724ef.png",
     "static/media/image.code2futures.png": "/startups_lk_app/static/media/image.code2futures.8a9ab338.png",
@@ -393,9 +394,9 @@
     "static/media/telephone.421642a7.svg": "/startups_lk_app/static/media/telephone.421642a7.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.377180fc.js",
-    "static/js/2.0342f396.chunk.js",
+    "static/js/runtime-main.b8dfa18d.js",
+    "static/js/2.fbc3fd67.chunk.js",
     "static/css/main.188a7512.chunk.css",
-    "static/js/main.b2a42ec0.chunk.js"
+    "static/js/main.05a0bf0f.chunk.js"
   ]
 }
