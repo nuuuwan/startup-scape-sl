@@ -15,11 +15,10 @@ function getGenericToIsSelected(values, isSelected) {
   }, {});
 }
 
-function getCountSelected(valueToIsSelected) {
-  const selectedValues = Object.entries(valueToIsSelected).filter(
-    ([value, isSelected]) => isSelected
-  );
-  return selectedValues.length;
+function getSelected(valueToIsSelected) {
+  return Object.entries(valueToIsSelected)
+    .filter(([value, isSelected]) => isSelected)
+    .map(([value, isSelected]) => value);
 }
 
 export default class HomePage extends Component {
@@ -92,11 +91,49 @@ export default class HomePage extends Component {
     );
 
     const n = startups.length;
-    const nCategories = getCountSelected(categoryToIsSelected);
-    const nStartupStages = getCountSelected(startupStageToIsSelected);
-    const nFundingStages = getCountSelected(fundingStageToIsSelected);
+    const selectedCategories = getSelected(categoryToIsSelected);
+    const selectedStartupStages = getSelected(startupStageToIsSelected);
+    const selectedFundingStages = getSelected(fundingStageToIsSelected);
 
-    return `${n} Startups for ${nCategories} categories, ${nStartupStages} startup stages, and ${nFundingStages} funding stages`;
+    const nCategories = selectedCategories.length;
+    const nStartupStages = selectedStartupStages.length;
+    const nFundingStages = selectedFundingStages.length;
+
+    let displayCategory = "";
+    if (nCategories > 0) {
+      if (nCategories === 43) {
+        displayCategory = " (all)";
+      } else if (nCategories < 10) {
+        displayCategory += " (" + selectedCategories.join(", ") + ")";
+      }
+    }
+
+    let displayStartupStage = "";
+    if (nStartupStages > 0) {
+      if (nStartupStages == 6) {
+        displayStartupStage = " (all)";
+      } else {
+        displayStartupStage += " (" + selectedStartupStages.join(", ") + ")";
+      }
+    }
+
+    let displayFundingStage = "";
+    if (nFundingStages > 0) {
+      if (nFundingStages == 9) {
+        displayFundingStage = " (all)";
+      } else {
+        displayFundingStage += " (" + selectedFundingStages.join(", ") + ")";
+      }
+    }
+
+    return (
+      <div>
+        {`${n} Startups `}
+        {`from ${nCategories} categories${displayCategory},`}{" "}
+        {`${nStartupStages} startup stages${displayStartupStage},`}
+        {`and ${nFundingStages} funding stages${displayFundingStage}`}
+      </div>
+    );
   }
 
   render() {
@@ -112,7 +149,9 @@ export default class HomePage extends Component {
     });
     return (
       <div className="div-home-page">
-        <div className="div-title"><strong>Startups</strong> in Sri Lanka</div>
+        <div className="div-title">
+          <strong>Startups</strong> in Sri Lanka
+        </div>
         <div className="div-sub-title">{this.renderSubTitle()}</div>
 
         <FilterPanel

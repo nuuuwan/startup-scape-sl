@@ -45,17 +45,23 @@ export default class FilterPanel extends Component {
         >
           ✖️
         </div>
-        <div className="div-filter-label">Filter by <strong>Startup Category</strong></div>
+        <div className="div-filter-label">
+          Filter by <strong>Startup Category</strong>
+        </div>
         <Selector
           valueToIsSelected={startupStageToIsSelected}
           onChange={onChangeStartupStage}
         />
-        <div className="div-filter-label">Filter by <strong>Funding Stage</strong></div>
+        <div className="div-filter-label">
+          Filter by <strong>Funding Stage</strong>
+        </div>
         <Selector
           valueToIsSelected={fundingStageToIsSelected}
           onChange={onChangeFundingStage}
         />
-        <div className="div-filter-label">Filter by <strong>Startup Stage</strong></div>
+        <div className="div-filter-label">
+          Filter by <strong>Startup Stage</strong>
+        </div>
         <Selector
           valueToIsSelected={categoryToIsSelected}
           onChange={onChangeCategory}

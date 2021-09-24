@@ -10,9 +10,10 @@
 }
 
 .div-sub-title {
-	margin: 12px;
+	width: 50%;
+	margin: auto;
+	margin-bottom: 12px;
 	color: gray;
-	font-size: 27px;
 	text-align: center;
 }
 
