@@ -38,13 +38,14 @@ export default class FilterPanel extends Component {
       onClickUnSelectAllCategories,
     } = this.props;
     return (
-      <div className="div-filter-panel">
+      <div>
         <div
-          className="div-button div-button-x"
+          className="div-button"
           onClick={this.onMakeNotVisible.bind(this)}
         >
-          ✖️
+          ×
         </div>
+
         <div className="div-filter-label">
           Filter by <strong>Startup Category</strong>
         </div>
@@ -73,6 +74,19 @@ export default class FilterPanel extends Component {
   }
   render() {
     const { isVisible } = this.state;
-    return isVisible ? this.renderVisible() : this.renderNotVisible();
+    if (isVisible) {
+      return (
+        <div className="div-filter-panel div-filter-panel-visible">
+          {this.renderVisible()}
+        </div>
+      )
+    } else {
+      return (
+        <div className="div-filter-panel">
+          {this.renderNotVisible()}
+        </div>
+      )
+    }
+
   }
 }

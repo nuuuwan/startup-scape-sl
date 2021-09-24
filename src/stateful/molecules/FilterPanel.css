@@ -1,16 +1,22 @@
 .div-filter-panel {
 	position: fixed;
-	top: 12px;
-	right: 12px;
+	top: 0px;
+	right: -240px;
 	z-index: 100000;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	width: 240px;
-	max-height: 50vh;
-	padding: 48px;
-	border: 1px solid lightgray;
-	border-radius: 24px;
-	background: #f4f4f0;
+	max-height: 100vh;
+	padding: 12px;
+	background: #fcfcfc;
+	opacity: 0.98;
+	border-left: 2px solid gray;
+
+}
+
+.div-filter-panel-visible {
+	right: 0px;
+	transition: right 0.5s;
 }
 
 .div-button {
@@ -22,16 +28,14 @@
 	height: 18px;
 	margin: 9px;
 	padding: 9px;
-	border-radius: 18px;
-	background: lightgray;
 	color: gray;
 	font-size: 14px;
 	text-align: center;
 }
 
 .div-button:hover {
-	background: gray;
-	color: lightgray;
+	color: orange;
+	cursor: pointer;
 }
 
 .div-filter-label {
@@ -51,4 +55,5 @@
 
 .div-multi-select:hover {
 	color: orange;
+	cursor: pointer;
 }

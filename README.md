@@ -44,3 +44,4 @@
   *  [2021-09-24 03:35PM] Added disclaimer
   *  [2021-09-24 03:37PM] formatted subtitle
   *  [2021-09-24 03:40PM] Added take screen size
+  *  [2021-09-24 04:01PM] Smooth Filter Selector
