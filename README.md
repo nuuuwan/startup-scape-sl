@@ -18,3 +18,5 @@
   *  [2021-09-24 12:35PM] Added startup.json
   *  [2021-09-24 12:35PM] Pre-Merge
   *  [2021-09-24 12:35PM] Removed tests
+* [2021-09-24 01:26PM] Add Filters for Startup and Funding Stage
+  *  [2021-09-24 01:26PM] Updated README
