@@ -1,18 +1,13 @@
-import { WWW } from "@nuuuwan/utils-js-dev";
 import { TEST_MODE } from "../constants/Constants.js";
 
-
-const URL =
-  "https://raw.githubusercontent.com" +
-  "/nuuuwan/startups_lk/data/startups_lk.json";
-
+const startups = require("../assets/data/startups.json");
 
 export default class Startups {
-  static async getAll() {
-    return await WWW.json(URL);
+  static getAll() {
+    return startups;
   }
 
-  static async getFiltered(categoryToIsSelected) {
+  static getFiltered(categoryToIsSelected) {
     function filterCategory(startup) {
       const categories = startup["category_list"];
       for (const category of categories) {
@@ -23,15 +18,15 @@ export default class Startups {
       return false;
     }
 
-    const startups = (await Startups.getAll()).filter(filterCategory);
+    const startups = Startups.getAll().filter(filterCategory);
     if (TEST_MODE) {
       return startups.slice(0, 50);
     }
     return startups;
   }
 
-  static async getTreeMapData(categoryToIsSelected) {
-    const startups = await Startups.getFiltered(categoryToIsSelected);
+  static getTreeMapData(categoryToIsSelected) {
+    const startups = Startups.getFiltered(categoryToIsSelected);
     const categoryToStartupID = startups.reduce(function (
       categoryToStartupID,
       startup
@@ -61,7 +56,7 @@ export default class Startups {
             startupID,
             startup,
           ]) {
-            const imageFileOnly = startup['image_file_only'];
+            const imageFileOnly = startup["image_file_only"];
             return {
               type: "startup",
               name: startupID,

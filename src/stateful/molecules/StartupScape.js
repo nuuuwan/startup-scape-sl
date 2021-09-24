@@ -50,7 +50,8 @@ function Treemap({ data, width, height }) {
 
     function getImage(d) {
       const imageFileOnly = d.data.imageFileOnly;
-      return require("../../assets/images/startup_images/" + imageFileOnly).default;
+      return require("../../assets/images/startup_images/" + imageFileOnly)
+        .default;
     }
 
     nodes
@@ -115,23 +116,9 @@ function Treemap({ data, width, height }) {
 }
 
 export default class StartupScape extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { treemapData: undefined };
-  }
-
-  async componentDidMount() {
-    const { categoryToIsSelected } = this.props;
-    const treemapData = await Startups.getTreeMapData(categoryToIsSelected);
-    this.setState({ treemapData });
-  }
-
   render() {
-    const { treemapData } = this.state;
-    if (treemapData === undefined) {
-      return "Loading...";
-    }
-
+    const { categoryToIsSelected } = this.props;
+    const treemapData = Startups.getTreeMapData(categoryToIsSelected);
     return (
       <div className="div-startup-scape">
         <h1>Startups in Sri Lanka</h1>
