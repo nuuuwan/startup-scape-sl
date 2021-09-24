@@ -14,3 +14,4 @@
   *  [2021-09-24 11:15AM] #DONE
 * [2021-09-24 11:15AM] Add Local Data
   *  [2021-09-24 12:16PM] Got image loading to work
+  *  [2021-09-24 12:16PM] Quite fast in TEST_MODE=false
