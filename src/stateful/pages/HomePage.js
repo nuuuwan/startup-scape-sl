@@ -129,9 +129,9 @@ export default class HomePage extends Component {
     return (
       <div>
         {`${n} Startups `}
-        {`from ${nCategories} categories${displayCategory},`}{" "}
-        {`${nStartupStages} startup stages${displayStartupStage},`}
-        {`and ${nFundingStages} funding stages${displayFundingStage}`}
+        {` · ${nCategories} categories${displayCategory}`}
+        {` · ${nStartupStages} startup stages${displayStartupStage}`}
+        {` · ${nFundingStages} funding stages${displayFundingStage}`}
       </div>
     );
   }
