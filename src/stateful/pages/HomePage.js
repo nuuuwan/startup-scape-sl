@@ -2,6 +2,7 @@ import { Component } from "react";
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
+import Startups from '../../core/Startups.js';
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 
@@ -71,11 +72,16 @@ export default class HomePage extends Component {
       fundingStageToIsSelected,
     } = this.state;
 
+    const startups = Startups.getFiltered(categoryToIsSelected,
+    startupStageToIsSelected,
+    fundingStageToIsSelected,)
+
+    const n = startups.length;
     const nCategories = getCountSelected(categoryToIsSelected);
     const nStartupStages = getCountSelected(startupStageToIsSelected);
     const nFundingStages = getCountSelected(fundingStageToIsSelected);
 
-    return `Startups for ${nCategories} categories, ${nStartupStages} startup stages, and ${nFundingStages} funding stages`;
+    return `${n} Startups for ${nCategories} categories, ${nStartupStages} startup stages, and ${nFundingStages} funding stages`;
   }
 
   render() {
@@ -93,6 +99,7 @@ export default class HomePage extends Component {
       <div className="div-home-page">
         <div className="div-title">Startups in Sri Lanka</div>
         <div className="div-sub-title">{this.renderSubTitle()}</div>
+        <div className="div-source">{'Data by startupsl.lk · Visualization by @nuuuwan'}</div>
 
         <FilterPanel
           categoryToIsSelected={categoryToIsSelected}

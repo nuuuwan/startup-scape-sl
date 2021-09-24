@@ -1,13 +1,23 @@
 .div-home-page {
   margin: auto;
-  padding: 24px;
+  padding: 36px;
+
 }
 .div-title {
-  font-size: 48px;
+  font-size: 36px;
+  text-align: center;
+
 }
 
 .div-sub-title {
-  font-size: 24px;
+  font-size: 27px;
   color: gray;
+  text-align: center;
+}
+
+.div-source {
+  font-size: 18px;
+  color: lightgray;
   margin-bottom: 24px;
+  text-align: center;
 }
