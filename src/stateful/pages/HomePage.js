@@ -7,7 +7,6 @@ import Startups from "../../core/Startups.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
-import imageClick from "../../assets/images/click.png";
 import imageDownload from "../../assets/images/download.png";
 
 import "./HomePage.css";
@@ -182,11 +181,6 @@ export default class HomePage extends Component {
         {` · ${nCategories} categories${displayCategory}`}
         {` · ${nStartupStages} startup stages${displayStartupStage}`}
         {` · ${nFundingStages} funding stages${displayFundingStage}`}
-        <span className="color-black">
-          {` · click `}
-          <img src={imageClick} alt="click" className="img-icon" />
-          {`Icons for details`}
-        </span>
       </div>
     );
   }

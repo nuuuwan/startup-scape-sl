@@ -4,7 +4,10 @@ import * as d3 from "d3";
 
 import "./TreeMap.css";
 
-const TREEMAP_PADDING = 24;
+const TREEMAP_PADDING_INNER = 6;
+const TREEMAP_PADDING_TOP = 24;
+const TREEMAP_PADDING_BOTTOM = 3;
+const TREEMAP_PADDING_OUTER = 3;
 
 function nodeWidth(d) {
   return `${d.x1 - d.x0}`;
@@ -36,7 +39,13 @@ export default function TreeMap(props) {
       .sum((d) => d.value)
       .sort((a, b) => b.value - a.value);
 
-    const treemap = d3.treemap().size([width, height]).padding(TREEMAP_PADDING);
+    const treemap = d3
+      .treemap()
+      .size([width, height])
+      .paddingInner(TREEMAP_PADDING_INNER)
+      .paddingOuter(TREEMAP_PADDING_OUTER)
+      .paddingTop(TREEMAP_PADDING_TOP)
+      .paddingBottom(TREEMAP_PADDING_BOTTOM);
     const treemapRoot = treemap(root);
 
     const nodes = div
@@ -57,21 +66,6 @@ export default function TreeMap(props) {
     nodes
       .filter((d) => d.data.type === "category")
       .append("div")
-      .attr("class", "div-category-title")
-      .attr(
-        "style",
-        (d) =>
-          `color: ${CATEGORY_TO_COLOR[d.data.name]};
-          font-size: ${Math.min(
-            18,
-            (1.5 * nodeWidth(d)) / d.data.name.length
-          )}px; `
-      )
-      .text((d) => d.data.name);
-
-    nodes
-      .filter((d) => d.data.type === "category")
-      .append("div")
       .attr("class", "div-category")
       .attr(
         "style",
@@ -84,6 +78,21 @@ export default function TreeMap(props) {
       .attr("class", "img-startup")
       .attr("src", (d) => getImage(d))
       .on("click", onClickImage);
+
+    nodes
+      .filter((d) => d.data.type === "category")
+      .append("div")
+      .attr("class", "div-category-title")
+      .attr(
+        "style",
+        (d) =>
+          `color: ${CATEGORY_TO_COLOR[d.data.name]};
+          font-size: ${Math.min(
+            18,
+            (1.5 * nodeWidth(d)) / d.data.name.length
+          )}px; `
+      )
+      .text((d) => d.data.name);
   }
 
   useEffect(() => {

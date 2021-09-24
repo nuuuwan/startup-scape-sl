@@ -46,7 +46,7 @@ export default class Startups {
 
     const startups = Startups.getAll().filter(filterStartup);
     if (TEST_MODE) {
-      return startups.slice(0, 20);
+      return startups.slice(0, 60);
     }
     return startups;
   }
