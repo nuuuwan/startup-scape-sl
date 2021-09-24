@@ -98,6 +98,8 @@ export default class HomePage extends Component {
     html2canvas(this.ref.current, {
       allowTaint: true,
       useCORs: true,
+      width: 2000,
+      height: 2000,
     }).then((canvas) => {
       const dataURL = canvas.toDataURL("image/svg+xml");
       let a = document.createElement("a");
@@ -244,6 +246,8 @@ export default class HomePage extends Component {
           startupID={activeStartupID}
           onClickStartupInfoHide={this.onClickStartupInfoHide.bind(this)}
         />
+
+
       </div>
     );
   }

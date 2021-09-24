@@ -1,19 +1,42 @@
 /* stylelint-disable selector-max-type */
-text {
-	font-weight: 200;
-	font-family: "Helvetica Neue", sans-serif;
-}
 
-svg {
+.div-root {
 	display: block;
 	margin: auto;
 }
 
-.rect-category {
-	z-index: 1000000;
-	stroke-width: 3px;
+.div-node {
+
+	position: relative;
+	 text-align: center;
 }
 
-image {
-	z-index: -1000;
+.img-startup {
+	position: absolute;
+	 margin: auto;
+	 top: 0;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 max-width: 100%;
+	 max-height: 100%;
+}
+
+.div-category {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	border-radius: 12px;
+	border-width: 3px;
+	border-style: solid;
+	z-index: 5000;
+
+}
+
+.div-category-title {
+	margin: auto;
+	margin-top: 3px;
+	background: white;
+	z-index: 10000;
 }

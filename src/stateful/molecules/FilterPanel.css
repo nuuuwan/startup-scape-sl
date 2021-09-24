@@ -6,6 +6,7 @@
 	height: 100vh;
 	padding: 12px;
 	background: #fcfcfc;
+	z-index: 20000;
 }
 
 .div-filter-panel-visible {
