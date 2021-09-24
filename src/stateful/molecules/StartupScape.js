@@ -21,11 +21,16 @@ export default class StartupScape extends Component {
       startupStageToIsSelected,
       fundingStageToIsSelected
     );
-    const height = window.innerHeight  - HEIGHT_FOOTER -HEIGHT_HEADER ;
+    const height = window.innerHeight - HEIGHT_FOOTER - HEIGHT_HEADER;
     const width = window.innerWidth - WIDHT_PADDING * 2;
     return (
       <div className="div-startup-scape">
-        <TreeMap data={treemapData} height={height} width={width} onClickImage={onClickImage}/>
+        <TreeMap
+          data={treemapData}
+          height={height}
+          width={width}
+          onClickImage={onClickImage}
+        />
       </div>
     );
   }

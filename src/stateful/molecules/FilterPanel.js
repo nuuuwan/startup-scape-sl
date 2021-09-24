@@ -39,10 +39,7 @@ export default class FilterPanel extends Component {
     } = this.props;
     return (
       <div>
-        <div
-          className="div-button"
-          onClick={this.onMakeNotVisible.bind(this)}
-        >
+        <div className="div-button" onClick={this.onMakeNotVisible.bind(this)}>
           ×
         </div>
 
@@ -79,14 +76,9 @@ export default class FilterPanel extends Component {
         <div className="div-filter-panel div-filter-panel-visible">
           {this.renderVisible()}
         </div>
-      )
+      );
     } else {
-      return (
-        <div className="div-filter-panel">
-          {this.renderNotVisible()}
-        </div>
-      )
+      return <div className="div-filter-panel">{this.renderNotVisible()}</div>;
     }
-
   }
 }

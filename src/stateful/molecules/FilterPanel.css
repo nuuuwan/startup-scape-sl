@@ -1,6 +1,6 @@
 .div-filter-panel {
 	position: fixed;
-	top: 0px;
+	top: 0;
 	right: -240px;
 	width: 240px;
 	height: 100vh;
@@ -9,12 +9,11 @@
 }
 
 .div-filter-panel-visible {
-	right: 0px;
-	transition: right 0.5s;
-	border-left: 2px solid gray;
+	right: 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
-
+	border-left: 2px solid gray;
+	transition: right 0.5s;
 }
 
 .div-button {

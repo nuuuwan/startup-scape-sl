@@ -49,3 +49,4 @@
   *  [2021-09-24 04:04PM] Slider Complete
   *  [2021-09-24 04:33PM] Basic StartupInfo Stub
   *  [2021-09-24 04:49PM] Basic info
+  *  [2021-09-24 06:30PM] Added icons

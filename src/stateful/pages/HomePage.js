@@ -6,6 +6,7 @@ import Startups from "../../core/Startups.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
+import imageClick from "../../assets/images/click.png";
 
 import "./HomePage.css";
 
@@ -83,7 +84,28 @@ export default class HomePage extends Component {
 
   onClickImage(event, d) {
     const activeStartupID = d.data.name;
-    this.setState({activeStartupID})
+    this.setState({ activeStartupID });
+  }
+
+  onClickStartupInfoHide() {
+    const activeStartupID = null;
+    this.setState({ activeStartupID });
+  }
+
+  renderTitle() {
+    return (
+      <div className="div-title">
+        StartupScape
+        <strong>
+          {" Sri "}
+          <span className="color-maroon">L</span>
+          <span className="color-orange">a</span>
+          <span className="color-yellow">n</span>
+          <span className="color-green">k</span>
+          <span className="color-black">a</span>
+        </strong>
+      </div>
+    );
   }
 
   renderSubTitle() {
@@ -136,11 +158,16 @@ export default class HomePage extends Component {
     }
 
     return (
-      <div>
+      <div className="div-sub-title">
         {`${n} Startups `}
         {` · ${nCategories} categories${displayCategory}`}
         {` · ${nStartupStages} startup stages${displayStartupStage}`}
         {` · ${nFundingStages} funding stages${displayFundingStage}`}
+        <span className="color-black">
+          {` · click `}
+          <img src={imageClick} alt="click" className="img-icon" />
+          {`Icons for details`}
+        </span>
       </div>
     );
   }
@@ -160,10 +187,9 @@ export default class HomePage extends Component {
 
     return (
       <div className="div-home-page">
-        <div className="div-title">
-          <strong>Startups</strong> in Sri Lanka
-        </div>
-        <div className="div-sub-title">{this.renderSubTitle()}</div>
+        {this.renderTitle()}
+        {this.renderSubTitle()}
+
         <div className="div-disclaimer">
           {"This listing might not be exhaustive " +
             "· Categories, startup status and funding status" +
@@ -196,7 +222,10 @@ export default class HomePage extends Component {
         <div className="div-source">
           {"Data by startupsl.lk · Visualization by @nuuuwan"}
         </div>
-        <StartupInfo startupID={activeStartupID} />
+        <StartupInfo
+          startupID={activeStartupID}
+          onClickStartupInfoHide={this.onClickStartupInfoHide.bind(this)}
+        />
       </div>
     );
   }

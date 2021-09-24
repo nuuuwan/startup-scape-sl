@@ -9,13 +9,10 @@ export default class Startups {
 
   static getIndex() {
     const startups = Startups.getAll();
-    return startups.reduce(
-      function(index, startup) {
-        index[startup['startup_id']] = startup;
-        return index;
-      },
-      {},
-    );
+    return startups.reduce(function (index, startup) {
+      index[startup["startup_id"]] = startup;
+      return index;
+    }, {});
   }
 
   static getStartup(startupID) {

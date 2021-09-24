@@ -88,7 +88,6 @@ export default function TreeMap(props) {
       .attr("height", (d) => CATEGORY_RECT_RADIUS * 2)
       .attr("fill", "white");
 
-
     nodes
       .filter((d) => d.data.type === "category")
       .append("text")
