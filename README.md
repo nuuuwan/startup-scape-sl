@@ -80,3 +80,5 @@
   *  [2021-09-25 01:11PM] Added link targets
   *  [2021-09-25 01:28PM] Bug in onClickStartupInfoHide
   *  [2021-09-25 04:33PM] Added MUI
+* [2021-09-25 04:33PM] mui-1
+  *  [2021-09-25 04:33PM] Updated README
