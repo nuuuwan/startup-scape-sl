@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Checkbox from "@material-ui/core/Checkbox";
 import "./Selector.css";
 
 export default class Selector extends Component {
@@ -47,9 +48,10 @@ export default class Selector extends Component {
             return (
               <div className="div-selector-item" key={key}>
                 <label className={classNameLabel + " container"}>
-                  <input
+                  <Checkbox
                     className="input-checkbox"
-                    type="checkbox"
+                    size="small"
+                    color="default"
                     value={value}
                     checked={isSelected}
                     onChange={this.onChange.bind(this)}
