@@ -48,7 +48,8 @@ export default class HomePage extends Component {
     const activeStartupID = null;
     this.ref = React.createRef();
 
-    const width= window.innerWidth;
+    const width = window.innerWidth;
+    const rightPanelWidth = 0;
 
     this.state = {
       startupStageToIsSelected,
@@ -56,15 +57,15 @@ export default class HomePage extends Component {
       categoryToIsSelected,
       activeStartupID,
       width,
+      rightPanelWidth,
     };
 
-    window.addEventListener('resize', this.onWindowResize.bind(this));
-
+    window.addEventListener("resize", this.onWindowResize.bind(this));
   }
 
   onWindowResize(e) {
-    const width= window.innerWidth;
-    this.setState({width});
+    const width = window.innerWidth;
+    this.setState({ width });
   }
 
   onChangeCategory(category, isSelected) {
@@ -105,12 +106,14 @@ export default class HomePage extends Component {
 
   onClickImage(event, d) {
     const activeStartupID = d.data.name;
-    this.setState({ activeStartupID });
+    const rightPanelWidth = 260;
+    this.setState({ activeStartupID, rightPanelWidth });
   }
 
   onClickStartupInfoHide() {
     const activeStartupID = null;
-    this.setState({ activeStartupID });
+    const rightPanelWidth = 260;
+    this.setState({ activeStartupID, rightPanelWidth });
   }
 
   onClickScreenCapture() {
@@ -127,6 +130,13 @@ export default class HomePage extends Component {
       a.download = "startups_lk.png";
       a.click();
     });
+  }
+
+  onRightPanelMakeVisible() {
+    this.setState({ rightPanelWidth: 260 });
+  }
+  onRightPanelMakeNotVisible() {
+    this.setState({ rightPanelWidth: 0 });
   }
 
   renderTitle() {
@@ -220,6 +230,7 @@ export default class HomePage extends Component {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       activeStartupID,
+      rightPanelWidth,
     } = this.state;
 
     const key = JSON.stringify({
@@ -255,6 +266,7 @@ export default class HomePage extends Component {
             startupStageToIsSelected={startupStageToIsSelected}
             fundingStageToIsSelected={fundingStageToIsSelected}
             onClickImage={this.onClickImage.bind(this)}
+            rightPanelWidth={rightPanelWidth}
           />
 
           <div className="div-source">
@@ -291,6 +303,10 @@ export default class HomePage extends Component {
             this
           )}
           onClickUnSelectAllCategories={this.onClickUnSelectAllCategories.bind(
+            this
+          )}
+          onRightPanelMakeVisible={this.onRightPanelMakeVisible.bind(this)}
+          onRightPanelMakeNotVisible={this.onRightPanelMakeNotVisible.bind(
             this
           )}
         />

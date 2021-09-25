@@ -10,9 +10,11 @@ export default class FilterPanel extends Component {
     this.state = { isVisible: false };
   }
   onMakeVisible() {
+    this.props.onRightPanelMakeVisible();
     this.setState({ isVisible: true });
   }
   onMakeNotVisible() {
+    this.props.onRightPanelMakeNotVisible();
     this.setState({ isVisible: false });
   }
 

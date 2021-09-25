@@ -15,6 +15,7 @@ export default class StartupScape extends Component {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       onClickImage,
+      rightPanelWidth,
     } = this.props;
     const treemapData = Startups.getTreeMapData(
       categoryToIsSelected,
@@ -22,7 +23,7 @@ export default class StartupScape extends Component {
       fundingStageToIsSelected
     );
     const height = window.innerHeight - HEIGHT_FOOTER - HEIGHT_HEADER;
-    const width = window.innerWidth - WIDHT_PADDING * 2;
+    const width = window.innerWidth - WIDHT_PADDING * 2 - rightPanelWidth;
     return (
       <div className="div-startup-scape">
         <TreeMap
