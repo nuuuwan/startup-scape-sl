@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/startup-scape-sl/static/css/main.108b8d6c.chunk.css",
-    "main.js": "/startup-scape-sl/static/js/main.a58ec464.chunk.js",
-    "main.js.map": "/startup-scape-sl/static/js/main.a58ec464.chunk.js.map",
+    "main.js": "/startup-scape-sl/static/js/main.d3ca8b31.chunk.js",
+    "main.js.map": "/startup-scape-sl/static/js/main.d3ca8b31.chunk.js.map",
     "runtime-main.js": "/startup-scape-sl/static/js/runtime-main.0686a86e.js",
     "runtime-main.js.map": "/startup-scape-sl/static/js/runtime-main.0686a86e.js.map",
     "static/js/2.e72eaef7.chunk.js": "/startup-scape-sl/static/js/2.e72eaef7.chunk.js",
@@ -396,6 +396,6 @@
     "static/js/runtime-main.0686a86e.js",
     "static/js/2.e72eaef7.chunk.js",
     "static/css/main.108b8d6c.chunk.css",
-    "static/js/main.a58ec464.chunk.js"
+    "static/js/main.d3ca8b31.chunk.js"
   ]
 }
