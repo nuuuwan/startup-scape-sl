@@ -24,6 +24,10 @@ export default function TreeMap({ data, width, height, onClickImage }) {
     .paddingInner(TREEMAP_PADDING_INNER);
   const treemapRoot = treemap(root);
 
+  if (!treemapRoot.children) {
+    return null;
+  }
+
   return (
     <div>
         {treemapRoot.children.map(

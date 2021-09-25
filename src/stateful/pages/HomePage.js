@@ -84,30 +84,15 @@ export default class HomePage extends Component {
     this.setState({ width });
   }
 
-  onChangeCategory(category, isSelected) {
-    let categoryToIsSelected = this.state.categoryToIsSelected;
-    if (categoryToIsSelected[category] === isSelected) {
-      return;
-    }
-    categoryToIsSelected[category] = isSelected;
+  onChangeCategory(categoryToIsSelected) {
     this.setState({ categoryToIsSelected });
   }
 
-  onChangeStartupStage(startupStage, isSelected) {
-    let startupStageToIsSelected = this.state.startupStageToIsSelected;
-    if (startupStageToIsSelected[startupStage] === isSelected) {
-      return;
-    }
-    startupStageToIsSelected[startupStage] = isSelected;
+  onChangeStartupStage(startupStageToIsSelected) {
     this.setState({ startupStageToIsSelected });
   }
 
-  onChangeFundingStage(fundingStage, isSelected) {
-    let fundingStageToIsSelected = this.state.fundingStageToIsSelected;
-    if (fundingStageToIsSelected[fundingStage] === isSelected) {
-      return;
-    }
-    fundingStageToIsSelected[fundingStage] = isSelected;
+  onChangeFundingStage(fundingStageToIsSelected) {
     this.setState({ fundingStageToIsSelected });
   }
 

@@ -92,3 +92,4 @@
   *  [2021-09-25 06:43PM] Added Paper to Tree View
   *  [2021-09-25 09:56PM] Drawer for Filter
   *  [2021-09-25 10:14PM] Added Box/Divider to FilterPanel
+  *  [2021-09-25 10:53PM] Added Chips to Filter Panel

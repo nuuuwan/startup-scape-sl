@@ -1,12 +1,5 @@
 .div-filter-panel {
-	position: fixed;
-	top: 0;
-	right: -480px;
-	z-index: 40000;
-	width: 240px;
-	height: 100vh;
-	padding: 6px;
-	background: white;
+	width: 320px;
 }
 
 .div-filter-panel-visible {

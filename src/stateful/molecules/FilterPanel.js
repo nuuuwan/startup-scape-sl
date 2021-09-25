@@ -20,40 +20,29 @@ export default class FilterPanel extends Component {
       onClickUnSelectAllCategories,
     } = this.props;
     return (
+      <div className="div-filter-panel" >
       <Box sx={{ padding: 1 }}>
-        <Typography variant="overline" display="block" gutterBottom>
-          Filter by <strong>Startup Category</strong>
-        </Typography>
-
         <Selector
+          label="Startup Stage"
           valueToIsSelected={startupStageToIsSelected}
           onChange={onChangeStartupStage}
         />
 
-        <Divider />
-
-        <Typography variant="overline" display="block" gutterBottom>
-          Filter by <strong>Funding Stage</strong>
-        </Typography>
-
         <Selector
+          label="Funding Stage"
           valueToIsSelected={fundingStageToIsSelected}
           onChange={onChangeFundingStage}
         />
 
-        <Divider />
-
-        <Typography variant="overline" display="block" gutterBottom>
-          Filter by <strong>Startup Stage</strong>
-        </Typography>
-
         <Selector
+          label="Category"
           valueToIsSelected={categoryToIsSelected}
           onChange={onChangeCategory}
           onClickSelectAll={onClickSelectAllCategories}
           onClickUnSelectAll={onClickUnSelectAllCategories}
         />
       </Box>
+      </div>
     );
   }
 
