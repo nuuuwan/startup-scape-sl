@@ -3,11 +3,13 @@ import * as d3 from "d3";
 
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import Avatar from '@mui/material/Avatar';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 
-const TREEMAP_PADDING_INNER = 5;
-const TREEMAP_PADDING_TOP = 24;
-const TREEMAP_PADDING_BOTTOM = 3;
-const TREEMAP_PADDING_OUTER = 3;
+const TREEMAP_PADDING_INNER = 6;
+const HEADER_GAP = 24;
+const CATEGORY_PADDING = 6;
 
 export default function TreeMap({ data, width, height, onClickImage }) {
 
@@ -19,13 +21,9 @@ export default function TreeMap({ data, width, height, onClickImage }) {
   const treemap = d3
     .treemap()
     .size([width, height])
-    .paddingInner(TREEMAP_PADDING_INNER)
-    .paddingOuter(TREEMAP_PADDING_OUTER)
-    .paddingTop(TREEMAP_PADDING_TOP)
-    .paddingBottom(TREEMAP_PADDING_BOTTOM);
+    .paddingInner(TREEMAP_PADDING_INNER);
   const treemapRoot = treemap(root);
 
-  const description = 'test';
   return (
     <div>
         {treemapRoot.children.map(
@@ -33,22 +31,71 @@ export default function TreeMap({ data, width, height, onClickImage }) {
             const {x0, y0, x1, y1} = categoryElement;
             const left = x0;
             const top = y0;
-            const width = x1 - x0;
-            const height = y1 - y0;
+            const categoryWidth = x1 - x0;
+            const categoryHeight = y1 - y0;
+
+            const categoryName = categoryElement.data.name;
+            const categoryStartups = categoryElement.children.map(
+              (d) => d.data,
+            );
+            const nStartups = categoryStartups.length;
+
+            const effectiveCategoryHeight = (categoryHeight - HEADER_GAP - CATEGORY_PADDING *2);
+            const effectiveCategoryWidth = (categoryWidth - CATEGORY_PADDING * 2);
+            const imgDim = parseInt(Math.sqrt(effectiveCategoryWidth * effectiveCategoryHeight / nStartups));
+            const nCols = parseInt(effectiveCategoryWidth / imgDim);
+            const nRows = parseInt(nStartups / nCols) + 1;
+
+            const startupWidth = effectiveCategoryWidth / nCols;
+            const startupHeight = effectiveCategoryHeight / nRows;
+            const categoryLabel = `${categoryName} (${nStartups})`;
+
             return (
               <Box
                 sx={{
-                  'position': 'fixed',
+                  position: 'absolute',
                   top,
                   left,
                   '& > :not(style)': {
-                    m: 2,
-                    width,
-                    height,
+                    width: categoryWidth,
+                    height: categoryHeight,
                   },
                 }}
               >
-                <Paper />
+                <Paper elevation={6}>
+                  <Typography
+                    variant="caption"
+                    display="block"
+                    padding={0.5}
+                  >
+                    {categoryLabel}
+                  </Typography>
+                  {categoryStartups.map(
+                      function(startup, iStartup) {
+                        const startupID = startup.startupID;
+                        const imageFileOnly = startup.imageFileOnly;
+                        const imgSrc = require("../../assets/images/startup_images/" + imageFileOnly).default;
+
+                        const iCol = iStartup % nCols;
+                        const iRow = parseInt(iStartup / nCols);
+
+                        return (
+                            <img
+                              alt={startupID}
+                              src={imgSrc}
+                              style={{
+                                position: 'absolute',
+                                maxWidth: startupWidth * 0.8,
+                                maxHeight: startupHeight * 0.8,
+                                left: CATEGORY_PADDING + iCol * startupWidth,
+                                top: CATEGORY_PADDING + HEADER_GAP + iRow * startupHeight,
+
+                              }}
+                            />
+                        )
+                      }
+                    )}
+                </Paper>
               </Box>
             )
           }

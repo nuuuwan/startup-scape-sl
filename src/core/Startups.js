@@ -2,7 +2,7 @@ import { TEST_MODE } from "../constants/Constants.js";
 
 const startups = require("../assets/data/startups.json");
 
-const OTHER_CATEGORY_LIMIT = 5;
+const OTHER_CATEGORY_LIMIT = 10;
 
 export default class Startups {
   static getAll() {
@@ -117,6 +117,7 @@ export default class Startups {
             return {
               type: "startup",
               name: startupID,
+              startupID,
               value: 1,
               imageFileOnly: imageFileOnly,
             };

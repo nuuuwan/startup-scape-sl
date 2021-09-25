@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Paper from '@mui/material/Paper';
+import Drawer from '@mui/material/Drawer';
 
 import DownloadIcon from "@mui/icons-material/Download";
 
@@ -61,6 +62,7 @@ export default class HomePage extends Component {
 
     const width = window.innerWidth;
     const rightPanelWidth = 0;
+    const showFilterPanel = false;
 
     this.state = {
       startupStageToIsSelected,
@@ -69,6 +71,7 @@ export default class HomePage extends Component {
       activeStartupID,
       width,
       rightPanelWidth,
+      showFilterPanel,
     };
 
     window.addEventListener("resize", this.onWindowResize.bind(this));
@@ -148,6 +151,10 @@ export default class HomePage extends Component {
   }
   onRightPanelMakeNotVisible() {
     this.setState({ rightPanelWidth: 0 });
+  }
+
+  onToggleFilter() {
+    this.setState({ showFilterPanel: !this.state.showFilterPanel });
   }
 
   renderTitle() {
@@ -240,6 +247,7 @@ export default class HomePage extends Component {
       fundingStageToIsSelected,
       activeStartupID,
       rightPanelWidth,
+      showFilterPanel,
     } = this.state;
 
     const key = JSON.stringify({
@@ -264,7 +272,15 @@ export default class HomePage extends Component {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               {this.renderTitle()}
             </Typography>
-            <Button color="inherit" onClick={this.onClickScreenCapture.bind(this)}>Download</Button>
+
+            <Button color="inherit"
+              onClick={this.onClickScreenCapture.bind(this)}>
+              Download
+            </Button>
+            <Button color="inherit"
+              onClick={this.onToggleFilter.bind(this)}>
+              Filter
+            </Button>
           </Toolbar>
         </AppBar>
 
@@ -313,29 +329,38 @@ export default class HomePage extends Component {
           </div>
         </div>
 
-        <FilterPanel
-          categoryToIsSelected={categoryToIsSelected}
-          startupStageToIsSelected={startupStageToIsSelected}
-          fundingStageToIsSelected={fundingStageToIsSelected}
-          onChangeCategory={this.onChangeCategory.bind(this)}
-          onChangeStartupStage={this.onChangeStartupStage.bind(this)}
-          onChangeFundingStage={this.onChangeFundingStage.bind(this)}
-          onClickSelectAllCategories={this.onClickSelectAllCategories.bind(
-            this
-          )}
-          onClickUnSelectAllCategories={this.onClickUnSelectAllCategories.bind(
-            this
-          )}
-          onRightPanelMakeVisible={this.onRightPanelMakeVisible.bind(this)}
-          onRightPanelMakeNotVisible={this.onRightPanelMakeNotVisible.bind(
-            this
-          )}
-        />
+        <Drawer
+          open={showFilterPanel}
+          anchor="left"
+          transitionDuration={1000}
+          onClose={this.onToggleFilter.bind(this)}
+        >
+          <FilterPanel
+            categoryToIsSelected={categoryToIsSelected}
+            startupStageToIsSelected={startupStageToIsSelected}
+            fundingStageToIsSelected={fundingStageToIsSelected}
+            onChangeCategory={this.onChangeCategory.bind(this)}
+            onChangeStartupStage={this.onChangeStartupStage.bind(this)}
+            onChangeFundingStage={this.onChangeFundingStage.bind(this)}
+            onClickSelectAllCategories={this.onClickSelectAllCategories.bind(
+              this
+            )}
+            onClickUnSelectAllCategories={this.onClickUnSelectAllCategories.bind(
+              this
+            )}
+            onRightPanelMakeVisible={this.onRightPanelMakeVisible.bind(this)}
+            onRightPanelMakeNotVisible={this.onRightPanelMakeNotVisible.bind(
+              this
+            )}
+          />
+        </Drawer>
 
-        <StartupInfo
-          startupID={activeStartupID}
-          onClickStartupInfoHide={this.onClickStartupInfoHide.bind(this)}
-        />
+        <Drawer open={activeStartupID}>
+          <StartupInfo
+            startupID={activeStartupID}
+            onClickStartupInfoHide={this.onClickStartupInfoHide.bind(this)}
+          />
+        </Drawer>
       </div>
     );
   }

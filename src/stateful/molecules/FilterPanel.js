@@ -1,36 +1,11 @@
 import { Component } from "react";
 
-import IconButton from "@mui/material/IconButton";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import CloseIcon from "@mui/icons-material/Close";
-
 import Selector from "./Selector.js";
 
 import "./FilterPanel.css";
 
 export default class FilterPanel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isVisible: false };
-  }
-  onMakeVisible() {
-    this.props.onRightPanelMakeVisible();
-    this.setState({ isVisible: true });
-  }
-  onMakeNotVisible() {
-    this.props.onRightPanelMakeNotVisible();
-    this.setState({ isVisible: false });
-  }
-
-  renderNotVisible() {
-    return (
-      <FilterAltIcon
-        className="icon-filter"
-        onClick={this.onMakeVisible.bind(this)}
-      />
-    );
-  }
-  renderVisible() {
+  render() {
     const {
       categoryToIsSelected,
       startupStageToIsSelected,
@@ -43,9 +18,6 @@ export default class FilterPanel extends Component {
     } = this.props;
     return (
       <div>
-        <IconButton onClick={this.onMakeNotVisible.bind(this)}>
-          <CloseIcon />
-        </IconButton>
         <div className="div-filter-label">
           Filter by <strong>Startup Category</strong>
         </div>
@@ -72,16 +44,5 @@ export default class FilterPanel extends Component {
       </div>
     );
   }
-  render() {
-    const { isVisible } = this.state;
-    if (isVisible) {
-      return (
-        <div className="div-filter-panel div-filter-panel-visible">
-          {this.renderVisible()}
-        </div>
-      );
-    } else {
-      return <div className="div-filter-panel">{this.renderNotVisible()}</div>;
-    }
-  }
+
 }
