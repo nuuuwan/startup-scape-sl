@@ -1,3 +1,4 @@
+import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Startups from "../../core/Startups.js";
 import "./StartupInfo.css";
@@ -80,7 +81,10 @@ export default function StartupInfo(props) {
 
   return (
     <div className="div-startup-info div-startup-info-visible">
-      <CloseIcon className="icon-close" onClick={onClickStartupInfoHide} />
+      <IconButton onClick={onClickStartupInfoHide} >
+        <CloseIcon/>
+      </IconButton>
+
       <img className="img-startup-info" src={imgSrc} alt={startup["name"]} />
       <div className="div-startup-name">{startup["name"]}</div>
       <div className="div-startup-tagline">"{startup["tagline"]}"</div>

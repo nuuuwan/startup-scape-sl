@@ -1,13 +1,12 @@
 import { Component } from "react";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 import Checkbox from "@material-ui/core/Checkbox";
 import "./Selector.css";
 
 export default class Selector extends Component {
-  onChange(e) {
-    const value = e.target.value;
-    const isSelected = e.target.checked;
-    this.props.onChange(value, isSelected);
-  }
 
   onClickSelectAll() {
     this.props.onClickSelectAll();
@@ -38,31 +37,31 @@ export default class Selector extends Component {
     ) : null;
 
     return (
-      <div className="div-selector">
+      <List>
         {renderedMultiSelectors}
         {Object.entries(valueToIsSelected).map(
           function ([value, isSelected], iValue) {
             const key = `div-selector-item-${iValue}`;
-            const classNameLabel =
-              "label" + (isSelected ? " label-selected" : "");
+            const handleToggle = function() {
+              this.props.onChange(value, !isSelected);
+            }.bind(this);
             return (
-              <div className="div-selector-item" key={key}>
-                <label className={classNameLabel + " container"}>
+              <ListItem key={key}>
+                <ListItemButton onClick={handleToggle}>
                   <Checkbox
                     className="input-checkbox"
                     size="small"
                     color="default"
                     value={value}
                     checked={isSelected}
-                    onChange={this.onChange.bind(this)}
                   />
-                  <span>{value}</span>
-                </label>
-              </div>
+                  <ListItemText primary={value} />
+                  </ListItemButton>
+              </ListItem>
             );
           }.bind(this)
         )}
-      </div>
+      </List>
     );
   }
 }
