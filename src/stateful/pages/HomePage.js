@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import html2canvas from "html2canvas";
 
-import IconButton from "@mui/material/IconButton";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
 import DownloadIcon from "@mui/icons-material/Download";
+
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -143,15 +151,13 @@ export default class HomePage extends Component {
 
   renderTitle() {
     return (
-      <div className="div-title">
-        <a href={URL_STARTUPSCAPE} target="_blank" rel="noreferrer">
-          #<span className="color-maroon">S</span>
-          <span className="color-orange">t</span>
-          <span className="color-yellow">a</span>
-          <span className="color-green">r</span>
-          tupScapeSL
-        </a>
-      </div>
+      <span>
+        #<span className="color-maroon">S</span>
+        <span className="color-orange">t</span>
+        <span className="color-yellow">a</span>
+        <span className="color-green">r</span>
+        tupScapeSL
+      </span>
     );
   }
 
@@ -243,15 +249,27 @@ export default class HomePage extends Component {
 
     return (
       <div className="div-home-page" ref={this.ref}>
-        <IconButton
-          className="icon-button-download"
-          onClick={this.onClickScreenCapture.bind(this)}
-        >
-          <DownloadIcon />
-        </IconButton>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              {this.renderTitle()}
+            </Typography>
+            <Button color="inherit" onClick={this.onClickScreenCapture.bind(this)}>Download</Button>
+          </Toolbar>
+        </AppBar>
+
+
 
         <div className="div-home-page-inner" ref={this.ref}>
-          {this.renderTitle()}
           {this.renderSubTitle()}
 
           <div className="div-disclaimer">

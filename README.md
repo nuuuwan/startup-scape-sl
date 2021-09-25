@@ -88,3 +88,4 @@
   *  [2021-09-25 04:57PM] Lint
   *  [2021-09-25 05:06PM] Changed checkboxes
   *  [2021-09-25 06:04PM] Added List to Checkboxes
+  *  [2021-09-25 06:16PM] MenuBar
