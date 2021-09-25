@@ -66,29 +66,20 @@ table td {
 	color: black;
 }
 
-.img-download {
-	width: 18px;
-	height: 18px;
-}
 
-.div-button-download {
+.icon-download {
 	position: fixed;
-	top: 6px;
-	right: 36px;
-	float: right;
-	width: 18px;
-	height: 18px;
-	margin: 9px;
-	padding: 9px;
-	color: gray;
-	font-size: 14px;
-	text-align: center;
+	top: 12px;
+	right: 48px;
 }
 
-.div-button-download:hover {
+.icon-download:hover {
 	color: orange;
 	cursor: pointer;
 }
+
+
+
 
 .img-qrcode-app {
 	position: fixed;

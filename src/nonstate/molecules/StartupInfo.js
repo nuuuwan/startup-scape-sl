@@ -70,9 +70,7 @@ export default function StartupInfo(props) {
 
   return (
     <div className="div-startup-info div-startup-info-visible">
-      <div className="div-hide" onClick={onClickStartupInfoHide}>
-        <CloseIcon />
-      </div>
+      <CloseIcon className="icon-close" onClick={onClickStartupInfoHide}/>
       <img className="img-startup-info" src={imgSrc} alt={startup["name"]} />
       <div className="div-startup-name">{startup["name"]}</div>
       <div className="div-startup-tagline">"{startup["tagline"]}"</div>

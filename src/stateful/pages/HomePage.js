@@ -242,13 +242,9 @@ export default class HomePage extends Component {
 
     return (
       <div className="div-home-page" ref={this.ref}>
-        <div
-          className="div-button-download"
-          onClick={this.onClickScreenCapture.bind(this)}
-        >
-          <DownloadIcon />
-        </div>
-
+        <DownloadIcon className="icon-download"
+            onClick={this.onClickScreenCapture.bind(this)} />
+        
         <div className="div-home-page-inner" ref={this.ref}>
           {this.renderTitle()}
           {this.renderSubTitle()}

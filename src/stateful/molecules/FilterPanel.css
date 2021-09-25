@@ -41,10 +41,26 @@
 	font-size: 12px;
 }
 
-.img-filter {
-	width: 18px;
-	height: 18px;
+.icon-filter {
+	position: fixed;
+	top: 11px;
+	right: 12px;
 	cursor: pointer;
+}
+
+.icon-filter:hover {
+	color: orange;
+}
+
+.icon-close {
+	position: relative;
+	top: 12px;
+	right: 12px;
+	cursor: pointer;
+}
+
+.icon-close:hover {
+	color: orange;
 }
 
 .div-multi-select {

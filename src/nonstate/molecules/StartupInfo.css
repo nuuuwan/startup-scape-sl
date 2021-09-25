@@ -57,21 +57,14 @@ a:hover {
 	opacity: 0.2;
 }
 
-.div-hide {
-	position: fixed;
-	top: 6px;
-	right: 6px;
+.icon-close {
+	position: relative;
+	top: 0;
+	right: 0;
 	float: right;
-	width: 18px;
-	height: 18px;
-	margin: 9px;
-	padding: 9px;
-	color: gray;
-	font-size: 14px;
-	text-align: center;
 }
 
-.div-hide:hover {
+.icon-close:hover {
 	color: orange;
 	cursor: pointer;
 }

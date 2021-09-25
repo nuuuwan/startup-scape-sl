@@ -84,3 +84,4 @@
   *  [2021-09-25 04:33PM] Updated README
   *  [2021-09-25 04:44PM] Added Icons
   *  [2021-09-25 04:44PM] Pre-Merge
+  *  [2021-09-25 04:56PM] Made MUI Icons Standalone

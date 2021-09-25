@@ -22,12 +22,10 @@ export default class FilterPanel extends Component {
 
   renderNotVisible() {
     return (
-      <div
-        className="div-button div-button-show"
+      <FilterAltIcon
+        className="icon-filter"
         onClick={this.onMakeVisible.bind(this)}
-      >
-        <FilterAltIcon />
-      </div>
+      />
     );
   }
   renderVisible() {
@@ -43,9 +41,8 @@ export default class FilterPanel extends Component {
     } = this.props;
     return (
       <div>
-        <div className="div-button" onClick={this.onMakeNotVisible.bind(this)}>
-          <CloseIcon />
-        </div>
+        <CloseIcon className="icon-close"
+          onClick={this.onMakeNotVisible.bind(this)}/>
 
         <div className="div-filter-label">
           Filter by <strong>Startup Category</strong>
