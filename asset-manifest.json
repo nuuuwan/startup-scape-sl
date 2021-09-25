@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/startup-scape-sl/static/css/main.6c979bf2.chunk.css",
-    "main.js": "/startup-scape-sl/static/js/main.d9a7e7ce.chunk.js",
-    "main.js.map": "/startup-scape-sl/static/js/main.d9a7e7ce.chunk.js.map",
+    "main.css": "/startup-scape-sl/static/css/main.631b20aa.chunk.css",
+    "main.js": "/startup-scape-sl/static/js/main.e622b32a.chunk.js",
+    "main.js.map": "/startup-scape-sl/static/js/main.e622b32a.chunk.js.map",
     "runtime-main.js": "/startup-scape-sl/static/js/runtime-main.f9a2d0f1.js",
     "runtime-main.js.map": "/startup-scape-sl/static/js/runtime-main.f9a2d0f1.js.map",
     "static/js/2.6758fab4.chunk.js": "/startup-scape-sl/static/js/2.6758fab4.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.1b12a2fe.chunk.js": "/startup-scape-sl/static/js/3.1b12a2fe.chunk.js",
     "static/js/3.1b12a2fe.chunk.js.map": "/startup-scape-sl/static/js/3.1b12a2fe.chunk.js.map",
     "index.html": "/startup-scape-sl/index.html",
-    "static/css/main.6c979bf2.chunk.css.map": "/startup-scape-sl/static/css/main.6c979bf2.chunk.css.map",
+    "static/css/main.631b20aa.chunk.css.map": "/startup-scape-sl/static/css/main.631b20aa.chunk.css.map",
     "static/js/2.6758fab4.chunk.js.LICENSE.txt": "/startup-scape-sl/static/js/2.6758fab4.chunk.js.LICENSE.txt",
     "static/media/image.360-digital-solutions-pvt-ltd.png": "/startup-scape-sl/static/media/image.360-digital-solutions-pvt-ltd.6615bb8e.png",
     "static/media/image.360-labs.png": "/startup-scape-sl/static/media/image.360-labs.279c2765.png",
@@ -393,7 +393,7 @@
   "entrypoints": [
     "static/js/runtime-main.f9a2d0f1.js",
     "static/js/2.6758fab4.chunk.js",
-    "static/css/main.6c979bf2.chunk.css",
-    "static/js/main.d9a7e7ce.chunk.js"
+    "static/css/main.631b20aa.chunk.css",
+    "static/js/main.e622b32a.chunk.js"
   ]
 }
