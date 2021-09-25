@@ -76,12 +76,10 @@ a:hover {
 	cursor: pointer;
 }
 
-.img-icon {
+.a-lint-item {
 	position: relative;
-	top: 5px;
-	width: 16px;
-	height: 16px;
-	margin-right: 4px;
+	margin-left: 12px;
+	top: -9px;
 }
 
 .div-link-item {

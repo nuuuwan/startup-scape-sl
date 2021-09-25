@@ -1,8 +1,10 @@
 import { Component } from "react";
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import CloseIcon from '@mui/icons-material/Close';
+
 import Selector from "./Selector.js";
 
 import "./FilterPanel.css";
-import imageFilter from "../../assets/images/filter.png";
 
 export default class FilterPanel extends Component {
   constructor(props) {
@@ -24,7 +26,7 @@ export default class FilterPanel extends Component {
         className="div-button div-button-show"
         onClick={this.onMakeVisible.bind(this)}
       >
-        <img className="img-filter" src={imageFilter} alt="Filter" />
+        <FilterAltIcon />
       </div>
     );
   }
@@ -42,7 +44,7 @@ export default class FilterPanel extends Component {
     return (
       <div>
         <div className="div-button" onClick={this.onMakeNotVisible.bind(this)}>
-          ×
+          <CloseIcon />
         </div>
 
         <div className="div-filter-label">

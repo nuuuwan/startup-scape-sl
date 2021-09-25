@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import html2canvas from "html2canvas";
 
+import DownloadIcon from '@mui/icons-material/Download';
+
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
@@ -11,7 +13,6 @@ import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 
-import imageDownload from "../../assets/images/download.png";
 import "./HomePage.css";
 
 const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
@@ -245,7 +246,7 @@ export default class HomePage extends Component {
           className="div-button-download"
           onClick={this.onClickScreenCapture.bind(this)}
         >
-          <img className="img-download" src={imageDownload} alt="Download" />
+          <DownloadIcon />
         </div>
 
         <div className="div-home-page-inner" ref={this.ref}>

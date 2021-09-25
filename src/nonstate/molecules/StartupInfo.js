@@ -1,8 +1,9 @@
+import CloseIcon from '@mui/icons-material/Close';
 import Startups from "../../core/Startups.js";
 import "./StartupInfo.css";
 
-import imageEmail from "../../assets/images/email.svg";
-import imagePhone from "../../assets/images/telephone.svg";
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
 
 function renderLinkableItems(itemsList) {
   const renderedInner = itemsList.map(function (item, iItem) {
@@ -11,8 +12,8 @@ function renderLinkableItems(itemsList) {
     if (item.includes("@")) {
       renderedItem = (
         <div className="div-link-item">
-          <img className="img-icon" src={imageEmail} alt="mailto" />
-          <a href={"mailto:" + item} target="_blank" rel="noreferrer">
+          <PhoneIcon/>
+          <a className="a-lint-item" href={"mailto:" + item} target="_blank" rel="noreferrer">
             {item}
           </a>
         </div>
@@ -20,8 +21,8 @@ function renderLinkableItems(itemsList) {
     } else if (!Number.isNaN(parseInt(item))) {
       renderedItem = (
         <div className="div-link-item">
-          <img className="img-icon" src={imagePhone} alt={"tel"} />
-          <a href={"tel:" + item} target="_blank" rel="noreferrer">
+          <EmailIcon/>
+          <a className="a-lint-item"  href={"tel:" + item} target="_blank" rel="noreferrer">
             {item}
           </a>
         </div>
@@ -70,7 +71,7 @@ export default function StartupInfo(props) {
   return (
     <div className="div-startup-info div-startup-info-visible">
       <div className="div-hide" onClick={onClickStartupInfoHide}>
-        ×
+        <CloseIcon />
       </div>
       <img className="img-startup-info" src={imgSrc} alt={startup["name"]} />
       <div className="div-startup-name">{startup["name"]}</div>
