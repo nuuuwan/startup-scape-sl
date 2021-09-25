@@ -48,12 +48,23 @@ export default class HomePage extends Component {
     const activeStartupID = null;
     this.ref = React.createRef();
 
+    const width= window.innerWidth;
+
     this.state = {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       categoryToIsSelected,
       activeStartupID,
+      width,
     };
+
+    window.addEventListener('resize', this.onWindowResize.bind(this));
+
+  }
+
+  onWindowResize(e) {
+    const width= window.innerWidth;
+    this.setState({width});
   }
 
   onChangeCategory(category, isSelected) {

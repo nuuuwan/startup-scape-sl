@@ -75,3 +75,4 @@
   *  [2021-09-25 10:35AM] Updated WaterMark
   *  [2021-09-25 10:36AM] Done
   *  [2021-09-25 12:04PM] Changed Title; Changed Twitter URL
+  *  [2021-09-25 12:09PM] Removed logs; Resize

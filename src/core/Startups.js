@@ -74,7 +74,6 @@ export default class Startups {
       }
       return categoryToN;
     }, {});
-    console.debug(categoryToN);
     const otherCategories = Object.entries(categoryToN)
       .filter(function ([category, nCategory]) {
         return nCategory < OTHER_CATEGORY_LIMIT;
