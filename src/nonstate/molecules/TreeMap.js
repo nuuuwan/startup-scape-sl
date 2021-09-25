@@ -79,7 +79,11 @@ export default function TreeMap(props) {
             (1.5 * nodeWidth(d)) / d.data.name.length
           )}px; `
       )
-      .text((d) => d.data.name);
+      .text((d) => d.data.name)
+      .append("div")
+      .attr("class", "div-root-watermark")
+      .attr("style", (d) => `font-size: ${nodeWidth(d) / 5}px; `)
+      .text("@nuuuwan");
 
     nodes
       .filter((d) => d.data.type === "startup")

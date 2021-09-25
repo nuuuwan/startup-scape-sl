@@ -14,3 +14,7 @@
 .label-selected {
 	color: black;
 }
+
+.input-checkbox::before {
+	background: green;
+}

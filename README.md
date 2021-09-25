@@ -72,3 +72,4 @@
   *  [2021-09-25 09:37AM] Added last updated date
   *  [2021-09-25 09:45AM] Added Small Screen Warning
   *  [2021-09-25 09:46AM] Changed Footer Size
+  *  [2021-09-25 10:35AM] Updated WaterMark

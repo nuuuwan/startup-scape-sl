@@ -46,14 +46,16 @@ export default class Selector extends Component {
               "label" + (isSelected ? " label-selected" : "");
             return (
               <div className="div-selector-item" key={key}>
-                <input
-                  className="input-checkbox"
-                  type="checkbox"
-                  value={value}
-                  checked={isSelected}
-                  onChange={this.onChange.bind(this)}
-                />
-                <label className={classNameLabel}>{value}</label>
+                <label className={classNameLabel + ' container'}>
+                  <input
+                    className="input-checkbox"
+                    type="checkbox"
+                    value={value}
+                    checked={isSelected}
+                    onChange={this.onChange.bind(this)}
+                  />
+                  <span>{value}</span>                  
+                </label>
               </div>
             );
           }.bind(this)

@@ -2,18 +2,18 @@
 	position: fixed;
 	top: 0;
 	right: -480px;
-	z-index: 20000;
+	z-index: 40000;
 	width: 240px;
 	height: 100vh;
 	padding: 12px;
-	background: #fcfcfc;
+	background: white;
 }
 
 .div-filter-panel-visible {
 	right: 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	border-left: 2px solid gray;
+	border-left: 2px solid #f8f8f8;
 	transition: right 0.5s;
 }
 
