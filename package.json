@@ -4,6 +4,8 @@
   "homepage": "https://nuuuwan.github.io/startup-scape-sl",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "@nuuuwan/utils-js-dev": "^1.0.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
