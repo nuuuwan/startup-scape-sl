@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 import Startups from "../../core/Startups.js";
-import TreeMap from "../../nonstate/molecules/TreeMap.js";
+import TreeMap from "../../nonstate/molecules/TreeMap2.js";
 
 import "./StartupScape.css";
 const WIDHT_PADDING = 24;

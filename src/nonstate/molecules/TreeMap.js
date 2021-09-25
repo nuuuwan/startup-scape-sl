@@ -47,7 +47,7 @@ export default function TreeMap(props) {
       .paddingTop(TREEMAP_PADDING_TOP)
       .paddingBottom(TREEMAP_PADDING_BOTTOM);
     const treemapRoot = treemap(root);
-
+    
     const nodes = div
       .selectAll("div.div-node")
       .data(treemapRoot.descendants())
