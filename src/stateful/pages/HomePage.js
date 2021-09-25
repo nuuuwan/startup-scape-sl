@@ -16,7 +16,7 @@ import "./HomePage.css";
 
 const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
 const URL_NUUUWAN = "https://twitter.com/nuuuwan";
-const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL";
+const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL&f=top";
 const MIN_WINDOW_INNER_WIDTH = 840;
 
 function getGenericToIsSelected(values, isSelected) {
