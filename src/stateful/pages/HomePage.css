@@ -4,6 +4,10 @@
 	background: white;
 }
 
+.div-small-screen-warning {
+	text-align: center;
+}
+
 .div-title {
 	margin: 12px;
 	font-size: 36px;
@@ -25,6 +29,7 @@
 	text-align: center;
 }
 
+/* stylelint-disable selector-max-type */
 table {
 	margin: auto;
 }

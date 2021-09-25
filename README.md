@@ -70,3 +70,4 @@
   *  [2021-09-25 08:38AM] Changed default browser to Firefox
   *  [2021-09-25 09:21AM] Added RQ Code
   *  [2021-09-25 09:37AM] Added last updated date
+  *  [2021-09-25 09:45AM] Added Small Screen Warning

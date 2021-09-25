@@ -17,6 +17,7 @@ import "./HomePage.css";
 const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
 const URL_NUUUWAN = "https://twitter.com/nuuuwan";
 const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL";
+const MIN_WINDOW_INNER_WIDTH = 840;
 
 function getGenericToIsSelected(values, isSelected) {
   return values.reduce(function (valueToIsSelected, value) {
@@ -191,6 +192,18 @@ export default class HomePage extends Component {
   }
 
   render() {
+    if (window.innerWidth < MIN_WINDOW_INNER_WIDTH) {
+      return (
+        <div className="div-small-screen-warning">
+          {this.renderTitle()}
+          <p>
+            {`This app is not designed for screens less than` +
+              ` ${MIN_WINDOW_INNER_WIDTH}px wide.`}
+          </p>
+        </div>
+      );
+    }
+
     const {
       categoryToIsSelected,
       startupStageToIsSelected,
@@ -222,8 +235,7 @@ export default class HomePage extends Component {
               " · Categories, startup status and funding status" +
               " are self-reported by the startups" +
               " · Each startup might be categorized into multiple categories" +
-              " · Last Updated 2021-09-24"
-          }
+              " · Last Updated 2021-09-24"}
           </div>
 
           <StartupScape
