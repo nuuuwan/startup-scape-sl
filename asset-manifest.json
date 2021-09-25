@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/startup-scape-sl/static/css/main.108b8d6c.chunk.css",
-    "main.js": "/startup-scape-sl/static/js/main.d3ca8b31.chunk.js",
-    "main.js.map": "/startup-scape-sl/static/js/main.d3ca8b31.chunk.js.map",
-    "runtime-main.js": "/startup-scape-sl/static/js/runtime-main.0686a86e.js",
-    "runtime-main.js.map": "/startup-scape-sl/static/js/runtime-main.0686a86e.js.map",
-    "static/js/2.e72eaef7.chunk.js": "/startup-scape-sl/static/js/2.e72eaef7.chunk.js",
-    "static/js/2.e72eaef7.chunk.js.map": "/startup-scape-sl/static/js/2.e72eaef7.chunk.js.map",
-    "static/js/3.d7d6ca8a.chunk.js": "/startup-scape-sl/static/js/3.d7d6ca8a.chunk.js",
-    "static/js/3.d7d6ca8a.chunk.js.map": "/startup-scape-sl/static/js/3.d7d6ca8a.chunk.js.map",
+    "main.js": "/startup-scape-sl/static/js/main.350d8fa5.chunk.js",
+    "main.js.map": "/startup-scape-sl/static/js/main.350d8fa5.chunk.js.map",
+    "runtime-main.js": "/startup-scape-sl/static/js/runtime-main.7321564e.js",
+    "runtime-main.js.map": "/startup-scape-sl/static/js/runtime-main.7321564e.js.map",
+    "static/js/2.17b6d1d6.chunk.js": "/startup-scape-sl/static/js/2.17b6d1d6.chunk.js",
+    "static/js/2.17b6d1d6.chunk.js.map": "/startup-scape-sl/static/js/2.17b6d1d6.chunk.js.map",
+    "static/js/3.bd2aab8c.chunk.js": "/startup-scape-sl/static/js/3.bd2aab8c.chunk.js",
+    "static/js/3.bd2aab8c.chunk.js.map": "/startup-scape-sl/static/js/3.bd2aab8c.chunk.js.map",
     "index.html": "/startup-scape-sl/index.html",
     "static/css/main.108b8d6c.chunk.css.map": "/startup-scape-sl/static/css/main.108b8d6c.chunk.css.map",
-    "static/js/2.e72eaef7.chunk.js.LICENSE.txt": "/startup-scape-sl/static/js/2.e72eaef7.chunk.js.LICENSE.txt",
+    "static/js/2.17b6d1d6.chunk.js.LICENSE.txt": "/startup-scape-sl/static/js/2.17b6d1d6.chunk.js.LICENSE.txt",
     "static/media/email.a5dcd85d.svg": "/startup-scape-sl/static/media/email.a5dcd85d.svg",
     "static/media/image.360-digital-solutions-pvt-ltd.png": "/startup-scape-sl/static/media/image.360-digital-solutions-pvt-ltd.6615bb8e.png",
     "static/media/image.360-labs.png": "/startup-scape-sl/static/media/image.360-labs.279c2765.png",
@@ -393,9 +393,9 @@
     "static/media/telephone.421642a7.svg": "/startup-scape-sl/static/media/telephone.421642a7.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0686a86e.js",
-    "static/js/2.e72eaef7.chunk.js",
+    "static/js/runtime-main.7321564e.js",
+    "static/js/2.17b6d1d6.chunk.js",
     "static/css/main.108b8d6c.chunk.css",
-    "static/js/main.d3ca8b31.chunk.js"
+    "static/js/main.350d8fa5.chunk.js"
   ]
 }
