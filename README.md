@@ -77,3 +77,4 @@
   *  [2021-09-25 12:04PM] Changed Title; Changed Twitter URL
   *  [2021-09-25 12:09PM] Removed logs; Resize
   *  [2021-09-25 01:10PM] Made panel move
+  *  [2021-09-25 01:11PM] Added link targets

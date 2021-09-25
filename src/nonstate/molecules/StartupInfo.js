@@ -12,14 +12,18 @@ function renderLinkableItems(itemsList) {
       renderedItem = (
         <div className="div-link-item">
           <img className="img-icon" src={imageEmail} alt="mailto" />
-          <a href={"mailto:" + item}>{item}</a>
+          <a href={"mailto:" + item} target="_blank" rel="noreferrer">
+            {item}
+          </a>
         </div>
       );
     } else if (!Number.isNaN(parseInt(item))) {
       renderedItem = (
         <div className="div-link-item">
           <img className="img-icon" src={imagePhone} alt={"tel"} />
-          <a href={"tel:" + item}>{item}</a>
+          <a href={"tel:" + item} target="_blank" rel="noreferrer">
+            {item}
+          </a>
         </div>
       );
     } else {
@@ -29,7 +33,9 @@ function renderLinkableItems(itemsList) {
         item.replaceAll(" ", "+");
       renderedItem = (
         <div className="div-link-item">
-          <a href={linkedInURL}>{item}</a>
+          <a href={linkedInURL} target="_blank" rel="noreferrer">
+            {item}
+          </a>
         </div>
       );
     }
