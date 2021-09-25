@@ -218,10 +218,12 @@ export default class HomePage extends Component {
           {this.renderSubTitle()}
 
           <div className="div-disclaimer">
-            {"This listing might not be exhaustive " +
-              "· Categories, startup status and funding status" +
-              " are self-reported by the startups " +
-              "· Each startup might be categorized into multiple categories"}
+            {"This listing might not be exhaustive" +
+              " · Categories, startup status and funding status" +
+              " are self-reported by the startups" +
+              " · Each startup might be categorized into multiple categories" +
+              " · Last Updated 2021-09-24"
+          }
           </div>
 
           <StartupScape
