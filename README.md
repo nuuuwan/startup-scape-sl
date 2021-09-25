@@ -68,3 +68,4 @@
   *  [2021-09-25 12:24AM] Added new QR Code
   *  [2021-09-25 12:33AM] Done
   *  [2021-09-25 08:38AM] Changed default browser to Firefox
+  *  [2021-09-25 09:21AM] Added RQ Code

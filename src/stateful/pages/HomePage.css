@@ -20,10 +20,17 @@
 
 .div-source {
 	margin: auto;
-	margin-top: 12px;
 	color: gray;
 	font-size: 18px;
 	text-align: center;
+}
+
+table {
+	margin: auto;
+}
+
+table td {
+	padding: 12px;
 }
 
 .div-disclaimer {

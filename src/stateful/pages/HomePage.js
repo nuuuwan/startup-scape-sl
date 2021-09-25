@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import html2canvas from "html2canvas";
+
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
 import Startups from "../../core/Startups.js";
+
+import QRCode from "../../nonstate/atoms/QRCode.js";
+import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
-import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
+
 import imageDownload from "../../assets/images/download.png";
-import imageQRCodeApp from "../../assets/images/qrcode_app.png";
 import "./HomePage.css";
 
-const URL_APP = 'https://nuuuwan.github.io/startup-scape-sl'
 const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
 const URL_NUUUWAN = "https://twitter.com/nuuuwan";
 const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL";
@@ -212,14 +214,6 @@ export default class HomePage extends Component {
         </div>
 
         <div className="div-home-page-inner" ref={this.ref}>
-          <a href={URL_APP}  target="_blank" rel="noreferrer">
-            <img
-              className="img-qrcode-app"
-              src={imageQRCodeApp}
-              alt="qrcode-app"
-            />
-          </a>  
-
           {this.renderTitle()}
           {this.renderSubTitle()}
 
@@ -239,14 +233,25 @@ export default class HomePage extends Component {
           />
 
           <div className="div-source">
-            Data by{" "}
-            <a href={URL_STARTUPSL_LK} target="_blank" rel="noreferrer">
-              startupsl.lk
-            </a>
-            · Visualization by{" "}
-            <a href={URL_NUUUWAN} target="_blank" rel="noreferrer">
-              @nuuuwan
-            </a>
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    Data by{" "}
+                    <a href={URL_STARTUPSL_LK} target="_blank" rel="noreferrer">
+                      startupsl.lk
+                    </a>
+                    · Visualization by{" "}
+                    <a href={URL_NUUUWAN} target="_blank" rel="noreferrer">
+                      @nuuuwan
+                    </a>
+                  </td>
+                  <td>
+                    <QRCode url={URL_NUUUWAN} />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
