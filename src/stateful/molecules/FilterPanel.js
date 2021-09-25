@@ -1,6 +1,6 @@
 import { Component } from "react";
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import CloseIcon from '@mui/icons-material/Close';
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import CloseIcon from "@mui/icons-material/Close";
 
 import Selector from "./Selector.js";
 
@@ -41,8 +41,10 @@ export default class FilterPanel extends Component {
     } = this.props;
     return (
       <div>
-        <CloseIcon className="icon-close"
-          onClick={this.onMakeNotVisible.bind(this)}/>
+        <CloseIcon
+          className="icon-close"
+          onClick={this.onMakeNotVisible.bind(this)}
+        />
 
         <div className="div-filter-label">
           Filter by <strong>Startup Category</strong>

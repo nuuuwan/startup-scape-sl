@@ -1,9 +1,9 @@
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import Startups from "../../core/Startups.js";
 import "./StartupInfo.css";
 
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
 
 function renderLinkableItems(itemsList) {
   const renderedInner = itemsList.map(function (item, iItem) {
@@ -12,8 +12,13 @@ function renderLinkableItems(itemsList) {
     if (item.includes("@")) {
       renderedItem = (
         <div className="div-link-item">
-          <PhoneIcon/>
-          <a className="a-lint-item" href={"mailto:" + item} target="_blank" rel="noreferrer">
+          <PhoneIcon />
+          <a
+            className="a-lint-item"
+            href={"mailto:" + item}
+            target="_blank"
+            rel="noreferrer"
+          >
             {item}
           </a>
         </div>
@@ -21,8 +26,13 @@ function renderLinkableItems(itemsList) {
     } else if (!Number.isNaN(parseInt(item))) {
       renderedItem = (
         <div className="div-link-item">
-          <EmailIcon/>
-          <a className="a-lint-item"  href={"tel:" + item} target="_blank" rel="noreferrer">
+          <EmailIcon />
+          <a
+            className="a-lint-item"
+            href={"tel:" + item}
+            target="_blank"
+            rel="noreferrer"
+          >
             {item}
           </a>
         </div>
@@ -70,7 +80,7 @@ export default function StartupInfo(props) {
 
   return (
     <div className="div-startup-info div-startup-info-visible">
-      <CloseIcon className="icon-close" onClick={onClickStartupInfoHide}/>
+      <CloseIcon className="icon-close" onClick={onClickStartupInfoHide} />
       <img className="img-startup-info" src={imgSrc} alt={startup["name"]} />
       <div className="div-startup-name">{startup["name"]}</div>
       <div className="div-startup-tagline">"{startup["tagline"]}"</div>

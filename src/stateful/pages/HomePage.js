@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import html2canvas from "html2canvas";
 
-import DownloadIcon from '@mui/icons-material/Download';
+import DownloadIcon from "@mui/icons-material/Download";
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -242,9 +242,11 @@ export default class HomePage extends Component {
 
     return (
       <div className="div-home-page" ref={this.ref}>
-        <DownloadIcon className="icon-download"
-            onClick={this.onClickScreenCapture.bind(this)} />
-        
+        <DownloadIcon
+          className="icon-download"
+          onClick={this.onClickScreenCapture.bind(this)}
+        />
+
         <div className="div-home-page-inner" ref={this.ref}>
           {this.renderTitle()}
           {this.renderSubTitle()}
