@@ -1,4 +1,7 @@
 import { Component } from "react";
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 import Selector from "./Selector.js";
 
@@ -17,31 +20,40 @@ export default class FilterPanel extends Component {
       onClickUnSelectAllCategories,
     } = this.props;
     return (
-      <div>
-        <div className="div-filter-label">
+      <Box sx={{ padding: 1 }}>
+        <Typography variant="overline" display="block" gutterBottom>
           Filter by <strong>Startup Category</strong>
-        </div>
+        </Typography>
+
         <Selector
           valueToIsSelected={startupStageToIsSelected}
           onChange={onChangeStartupStage}
         />
-        <div className="div-filter-label">
+
+        <Divider />
+
+        <Typography variant="overline" display="block" gutterBottom>
           Filter by <strong>Funding Stage</strong>
-        </div>
+        </Typography>
+
         <Selector
           valueToIsSelected={fundingStageToIsSelected}
           onChange={onChangeFundingStage}
         />
-        <div className="div-filter-label">
+
+        <Divider />
+
+        <Typography variant="overline" display="block" gutterBottom>
           Filter by <strong>Startup Stage</strong>
-        </div>
+        </Typography>
+
         <Selector
           valueToIsSelected={categoryToIsSelected}
           onChange={onChangeCategory}
           onClickSelectAll={onClickSelectAllCategories}
           onClickUnSelectAll={onClickUnSelectAllCategories}
         />
-      </div>
+      </Box>
     );
   }
 

@@ -63,6 +63,7 @@ export default class HomePage extends Component {
     const width = window.innerWidth;
     const rightPanelWidth = 0;
     const showFilterPanel = false;
+    const showStartupInfo = false;
 
     this.state = {
       startupStageToIsSelected,
@@ -72,6 +73,7 @@ export default class HomePage extends Component {
       width,
       rightPanelWidth,
       showFilterPanel,
+      showStartupInfo,
     };
 
     window.addEventListener("resize", this.onWindowResize.bind(this));
@@ -118,16 +120,12 @@ export default class HomePage extends Component {
     this.setState({ categoryToIsSelected });
   }
 
-  onClickImage(event, d) {
-    const activeStartupID = d.data.name;
-    const rightPanelWidth = 260;
-    this.setState({ activeStartupID, rightPanelWidth });
+  onClickImage(startupID) {
+    this.setState({ activeStartupID: startupID, showStartupInfo: true });
   }
 
   onClickStartupInfoHide() {
-    const activeStartupID = null;
-    const rightPanelWidth = 0;
-    this.setState({ activeStartupID, rightPanelWidth });
+    this.setState({ activeStartupID: null});
   }
 
   onClickScreenCapture() {
@@ -155,6 +153,10 @@ export default class HomePage extends Component {
 
   onToggleFilter() {
     this.setState({ showFilterPanel: !this.state.showFilterPanel });
+  }
+
+  onCloseStartupPanel() {
+    this.setState({ showStartupInfo: false });
   }
 
   renderTitle() {
@@ -248,6 +250,7 @@ export default class HomePage extends Component {
       activeStartupID,
       rightPanelWidth,
       showFilterPanel,
+      showStartupInfo,
     } = this.state;
 
     const key = JSON.stringify({
@@ -331,8 +334,7 @@ export default class HomePage extends Component {
 
         <Drawer
           open={showFilterPanel}
-          anchor="left"
-          transitionDuration={1000}
+          anchor="right"
           onClose={this.onToggleFilter.bind(this)}
         >
           <FilterPanel
@@ -355,11 +357,12 @@ export default class HomePage extends Component {
           />
         </Drawer>
 
-        <Drawer open={activeStartupID}>
-          <StartupInfo
-            startupID={activeStartupID}
-            onClickStartupInfoHide={this.onClickStartupInfoHide.bind(this)}
-          />
+        <Drawer
+          open={showStartupInfo}
+          anchor="right"
+          onClose={this.onCloseStartupPanel.bind(this)}
+        >
+          <StartupInfo startupID={activeStartupID} />
         </Drawer>
       </div>
     );

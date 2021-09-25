@@ -58,9 +58,8 @@ function renderLinkableItems(itemsList) {
 
 export default function StartupInfo(props) {
   const { startupID, onClickStartupInfoHide } = props;
-
   if (!startupID) {
-    return <div className="div-startup-info">{startupID}</div>;
+    return null;
   }
   const startup = Startups.getStartup(startupID);
 
@@ -80,11 +79,7 @@ export default function StartupInfo(props) {
   }
 
   return (
-    <div className="div-startup-info div-startup-info-visible">
-      <IconButton onClick={onClickStartupInfoHide} >
-        <CloseIcon/>
-      </IconButton>
-
+    <div className="div-startup-info">
       <img className="img-startup-info" src={imgSrc} alt={startup["name"]} />
       <div className="div-startup-name">{startup["name"]}</div>
       <div className="div-startup-tagline">"{startup["tagline"]}"</div>

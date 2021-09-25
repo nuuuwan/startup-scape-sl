@@ -79,6 +79,10 @@ export default function TreeMap({ data, width, height, onClickImage }) {
                         const iCol = iStartup % nCols;
                         const iRow = parseInt(iStartup / nCols);
 
+                        function onClick(e) {
+                          onClickImage(startupID);
+                        };
+
                         return (
                             <img
                               alt={startupID}
@@ -91,6 +95,7 @@ export default function TreeMap({ data, width, height, onClickImage }) {
                                 top: CATEGORY_PADDING + HEADER_GAP + iRow * startupHeight,
 
                               }}
+                              onClick={onClick}
                             />
                         )
                       }

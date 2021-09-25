@@ -1,24 +1,9 @@
 /* stylelint-disable selector-max-type */
+
+
 .div-startup-info {
-	position: fixed;
-	top: 0;
-	right: -480px;
-	z-index: 40000;
-	width: 240px;
-	height: 100vh;
-	padding: 12px;
-	background: #fcfcfc;
-	font-size: 12px;
+	width: 320px;
 }
-
-.div-startup-info-visible {
-	right: 0;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	border-left: 2px solid #f0f0f0;
-	transition: right 0.5s;
-}
-
 .div-startup-name {
 	color: gray;
 	font-weight: 500;
