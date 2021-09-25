@@ -112,7 +112,7 @@ export default class HomePage extends Component {
 
   onClickStartupInfoHide() {
     const activeStartupID = null;
-    const rightPanelWidth = 260;
+    const rightPanelWidth = 0;
     this.setState({ activeStartupID, rightPanelWidth });
   }
 
