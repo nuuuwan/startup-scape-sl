@@ -211,13 +211,15 @@ export default class HomePage extends Component {
   }
 
   renderDisclaimer() {
-    return (<Typography variant="body2" gutterBottom>
-      {"This listing might not be exhaustive" +
-        " · Categories, startup status and funding status" +
-        " are self-reported by the startups" +
-        " · Each startup might be categorized into multiple categories" +
-        " · Last Updated 2021-09-24"}
-    </Typography>);
+    return (
+      <Typography variant="body2" gutterBottom>
+        {"This listing might not be exhaustive" +
+          " · Categories, startup status and funding status" +
+          " are self-reported by the startups" +
+          " · Each startup might be categorized into multiple categories" +
+          " · Last Updated 2021-09-24"}
+      </Typography>
+    );
   }
 
   renderNotSupported() {
@@ -231,7 +233,6 @@ export default class HomePage extends Component {
       </div>
     );
   }
-
 
   render() {
     if (window.innerWidth < MIN_WINDOW_INNER_WIDTH) {

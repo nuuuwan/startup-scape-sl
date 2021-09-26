@@ -2,9 +2,9 @@ import { Component } from "react";
 import Chip from "@mui/material/Chip";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import Box from "@mui/material/Box";
 import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
 
 import "./Selector.css";
 
@@ -53,7 +53,6 @@ export default class Selector extends Component {
         },
         {});
       }
-
       onChange(newValueToIsSelected);
     }
 
@@ -65,28 +64,30 @@ export default class Selector extends Component {
     const labelFinal = `${label} (${nSelected} selected)`;
 
     return (
-      <div>
-        <InputLabel>{labelFinal}</InputLabel>
-        <Select
-          multiple
-          input={<OutlinedInput label="Chip" />}
-          value={selectedValues}
-          onChange={onChangeInner}
-          renderValue={(selected) => (
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-        >
-          {menuDisplayValues.map((name) => (
-            <MenuItem key={name} value={name}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </div>
+      <Box sx={{ minWidth: 120, margin: 3 }}>
+        <FormControl fullWidth>
+          <InputLabel>{labelFinal}</InputLabel>
+          <Select
+            multiple
+            label={labelFinal}
+            value={selectedValues}
+            onChange={onChangeInner}
+            renderValue={(selected) => (
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                {selected.map((value) => (
+                  <Chip key={value} label={value} />
+                ))}
+              </Box>
+            )}
+          >
+            {menuDisplayValues.map((name) => (
+              <MenuItem key={name} value={name}>
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
     );
   }
 }
