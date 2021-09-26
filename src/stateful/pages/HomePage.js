@@ -262,20 +262,15 @@ export default class HomePage extends Component {
 
   renderNotSupported() {
     return (
-      <div className="div-small-screen-warning">
-        {this.renderTitle()}
-        <Typography variant="body2" gutterBottom>
-          {`This app is not designed for screens less than` +
-            ` ${MIN_WINDOW_INNER_WIDTH}px wide.`}
-        </Typography>
-      </div>
+      <Typography variant="body2" gutterBottom align="center">
+        {`This app is not designed for screens less than` +
+          ` ${MIN_WINDOW_INNER_WIDTH}px wide.`}
+      </Typography>
     );
   }
 
   render() {
-    if (window.innerWidth < MIN_WINDOW_INNER_WIDTH) {
-      return this.renderNotSupported();
-    }
+    const isWindowTooSmall = window.innerWidth < MIN_WINDOW_INNER_WIDTH;
 
     const {
       categoryToIsSelected,
@@ -327,44 +322,48 @@ export default class HomePage extends Component {
           }}
           elevation={3}
         >
-          {this.renderSubTitle()}
+          {isWindowTooSmall ? (
+            this.renderNotSupported()
+          ) : (
+            <>
+              {this.renderSubTitle()}
+              <StartupScape
+                key={key}
+                ref={this.ref}
+                categoryToIsSelected={categoryToIsSelected}
+                startupStageToIsSelected={startupStageToIsSelected}
+                fundingStageToIsSelected={fundingStageToIsSelected}
+                onClickImage={this.onClickImage.bind(this)}
+                rightPanelWidth={rightPanelWidth}
+              />
+              <SpeedDial
+                ariaLabel="SpeedDial basic example"
+                sx={{ position: "absolute", bottom: 16, right: 16 }}
+                icon={<SpeedDialIcon />}
+              >
+                <SpeedDialAction
+                  onClick={this.onClickDownload.bind(this)}
+                  disabled={isDownloading}
+                  icon={<CloudDownloadIcon />}
+                  tooltipTitle="Download Image"
+                />
 
-          <StartupScape
-            key={key}
-            ref={this.ref}
-            categoryToIsSelected={categoryToIsSelected}
-            startupStageToIsSelected={startupStageToIsSelected}
-            fundingStageToIsSelected={fundingStageToIsSelected}
-            onClickImage={this.onClickImage.bind(this)}
-            rightPanelWidth={rightPanelWidth}
-          />
-          <SpeedDial
-            ariaLabel="SpeedDial basic example"
-            sx={{ position: "absolute", bottom: 16, right: 16 }}
-            icon={<SpeedDialIcon />}
-          >
-            <SpeedDialAction
-              onClick={this.onClickDownload.bind(this)}
-              disabled={isDownloading}
-              icon={<CloudDownloadIcon />}
-              tooltipTitle="Download Image"
-            />
+                <SpeedDialAction
+                  onClick={this.onToggleFilter.bind(this)}
+                  icon={<FilterAltIcon />}
+                  tooltipTitle="Filter Startups"
+                />
+              </SpeedDial>
 
-            <SpeedDialAction
-              onClick={this.onToggleFilter.bind(this)}
-              icon={<FilterAltIcon />}
-              tooltipTitle="Filter Startups"
-            />
-          </SpeedDial>
-
-          <Snackbar
-            open={isDownloading}
-            autoHideDuration={1000}
-            message="Downloading..."
-            anchorOrigin={{ vertical: "top", horizontal: "left" }}
-          />
+              <Snackbar
+                open={isDownloading}
+                autoHideDuration={1000}
+                message="Downloading..."
+                anchorOrigin={{ vertical: "top", horizontal: "left" }}
+              />
+            </>
+          )}
         </Paper>
-
         <Drawer
           open={showFilterPanel}
           anchor="right"
