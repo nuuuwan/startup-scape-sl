@@ -13,7 +13,7 @@ const TEXT_UNSELECT_ALL = "Unselect All";
 
 export default class Selector extends Component {
   render() {
-    const { label, valueToIsSelected, onChange } = this.props;
+    const { label, valueToIsSelected, onChange, icon } = this.props;
 
     const allValues = Object.keys(valueToIsSelected);
     const selectedValues = Object.entries(valueToIsSelected)
@@ -79,7 +79,7 @@ export default class Selector extends Component {
             renderValue={(selected) => (
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                 {selected.map((value) => (
-                  <Chip key={value} label={value} />
+                  <Chip key={value} label={value} icon={icon} />
                 ))}
               </Box>
             )}

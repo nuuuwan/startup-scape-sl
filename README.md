@@ -114,3 +114,4 @@
   *  [2021-09-26 12:34PM] Fixed alignment issues
   *  [2021-09-26 12:35PM] Removed menu ---
   *  [2021-09-26 12:38PM] Menu Color
+  *  [2021-09-26 03:20PM] REfactored StartupInfo

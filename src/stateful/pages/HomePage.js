@@ -54,7 +54,7 @@ export default class HomePage extends Component {
       true
     );
 
-    const activeStartupID = null;
+    const activeStartupID = undefined;
     this.ref = React.createRef();
 
     const width = window.innerWidth;

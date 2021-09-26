@@ -1,58 +1,23 @@
 import Startups from "../../core/Startups.js";
 import "./StartupInfo.css";
 
-import PhoneIcon from "@mui/icons-material/Phone";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CategoryIcon from "@mui/icons-material/Category";
+import Chip from "@mui/material/Chip";
 import EmailIcon from "@mui/icons-material/Email";
+import Link from "@mui/material/Link";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import PhoneIcon from "@mui/icons-material/Phone";
+import TimelineIcon from "@mui/icons-material/Timeline";
+import Typography from "@mui/material/Typography";
 
-function renderLinkableItems(itemsList) {
-  const renderedInner = itemsList.map(function (item, iItem) {
-    const key = "item-" + iItem;
-    let renderedItem;
-    if (item.includes("@")) {
-      renderedItem = (
-        <div className="div-link-item">
-          <PhoneIcon />
-          <a
-            className="a-lint-item"
-            href={"mailto:" + item}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {item}
-          </a>
-        </div>
-      );
-    } else if (!Number.isNaN(parseInt(item))) {
-      renderedItem = (
-        <div className="div-link-item">
-          <EmailIcon />
-          <a
-            className="a-lint-item"
-            href={"tel:" + item}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {item}
-          </a>
-        </div>
-      );
-    } else {
-      const linkedInURL =
-        "https://www.linkedin.com" +
-        "/search/results/all/?keywords=" +
-        item.replaceAll(" ", "+");
-      renderedItem = (
-        <div className="div-link-item">
-          <a href={linkedInURL} target="_blank" rel="noreferrer">
-            {item}
-          </a>
-        </div>
-      );
-    }
-    return <div key={key}>{renderedItem}</div>;
-  });
-  return <div className="div-link-items">{renderedInner}</div>;
-}
+const URL_LINKEDIN_PREFIX =
+  "https://www.linkedin.com/search/results/all/?keywords=";
 
 export default function StartupInfo(props) {
   const { startupID } = props;
@@ -60,49 +25,99 @@ export default function StartupInfo(props) {
     return null;
   }
   const startup = Startups.getStartup(startupID);
-
   const imageFileOnly = startup["image_file_only"];
   const imgSrc = require("../../assets/images/startup_images/" +
     imageFileOnly).default;
-
-  const categoryStr = startup["category_list"].join(" · ");
-  const stageStr = [startup["startup_stage"], startup["funding_stage"]].join(
-    " · "
-  );
-  const founderStr = renderLinkableItems(startup["founder_info_list_raw"]);
 
   let url = startup["url"];
   if (!url.toLowerCase().includes("http")) {
     url = "http://" + url;
   }
 
+  const urlLinkedIn =
+    URL_LINKEDIN_PREFIX + startup["founder_info"]["name"].replaceAll(" ", "+");
+
+  const chipInfoList = [].concat(
+    startup["category_list"].map(function (value) {
+      return {
+        value: value,
+        icon: <CategoryIcon />,
+      };
+    }),
+    [
+      {
+        value: startup["startup_stage"],
+        icon: <TimelineIcon />,
+      },
+      {
+        value: startup["funding_stage"],
+        icon: <MonetizationOnIcon />,
+      },
+    ]
+  );
+
   return (
     <div className="div-startup-info">
-      <img className="img-startup-info" src={imgSrc} alt={startup["name"]} />
-      <div className="div-startup-name">{startup["name"]}</div>
-      <div className="div-startup-tagline">"{startup["tagline"]}"</div>
-      <div className="div-startup-description">{startup["description"]}</div>
+      <Box sx={{ padding: 2 }}>
+        <img className="img-startup-info" src={imgSrc} alt={startup["name"]} />
 
-      <div className="div-label">Categories</div>
-      <div className="div-startup-categories">{categoryStr}</div>
+        <Typography variant="h4" gutterBottom>
+          {startup["name"]}
+        </Typography>
 
-      <div className="div-label">Funding & Progress</div>
-      <div className="div-stages">{stageStr}</div>
+        <Typography variant="h6" gutterBottom>
+          "{startup["tagline"]}"
+        </Typography>
 
-      <div className="div-label">Business Registration</div>
-      <div className="div-startup-business-registration">
-        {startup["business_registration_date"]}
-      </div>
+        <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+          {chipInfoList.map(function ({ value, icon }) {
+            return <Chip key={value} label={value} icon={icon} />;
+          })}
+        </Box>
 
-      <div className="div-label">Founder Details</div>
-      <div>{founderStr}</div>
+        <Typography variant="body1" gutterBottom>
+          {startup["description"]}
+        </Typography>
 
-      <div className="div-label">Website</div>
-      <div>
-        <a href={url} target="_blank" rel="noreferrer">
-          {url}
-        </a>
-      </div>
+        <Card sx={{ maxWidth: 345 }}>
+          <MenuList>
+            <MenuItem>
+              <ListItemIcon>
+                <LinkedInIcon fontSize="small" />
+              </ListItemIcon>
+              <Link href={urlLinkedIn} underline="none">
+                {startup["founder_info"]["name"]}
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <ListItemIcon>
+                <EmailIcon fontSize="small" />
+              </ListItemIcon>
+              <Link
+                href={"mailto:" + startup["founder_info"]["email"]}
+                underline="none"
+              >
+                {startup["founder_info"]["email"]}
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <ListItemIcon>
+                <PhoneIcon fontSize="small" />
+              </ListItemIcon>
+              <Link
+                href={"tel:" + startup["founder_info"]["phone"]}
+                underline="none"
+              >
+                {startup["founder_info"]["phone"]}
+              </Link>
+            </MenuItem>
+          </MenuList>
+        </Card>
+
+        <Typography variant="overline" display="block">
+          Registration {startup["business_registration_date"]}
+        </Typography>
+      </Box>
     </div>
   );
 }
