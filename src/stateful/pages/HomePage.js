@@ -380,17 +380,16 @@ export default class HomePage extends Component {
         >
           <BottomNavigation
             showLabels
-            sx={{ width: 500 }}
             value={""}
             onChange={this.onChangeBottomNavigation.bind(this)}
           >
             <BottomNavigationAction
-              label="@nuuuwan"
+              label="vis by @nuuuwan"
               value="twitter"
               icon={<TwitterIcon />}
             />
             <BottomNavigationAction
-              label="startups.lk"
+              label="data from startups.lk"
               value="website"
               icon={<LanguageIcon />}
             />
