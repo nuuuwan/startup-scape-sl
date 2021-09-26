@@ -112,3 +112,4 @@
   *  [2021-09-26 12:21PM] Added footer
   *  [2021-09-26 12:24PM] Added footer
   *  [2021-09-26 12:34PM] Fixed alignment issues
+  *  [2021-09-26 12:35PM] Removed menu ---
