@@ -117,6 +117,7 @@ export default class Startups {
             return {
               type: "startup",
               name: startupID,
+              startupName: startup['name'],
               startupID,
               value: 1,
               imageFileOnly: imageFileOnly,

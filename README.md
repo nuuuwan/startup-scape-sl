@@ -119,3 +119,4 @@
   *  [2021-09-26 04:04PM] Category Colors
   *  [2021-09-26 04:07PM] Selector Plural
   *  [2021-09-26 04:13PM] Centered BottomNavigation
+  *  [2021-09-26 04:23PM] Added Tooltip to Image

@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Chip from "@mui/material/Chip";
+import Tooltip from "@mui/material/Tooltip";
 import CategoryIcon from "@mui/icons-material/Category";
 
 import { CATEGORY_TO_COLOR } from "../../constants/CategoryConstants.js";
@@ -87,6 +88,7 @@ export default function TreeMap({ data, width, height, onClickImage }) {
                 }
 
                 return (
+                  <Tooltip title={startup.startupName}>
                   <img
                     alt={startupID}
                     src={imgSrc}
@@ -99,6 +101,7 @@ export default function TreeMap({ data, width, height, onClickImage }) {
                     }}
                     onClick={onClick}
                   />
+                  </Tooltip>
                 );
               })}
             </Paper>
