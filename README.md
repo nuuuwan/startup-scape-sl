@@ -121,3 +121,4 @@
   *  [2021-09-26 04:13PM] Centered BottomNavigation
   *  [2021-09-26 04:23PM] Added Tooltip to Image
   *  [2021-09-26 04:37PM] Moved download/filter to speed dial
+  *  [2021-09-26 04:47PM] SpeedDial and Snackbar

@@ -18,6 +18,8 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import Snackbar from '@mui/material/Snackbar';
+
 
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
@@ -70,6 +72,7 @@ export default class HomePage extends Component {
     const showFilterPanel = false;
     const showStartupInfo = false;
     const isDownloading = false;
+    const showDownloadSnackbar = false;
 
     this.state = {
       startupStageToIsSelected,
@@ -81,6 +84,7 @@ export default class HomePage extends Component {
       showFilterPanel,
       showStartupInfo,
       isDownloading,
+      showDownloadSnackbar,
     };
 
     window.addEventListener("resize", this.onWindowResize.bind(this));
@@ -278,6 +282,7 @@ export default class HomePage extends Component {
       showFilterPanel,
       showStartupInfo,
       isDownloading,
+      showDownloadSnackbar,
     } = this.state;
 
     const key = JSON.stringify({
@@ -349,6 +354,14 @@ export default class HomePage extends Component {
             />
 
           </SpeedDial>
+
+          <Snackbar
+            open={isDownloading}
+            autoHideDuration={1000}
+            message="Downloading..."
+             anchorOrigin={{ vertical: 'top',
+          horizontal: 'left', }}
+          />
 
         </Paper>
 
