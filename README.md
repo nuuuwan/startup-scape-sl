@@ -93,3 +93,5 @@
   *  [2021-09-25 09:56PM] Drawer for Filter
   *  [2021-09-25 10:14PM] Added Box/Divider to FilterPanel
   *  [2021-09-25 10:53PM] Added Chips to Filter Panel
+* [2021-09-26 09:43AM] Select All for Filter Selector
+  *  [2021-09-26 09:43AM] Updated README
