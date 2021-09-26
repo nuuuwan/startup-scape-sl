@@ -4,7 +4,6 @@ import html2canvas from "html2canvas";
 import AppBar from "@mui/material/AppBar";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import LanguageIcon from "@mui/icons-material/Language";
 import Paper from "@mui/material/Paper";
@@ -13,14 +12,12 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import Typography from "@mui/material/Typography";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import SpeedDialAction from '@mui/material/SpeedDialAction';
-import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
-import Snackbar from '@mui/material/Snackbar';
-
-
+import SpeedDial from "@mui/material/SpeedDial";
+import SpeedDialIcon from "@mui/material/SpeedDialIcon";
+import SpeedDialAction from "@mui/material/SpeedDialAction";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import Snackbar from "@mui/material/Snackbar";
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -72,7 +69,6 @@ export default class HomePage extends Component {
     const showFilterPanel = false;
     const showStartupInfo = false;
     const isDownloading = false;
-    const showDownloadSnackbar = false;
 
     this.state = {
       startupStageToIsSelected,
@@ -84,7 +80,6 @@ export default class HomePage extends Component {
       showFilterPanel,
       showStartupInfo,
       isDownloading,
-      showDownloadSnackbar,
     };
 
     window.addEventListener("resize", this.onWindowResize.bind(this));
@@ -250,7 +245,8 @@ export default class HomePage extends Component {
       <>
         <Alert severity="warning" variant="outlined">
           <AlertTitle>Disclaimer</AlertTitle>
-          Categories, startup status and funding status are self-reported by the startups. This listing might not be exhaustive.
+          Categories, startup status and funding status are self-reported by the
+          startups. This listing might not be exhaustive.
         </Alert>
       </>
     );
@@ -282,7 +278,6 @@ export default class HomePage extends Component {
       showFilterPanel,
       showStartupInfo,
       isDownloading,
-      showDownloadSnackbar,
     } = this.state;
 
     const key = JSON.stringify({
@@ -337,7 +332,7 @@ export default class HomePage extends Component {
           />
           <SpeedDial
             ariaLabel="SpeedDial basic example"
-            sx={{ position: 'absolute', bottom: 16, right: 16 }}
+            sx={{ position: "absolute", bottom: 16, right: 16 }}
             icon={<SpeedDialIcon />}
           >
             <SpeedDialAction
@@ -352,17 +347,14 @@ export default class HomePage extends Component {
               icon={<FilterAltIcon />}
               tooltipTitle="Filter Startups"
             />
-
           </SpeedDial>
 
           <Snackbar
             open={isDownloading}
             autoHideDuration={1000}
             message="Downloading..."
-             anchorOrigin={{ vertical: 'top',
-          horizontal: 'left', }}
+            anchorOrigin={{ vertical: "top", horizontal: "left" }}
           />
-
         </Paper>
 
         <Drawer

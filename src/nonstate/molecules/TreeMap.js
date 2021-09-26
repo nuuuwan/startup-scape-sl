@@ -1,14 +1,15 @@
 import * as d3 from "d3";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import Chip from "@mui/material/Chip";
 import Tooltip from "@mui/material/Tooltip";
-import CategoryIcon from "@mui/icons-material/Category";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import InputLabel from "@mui/material/InputLabel";
 
 import { CATEGORY_TO_COLOR } from "../../constants/CategoryConstants.js";
 
 const TREEMAP_PADDING_INNER = 9;
-const HEADER_GAP = 36;
+const HEADER_GAP = 24;
 const CATEGORY_PADDING = 6;
 
 export default function TreeMap({ data, width, height, onClickImage }) {
@@ -69,41 +70,55 @@ export default function TreeMap({ data, width, height, onClickImage }) {
               sx={{ borderColor: color, borderWidth: 3, borderRadius: 3 }}
               variant="outlined"
             >
-              <Chip
-                label={categoryLabel}
-                icon={<CategoryIcon sx={{ fill: color }} />}
-                sx={{ background: "white", color }}
-              />
+              <InputLabel
+                sx={{
+                  maxWidth: categoryWidth,
+                  paddingTop: 0.5,
+                  paddingLeft: 1,
+                  color,
+                }}
+              >
+                {categoryLabel}
+              </InputLabel>
 
-              {categoryStartups.map(function (startup, iStartup) {
-                const startupID = startup.startupID;
-                const imageFileOnly = startup.imageFileOnly;
-                const imgSrc = require("../../assets/images/startup_images/" +
-                  imageFileOnly).default;
-                const iCol = iStartup % nCols;
-                const iRow = parseInt(iStartup / nCols);
+              <ImageList
+                sx={{
+                  width: effectiveCategoryWidth,
+                  height: effectiveCategoryHeight,
+                  margin: 1,
+                }}
+                cols={nCols}
+                rowHeight={startupHeight}
+              >
+                {categoryStartups.map(function (startup, iStartup) {
+                  const startupID = startup.startupID;
+                  const imageFileOnly = startup.imageFileOnly;
+                  const imgSrc = require("../../assets/images/startup_images/" +
+                    imageFileOnly).default;
+                  const key = "image-" + startupID;
 
-                function onClick(e) {
-                  onClickImage(startupID);
-                }
+                  function onClick(e) {
+                    onClickImage(startupID);
+                  }
 
-                return (
-                  <Tooltip title={startup.startupName}>
-                  <img
-                    alt={startupID}
-                    src={imgSrc}
-                    style={{
-                      position: "absolute",
-                      maxWidth: startupWidth * 0.8,
-                      maxHeight: startupHeight * 0.8,
-                      left: CATEGORY_PADDING + iCol * startupWidth,
-                      top: CATEGORY_PADDING + HEADER_GAP + iRow * startupHeight,
-                    }}
-                    onClick={onClick}
-                  />
-                  </Tooltip>
-                );
-              })}
+                  return (
+                    <ImageListItem key={key}>
+                      <Tooltip title={startup.startupName}>
+                        <img
+                          alt={startupID}
+                          src={imgSrc}
+                          style={{
+                            maxHeight: startupHeight * 0.8,
+                            maxWidth: startupWidth * 0.8,
+                          }}
+                          onClick={onClick}
+                          loading="lazy"
+                        />
+                      </Tooltip>
+                    </ImageListItem>
+                  );
+                })}
+              </ImageList>
             </Paper>
           </Box>
         );
