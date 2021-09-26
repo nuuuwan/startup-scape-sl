@@ -38,7 +38,7 @@ import "./HomePage.css";
 const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
 const URL_NUUUWAN = "https://twitter.com/nuuuwan";
 // const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL&f=top";
-const MIN_WINDOW_INNER_WIDTH = 800;
+const MIN_WINDOW_INNER_WIDTH = 480;
 const STARTUPSCAPE_TOP = 40;
 const STARTUPSCAPE_BOTTOM = 100;
 const STARTUPSCAPE_LEFT = 90;

@@ -126,3 +126,4 @@
   *  [2021-09-26 05:35PM] Added Terms; Centered SubTitle
   *  [2021-09-26 06:18PM] Mostly done
   *  [2021-09-26 06:29PM] Final
+  *  [2021-09-26 06:40PM] Reduced Screen Limit to 480px
