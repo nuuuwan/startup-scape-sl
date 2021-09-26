@@ -123,3 +123,4 @@
   *  [2021-09-26 04:37PM] Moved download/filter to speed dial
   *  [2021-09-26 04:47PM] SpeedDial and Snackbar
   *  [2021-09-26 05:21PM] Cleanedup TreeMap - Added ImageList
+  *  [2021-09-26 05:35PM] Added Terms; Centered SubTitle

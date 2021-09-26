@@ -18,6 +18,13 @@ import SpeedDialAction from "@mui/material/SpeedDialAction";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import Snackbar from "@mui/material/Snackbar";
+import GavelIcon from '@mui/icons-material/Gavel';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Button from '@mui/material/Button';
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -69,6 +76,7 @@ export default class HomePage extends Component {
     const showFilterPanel = false;
     const showStartupInfo = false;
     const isDownloading = false;
+    const showTermsDialog = false;
 
     this.state = {
       startupStageToIsSelected,
@@ -80,7 +88,9 @@ export default class HomePage extends Component {
       showFilterPanel,
       showStartupInfo,
       isDownloading,
+      showTermsDialog,
     };
+
 
     window.addEventListener("resize", this.onWindowResize.bind(this));
   }
@@ -164,9 +174,16 @@ export default class HomePage extends Component {
       case "website":
         window.open(URL_STARTUPSL_LK);
         break;
+        case "terms":
+          this.setState({showTermsDialog: true})
+          break;
       default:
         break;
     }
+  }
+
+  onCloseTermsDialog() {
+    this.setState({showTermsDialog: false});
   }
 
   renderTitle() {
@@ -231,24 +248,12 @@ export default class HomePage extends Component {
     }
 
     return (
-      <Typography variant="body1" gutterBottom>
+      <Typography variant="body1" align="center" gutterBottom>
         {`${n} Startups `}
         {` · ${nCategories} categories${displayCategory}`}
         {` · ${nStartupStages} startup stages${displayStartupStage}`}
         {` · ${nFundingStages} funding stages${displayFundingStage}`}
       </Typography>
-    );
-  }
-
-  renderDisclaimer() {
-    return (
-      <>
-        <Alert severity="warning" variant="outlined">
-          <AlertTitle>Disclaimer</AlertTitle>
-          Categories, startup status and funding status are self-reported by the
-          startups. This listing might not be exhaustive.
-        </Alert>
-      </>
     );
   }
 
@@ -278,6 +283,7 @@ export default class HomePage extends Component {
       showFilterPanel,
       showStartupInfo,
       isDownloading,
+      showTermsDialog,
     } = this.state;
 
     const key = JSON.stringify({
@@ -319,7 +325,6 @@ export default class HomePage extends Component {
           elevation={3}
         >
           {this.renderSubTitle()}
-          {this.renderDisclaimer()}
 
           <StartupScape
             key={key}
@@ -414,7 +419,35 @@ export default class HomePage extends Component {
               value="website"
               icon={<LanguageIcon />}
             />
+            <BottomNavigationAction
+              label="Terms"
+              value="terms"
+              icon={<GavelIcon />}
+            />
           </BottomNavigation>
+
+          <Dialog
+            open={showTermsDialog}
+            onClose={this.onCloseTermsDialog.bind(this)}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">
+              Terms & Disclaimers
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                Categories, startup status and funding status are self-reported by the startups.
+
+                This listing might not be exhaustive.
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.onCloseTermsDialog.bind(this)}>
+                Agree
+              </Button>
+            </DialogActions>
+          </Dialog>
         </Paper>
       </div>
     );
