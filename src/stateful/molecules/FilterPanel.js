@@ -14,8 +14,6 @@ export default class FilterPanel extends Component {
       onChangeCategory,
       onChangeStartupStage,
       onChangeFundingStage,
-      onClickSelectAllCategories,
-      onClickUnSelectAllCategories,
     } = this.props;
     return (
       <div className="div-filter-panel">
@@ -36,8 +34,6 @@ export default class FilterPanel extends Component {
             label="Category"
             valueToIsSelected={categoryToIsSelected}
             onChange={onChangeCategory}
-            onClickSelectAll={onClickSelectAllCategories}
-            onClickUnSelectAll={onClickUnSelectAllCategories}
           />
         </Box>
       </div>

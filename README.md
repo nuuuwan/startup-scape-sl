@@ -105,3 +105,4 @@
   *  [2021-09-26 10:10AM] Removed TreeMap
   *  [2021-09-26 10:16AM] Pre-Merge
   *  [2021-09-26 11:24AM] Updated Home Page Text
+  *  [2021-09-26 11:28AM] Removed unused functions from FilterPanel
