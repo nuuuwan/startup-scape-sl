@@ -111,3 +111,4 @@
   *  [2021-09-26 11:56AM] Dowloading Progress
   *  [2021-09-26 12:21PM] Added footer
   *  [2021-09-26 12:24PM] Added footer
+  *  [2021-09-26 12:34PM] Fixed alignment issues

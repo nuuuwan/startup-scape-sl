@@ -19,7 +19,6 @@ import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
 import Startups from "../../core/Startups.js";
 
-import QRCode from "../../nonstate/atoms/QRCode.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
@@ -323,21 +322,30 @@ export default class HomePage extends Component {
           </AppBar>
         </Paper>
 
-        <div className="div-home-page-inner" ref={this.ref}>
+        <Paper
+          sx={{
+            position: "fixed",
+            top: 60,
+            left: 0,
+            right: 0,
+            bottom: 40,
+            padding: 1,
+          }}
+          elevation={3}
+        >
           {this.renderSubTitle()}
-
           {this.renderDisclaimer()}
 
           <StartupScape
             key={key}
+            ref={this.ref}
             categoryToIsSelected={categoryToIsSelected}
             startupStageToIsSelected={startupStageToIsSelected}
             fundingStageToIsSelected={fundingStageToIsSelected}
             onClickImage={this.onClickImage.bind(this)}
             rightPanelWidth={rightPanelWidth}
           />
-
-        </div>
+        </Paper>
 
         <Drawer
           open={showFilterPanel}
@@ -378,7 +386,6 @@ export default class HomePage extends Component {
             bottom: 0,
             left: 0,
             right: 0,
-            textAlign: "center",
           }}
           elevation={3}
         >

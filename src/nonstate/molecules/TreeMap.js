@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+
 const TREEMAP_PADDING_INNER = 6;
 const HEADER_GAP = 24;
 const CATEGORY_PADDING = 6;
