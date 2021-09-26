@@ -79,7 +79,7 @@ export default class Selector extends Component {
             renderValue={(selected) => (
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                 {selected.map((value) => (
-                  <Chip key={value} label={value} icon={icon} />
+                  <Chip label={value} icon={icon} size={"small"} />
                 ))}
               </Box>
             )}

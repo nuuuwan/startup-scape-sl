@@ -117,3 +117,4 @@
   *  [2021-09-26 03:20PM] REfactored StartupInfo
   *  [2021-09-26 03:23PM] Fixed missing contacts bug
   *  [2021-09-26 04:04PM] Category Colors
+  *  [2021-09-26 04:07PM] Selector Plural

@@ -22,21 +22,21 @@ export default class FilterPanel extends Component {
       <div className="div-filter-panel">
         <Box sx={{ padding: 1 }}>
           <Selector
-            label="Startup Stage"
+            label="Startup Stages"
             valueToIsSelected={startupStageToIsSelected}
             onChange={onChangeStartupStage}
             icon={<TimelineIcon />}
           />
 
           <Selector
-            label="Funding Stage"
+            label="Funding Stages"
             valueToIsSelected={fundingStageToIsSelected}
             onChange={onChangeFundingStage}
             icon={<MonetizationOnIcon />}
           />
 
           <Selector
-            label="Category"
+            label="Startup Categories"
             valueToIsSelected={categoryToIsSelected}
             onChange={onChangeCategory}
             icon={<CategoryIcon />}
