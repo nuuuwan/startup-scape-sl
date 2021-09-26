@@ -109,3 +109,4 @@
   *  [2021-09-26 11:48AM] Fixed Selector Header Issue
   *  [2021-09-26 11:51AM] Fixed SelectAll disabling
   *  [2021-09-26 11:56AM] Dowloading Progress
+  *  [2021-09-26 12:21PM] Added footer

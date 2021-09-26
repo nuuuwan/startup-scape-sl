@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import html2canvas from "html2canvas";
 
 import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import LanguageIcon from "@mui/icons-material/Language";
+import MenuIcon from "@mui/icons-material/Menu";
+import Paper from "@mui/material/Paper";
+import Toolbar from "@mui/material/Toolbar";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import Typography from "@mui/material/Typography";
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -147,6 +152,19 @@ export default class HomePage extends Component {
     this.setState({ showStartupInfo: false });
   }
 
+  onChangeBottomNavigation(event, newValue) {
+    switch (newValue) {
+      case "twitter":
+        window.open(URL_NUUUWAN);
+        break;
+      case "website":
+        window.open(URL_STARTUPSL_LK);
+        break;
+      default:
+        break;
+    }
+  }
+
   renderTitle() {
     return (
       <span>
@@ -266,33 +284,44 @@ export default class HomePage extends Component {
 
     return (
       <div className="div-home-page" ref={this.ref}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              {this.renderTitle()}
-            </Typography>
+        <Paper
+          sx={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            textAlign: "center",
+          }}
+          elevation={3}
+        >
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                {this.renderTitle()}
+              </Typography>
 
-            <Button
-              color="inherit"
-              onClick={this.onClickDownload.bind(this)}
-              disabled={isDownloading}
-            >
-              {isDownloading ? "Downloading..." : "Download"}
-            </Button>
-            <Button color="inherit" onClick={this.onToggleFilter.bind(this)}>
-              Filter
-            </Button>
-          </Toolbar>
-        </AppBar>
+              <Button
+                color="inherit"
+                onClick={this.onClickDownload.bind(this)}
+                disabled={isDownloading}
+              >
+                {isDownloading ? "Downloading..." : "Download"}
+              </Button>
+              <Button color="inherit" onClick={this.onToggleFilter.bind(this)}>
+                Filter
+              </Button>
+            </Toolbar>
+          </AppBar>
+        </Paper>
 
         <div className="div-home-page-inner" ref={this.ref}>
           {this.renderSubTitle()}
@@ -363,6 +392,35 @@ export default class HomePage extends Component {
         >
           <StartupInfo startupID={activeStartupID} />
         </Drawer>
+
+        <Paper
+          sx={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            textAlign: "center",
+          }}
+          elevation={3}
+        >
+          <BottomNavigation
+            showLabels
+            sx={{ width: 500 }}
+            value={""}
+            onChange={this.onChangeBottomNavigation.bind(this)}
+          >
+            <BottomNavigationAction
+              label="@nuuuwan"
+              value="twitter"
+              icon={<TwitterIcon />}
+            />
+            <BottomNavigationAction
+              label="startups.lk"
+              value="website"
+              icon={<LanguageIcon />}
+            />
+          </BottomNavigation>
+        </Paper>
       </div>
     );
   }
