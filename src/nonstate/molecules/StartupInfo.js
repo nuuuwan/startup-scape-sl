@@ -81,6 +81,7 @@ export default function StartupInfo(props) {
 
         <Card sx={{ maxWidth: 345 }}>
           <MenuList>
+            {startup["founder_info"]["name"] ? (
             <MenuItem>
               <ListItemIcon>
                 <LinkedInIcon fontSize="small" />
@@ -89,6 +90,9 @@ export default function StartupInfo(props) {
                 {startup["founder_info"]["name"]}
               </Link>
             </MenuItem>
+            ) : null}
+
+            {startup["founder_info"]["email"] ? (
             <MenuItem>
               <ListItemIcon>
                 <EmailIcon fontSize="small" />
@@ -100,17 +104,21 @@ export default function StartupInfo(props) {
                 {startup["founder_info"]["email"]}
               </Link>
             </MenuItem>
-            <MenuItem>
-              <ListItemIcon>
-                <PhoneIcon fontSize="small" />
-              </ListItemIcon>
-              <Link
-                href={"tel:" + startup["founder_info"]["phone"]}
-                underline="none"
-              >
-                {startup["founder_info"]["phone"]}
-              </Link>
-            </MenuItem>
+            ) : null}
+
+            {startup["founder_info"]["phone"] ? (
+              <MenuItem>
+                <ListItemIcon>
+                  <PhoneIcon fontSize="small" />
+                </ListItemIcon>
+                <Link
+                  href={"tel:" + startup["founder_info"]["phone"]}
+                  underline="none"
+                >
+                  {startup["founder_info"]["phone"]}
+                </Link>
+              </MenuItem>
+            ) : null}
           </MenuList>
         </Card>
 
