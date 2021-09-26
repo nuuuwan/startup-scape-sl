@@ -1,5 +1,3 @@
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 import Startups from "../../core/Startups.js";
 import "./StartupInfo.css";
 
@@ -57,7 +55,7 @@ function renderLinkableItems(itemsList) {
 }
 
 export default function StartupInfo(props) {
-  const { startupID, onClickStartupInfoHide } = props;
+  const { startupID } = props;
   if (!startupID) {
     return null;
   }

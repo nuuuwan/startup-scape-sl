@@ -1,11 +1,4 @@
 import { Component } from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
@@ -27,9 +20,6 @@ export default class Selector extends Component {
       .filter(([value, isSelected]) => isSelected)
       .map(([value, isSelected]) => value);
     const nSelected = selectedValues.length;
-
-    const isSelectAll = allValues.length === selectedValues.length;
-    const isSelectNone = 0 === selectedValues.length;
 
     function onChangeInner(e) {
       const newSelectedValues = e.target.value;

@@ -2,8 +2,6 @@ import * as d3 from "d3";
 
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import Avatar from "@mui/material/Avatar";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
 const TREEMAP_PADDING_INNER = 6;

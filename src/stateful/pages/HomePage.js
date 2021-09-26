@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import html2canvas from "html2canvas";
 
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import Paper from "@mui/material/Paper";
 import Drawer from "@mui/material/Drawer";
-
-import DownloadIcon from "@mui/icons-material/Download";
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -27,7 +23,7 @@ import "./HomePage.css";
 
 const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
 const URL_NUUUWAN = "https://twitter.com/nuuuwan";
-const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL&f=top";
+// const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL&f=top";
 const MIN_WINDOW_INNER_WIDTH = 840;
 
 function getGenericToIsSelected(values, isSelected) {
