@@ -100,3 +100,5 @@
   *  [2021-09-26 09:52AM] Updated README
   *  [2021-09-26 09:54AM] Done
   *  [2021-09-26 09:54AM] Pre-Merge
+* [2021-09-26 10:10AM] Make Files Smaller
+  *  [2021-09-26 10:10AM] Updated README
