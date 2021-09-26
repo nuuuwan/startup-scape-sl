@@ -59,6 +59,7 @@ export default class HomePage extends Component {
     const rightPanelWidth = 0;
     const showFilterPanel = false;
     const showStartupInfo = false;
+    const isDownloading = false;
 
     this.state = {
       startupStageToIsSelected,
@@ -69,6 +70,7 @@ export default class HomePage extends Component {
       rightPanelWidth,
       showFilterPanel,
       showStartupInfo,
+      isDownloading,
     };
 
     window.addEventListener("resize", this.onWindowResize.bind(this));
@@ -108,20 +110,26 @@ export default class HomePage extends Component {
     this.setState({ activeStartupID: null });
   }
 
-  onClickScreenCapture() {
-    html2canvas(this.ref.current, {
-      allowTaint: true,
-      useCORs: true,
-      width: window.innerWidth,
-      height: window.innerHeight,
-      scale: 5,
-    }).then((canvas) => {
-      const dataURL = canvas.toDataURL("image/svg+xml");
-      let a = document.createElement("a");
-      a.href = dataURL;
-      a.download = "startups_lk.png";
-      a.click();
-    });
+  onClickDownload() {
+    this.setState(
+      { isDownloading: true },
+      function () {
+        html2canvas(this.ref.current, {
+          allowTaint: true,
+          useCORs: true,
+          width: window.innerWidth,
+          height: window.innerHeight,
+          scale: 5,
+        }).then((canvas) => {
+          const dataURL = canvas.toDataURL("image/svg+xml");
+          let a = document.createElement("a");
+          a.href = dataURL;
+          a.download = "startups_lk.png";
+          a.click();
+          this.setState({ isDownloading: false });
+        });
+      }.bind(this)
+    );
   }
 
   onRightPanelMakeVisible() {
@@ -247,6 +255,7 @@ export default class HomePage extends Component {
       rightPanelWidth,
       showFilterPanel,
       showStartupInfo,
+      isDownloading,
     } = this.state;
 
     const key = JSON.stringify({
@@ -274,9 +283,10 @@ export default class HomePage extends Component {
 
             <Button
               color="inherit"
-              onClick={this.onClickScreenCapture.bind(this)}
+              onClick={this.onClickDownload.bind(this)}
+              disabled={isDownloading}
             >
-              Download
+              {isDownloading ? "Downloading..." : "Download"}
             </Button>
             <Button color="inherit" onClick={this.onToggleFilter.bind(this)}>
               Filter
