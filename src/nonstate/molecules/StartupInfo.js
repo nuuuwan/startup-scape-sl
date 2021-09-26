@@ -15,6 +15,7 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import TimelineIcon from "@mui/icons-material/Timeline";
 import Typography from "@mui/material/Typography";
+import LanguageIcon from "@mui/icons-material/Language";
 
 const URL_LINKEDIN_PREFIX =
   "https://www.linkedin.com/search/results/all/?keywords=";
@@ -81,7 +82,7 @@ export default function StartupInfo(props) {
 
         <Card sx={{ maxWidth: 345 }}>
           <MenuList>
-            {startup["founder_info"]["name"] ? (
+            {startup["founder_info"]["name"].length > 10 ? (
               <MenuItem>
                 <ListItemIcon>
                   <LinkedInIcon fontSize="small" />
@@ -116,6 +117,17 @@ export default function StartupInfo(props) {
                   underline="none"
                 >
                   {startup["founder_info"]["phone"]}
+                </Link>
+              </MenuItem>
+            ) : null}
+
+            {url ? (
+              <MenuItem>
+                <ListItemIcon>
+                  <LanguageIcon fontSize="small" />
+                </ListItemIcon>
+                <Link href={url} underline="none">
+                  {url}
                 </Link>
               </MenuItem>
             ) : null}

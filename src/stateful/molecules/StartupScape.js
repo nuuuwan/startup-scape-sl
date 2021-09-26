@@ -4,7 +4,7 @@ import Startups from "../../core/Startups.js";
 import TreeMap from "../../nonstate/molecules/TreeMap.js";
 
 import "./StartupScape.css";
-const WIDTH_PADDING = 100;
+const WIDTH_PADDING = 50;
 const HEIGHT_HEADER = 100;
 const HEIGHT_FOOTER = 110;
 

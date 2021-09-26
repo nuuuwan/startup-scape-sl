@@ -17,9 +17,6 @@ import GavelIcon from "@mui/icons-material/Gavel";
 import LanguageIcon from "@mui/icons-material/Language";
 import Paper from "@mui/material/Paper";
 import Snackbar from "@mui/material/Snackbar";
-import SpeedDial from "@mui/material/SpeedDial";
-import SpeedDialAction from "@mui/material/SpeedDialAction";
-import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import Toolbar from "@mui/material/Toolbar";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import Typography from "@mui/material/Typography";
@@ -41,8 +38,8 @@ const URL_NUUUWAN = "https://twitter.com/nuuuwan";
 const MIN_WINDOW_INNER_WIDTH = 480;
 const STARTUPSCAPE_TOP = 40;
 const STARTUPSCAPE_BOTTOM = 100;
-const STARTUPSCAPE_LEFT = 90;
-const STARTUPSCAPE_RIGHT = 100;
+const STARTUPSCAPE_LEFT = 40;
+const STARTUPSCAPE_RIGHT = 50;
 
 function getGenericToIsSelected(values, isSelected) {
   return values.reduce(function (valueToIsSelected, value) {
@@ -179,6 +176,12 @@ export default class HomePage extends Component {
         break;
       case "terms":
         this.setState({ showTermsDialog: true });
+        break;
+      case "download":
+        this.onClickDownload();
+        break;
+      case "filter":
+        this.onToggleFilter();
         break;
       default:
         break;
@@ -336,24 +339,6 @@ export default class HomePage extends Component {
                 onClickImage={this.onClickImage.bind(this)}
                 rightPanelWidth={rightPanelWidth}
               />
-              <SpeedDial
-                ariaLabel="SpeedDial basic example"
-                sx={{ position: "absolute", bottom: 16, right: 16 }}
-                icon={<SpeedDialIcon />}
-              >
-                <SpeedDialAction
-                  onClick={this.onClickDownload.bind(this)}
-                  disabled={isDownloading}
-                  icon={<CloudDownloadIcon />}
-                  tooltipTitle="Download Image"
-                />
-
-                <SpeedDialAction
-                  onClick={this.onToggleFilter.bind(this)}
-                  icon={<FilterAltIcon />}
-                  tooltipTitle="Filter Startups"
-                />
-              </SpeedDial>
 
               <Snackbar
                 open={isDownloading}
@@ -425,6 +410,16 @@ export default class HomePage extends Component {
               label="Terms"
               value="terms"
               icon={<GavelIcon />}
+            />
+            <BottomNavigationAction
+              label="Download"
+              value="download"
+              icon={<CloudDownloadIcon />}
+            />
+            <BottomNavigationAction
+              label="Filter"
+              value="filter"
+              icon={<FilterAltIcon />}
             />
           </BottomNavigation>
 
