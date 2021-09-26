@@ -82,7 +82,7 @@ export default function StartupInfo(props) {
 
         <Card sx={{ maxWidth: 345 }}>
           <MenuList>
-            {startup["founder_info"]["name"].length > 10 ? (
+            {startup["founder_info"]["name"].length > 15 ? (
               <MenuItem>
                 <ListItemIcon>
                   <LinkedInIcon fontSize="small" />
