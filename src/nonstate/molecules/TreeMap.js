@@ -1,10 +1,13 @@
 import * as d3 from "d3";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
+import Chip from "@mui/material/Chip";
+import CategoryIcon from "@mui/icons-material/Category";
 
-const TREEMAP_PADDING_INNER = 6;
-const HEADER_GAP = 24;
+import { CATEGORY_TO_COLOR } from "../../constants/CategoryConstants.js";
+
+const TREEMAP_PADDING_INNER = 9;
+const HEADER_GAP = 36;
 const CATEGORY_PADDING = 6;
 
 export default function TreeMap({ data, width, height, onClickImage }) {
@@ -46,6 +49,8 @@ export default function TreeMap({ data, width, height, onClickImage }) {
         const startupHeight = effectiveCategoryHeight / nRows;
         const categoryLabel = `${categoryName} (${nStartups})`;
 
+        const color = CATEGORY_TO_COLOR[categoryName];
+
         return (
           <Box
             sx={{
@@ -58,10 +63,17 @@ export default function TreeMap({ data, width, height, onClickImage }) {
               },
             }}
           >
-            <Paper elevation={6}>
-              <Typography variant="caption" display="block" padding={0.5}>
-                {categoryLabel}
-              </Typography>
+            <Paper
+              elevation={6}
+              sx={{ borderColor: color, borderWidth: 3, borderRadius: 3 }}
+              variant="outlined"
+            >
+              <Chip
+                label={categoryLabel}
+                icon={<CategoryIcon sx={{ fill: color }} />}
+                sx={{ background: "white", color }}
+              />
+
               {categoryStartups.map(function (startup, iStartup) {
                 const startupID = startup.startupID;
                 const imageFileOnly = startup.imageFileOnly;
