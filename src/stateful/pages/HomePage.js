@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import html2canvas from "html2canvas";
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Paper from '@mui/material/Paper';
-import Drawer from '@mui/material/Drawer';
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Paper from "@mui/material/Paper";
+import Drawer from "@mui/material/Drawer";
 
 import DownloadIcon from "@mui/icons-material/Download";
-
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -110,7 +109,7 @@ export default class HomePage extends Component {
   }
 
   onClickStartupInfoHide() {
-    this.setState({ activeStartupID: null});
+    this.setState({ activeStartupID: null });
   }
 
   onClickScreenCapture() {
@@ -261,18 +260,17 @@ export default class HomePage extends Component {
               {this.renderTitle()}
             </Typography>
 
-            <Button color="inherit"
-              onClick={this.onClickScreenCapture.bind(this)}>
+            <Button
+              color="inherit"
+              onClick={this.onClickScreenCapture.bind(this)}
+            >
               Download
             </Button>
-            <Button color="inherit"
-              onClick={this.onToggleFilter.bind(this)}>
+            <Button color="inherit" onClick={this.onToggleFilter.bind(this)}>
               Filter
             </Button>
           </Toolbar>
         </AppBar>
-
-
 
         <div className="div-home-page-inner" ref={this.ref}>
           {this.renderSubTitle()}

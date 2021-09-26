@@ -95,3 +95,4 @@
   *  [2021-09-25 10:53PM] Added Chips to Filter Panel
 * [2021-09-26 09:43AM] Select All for Filter Selector
   *  [2021-09-26 09:43AM] Updated README
+  *  [2021-09-26 09:51AM] Pre-Merge
