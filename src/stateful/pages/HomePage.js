@@ -201,26 +201,41 @@ export default class HomePage extends Component {
     }
 
     return (
-      <div className="div-sub-title">
+      <Typography variant="body1" gutterBottom>
         {`${n} Startups `}
         {` · ${nCategories} categories${displayCategory}`}
         {` · ${nStartupStages} startup stages${displayStartupStage}`}
         {` · ${nFundingStages} funding stages${displayFundingStage}`}
+      </Typography>
+    );
+  }
+
+  renderDisclaimer() {
+    return (<Typography variant="body2" gutterBottom>
+      {"This listing might not be exhaustive" +
+        " · Categories, startup status and funding status" +
+        " are self-reported by the startups" +
+        " · Each startup might be categorized into multiple categories" +
+        " · Last Updated 2021-09-24"}
+    </Typography>);
+  }
+
+  renderNotSupported() {
+    return (
+      <div className="div-small-screen-warning">
+        {this.renderTitle()}
+        <Typography variant="body2" gutterBottom>
+          {`This app is not designed for screens less than` +
+            ` ${MIN_WINDOW_INNER_WIDTH}px wide.`}
+        </Typography>
       </div>
     );
   }
 
+
   render() {
     if (window.innerWidth < MIN_WINDOW_INNER_WIDTH) {
-      return (
-        <div className="div-small-screen-warning">
-          {this.renderTitle()}
-          <p>
-            {`This app is not designed for screens less than` +
-              ` ${MIN_WINDOW_INNER_WIDTH}px wide.`}
-          </p>
-        </div>
-      );
+      return this.renderNotSupported();
     }
 
     const {
@@ -271,13 +286,7 @@ export default class HomePage extends Component {
         <div className="div-home-page-inner" ref={this.ref}>
           {this.renderSubTitle()}
 
-          <div className="div-disclaimer">
-            {"This listing might not be exhaustive" +
-              " · Categories, startup status and funding status" +
-              " are self-reported by the startups" +
-              " · Each startup might be categorized into multiple categories" +
-              " · Last Updated 2021-09-24"}
-          </div>
+          {this.renderDisclaimer()}
 
           <StartupScape
             key={key}
