@@ -11,6 +11,14 @@ import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import Typography from "@mui/material/Typography";
+import Alert from "@mui/material/Alert";
+import AlertTitle from "@mui/material/AlertTitle";
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -235,13 +243,12 @@ export default class HomePage extends Component {
 
   renderDisclaimer() {
     return (
-      <Typography variant="body2" gutterBottom>
-        {"This listing might not be exhaustive" +
-          " · Categories, startup status and funding status" +
-          " are self-reported by the startups" +
-          " · Each startup might be categorized into multiple categories" +
-          " · Last Updated 2021-09-24"}
-      </Typography>
+      <>
+        <Alert severity="warning" variant="outlined">
+          <AlertTitle>Disclaimer</AlertTitle>
+          Categories, startup status and funding status are self-reported by the startups. This listing might not be exhaustive.
+        </Alert>
+      </>
     );
   }
 
@@ -296,17 +303,6 @@ export default class HomePage extends Component {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 {this.renderTitle()}
               </Typography>
-
-              <Button
-                color="inherit"
-                onClick={this.onClickDownload.bind(this)}
-                disabled={isDownloading}
-              >
-                {isDownloading ? "Downloading..." : "Download"}
-              </Button>
-              <Button color="inherit" onClick={this.onToggleFilter.bind(this)}>
-                Filter
-              </Button>
             </Toolbar>
           </AppBar>
         </Paper>
@@ -334,6 +330,26 @@ export default class HomePage extends Component {
             onClickImage={this.onClickImage.bind(this)}
             rightPanelWidth={rightPanelWidth}
           />
+          <SpeedDial
+            ariaLabel="SpeedDial basic example"
+            sx={{ position: 'absolute', bottom: 16, right: 16 }}
+            icon={<SpeedDialIcon />}
+          >
+            <SpeedDialAction
+              onClick={this.onClickDownload.bind(this)}
+              disabled={isDownloading}
+              icon={<CloudDownloadIcon />}
+              tooltipTitle="Download Image"
+            />
+
+            <SpeedDialAction
+              onClick={this.onToggleFilter.bind(this)}
+              icon={<FilterAltIcon />}
+              tooltipTitle="Filter Startups"
+            />
+
+          </SpeedDial>
+
         </Paper>
 
         <Drawer

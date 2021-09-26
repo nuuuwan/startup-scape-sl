@@ -120,3 +120,4 @@
   *  [2021-09-26 04:07PM] Selector Plural
   *  [2021-09-26 04:13PM] Centered BottomNavigation
   *  [2021-09-26 04:23PM] Added Tooltip to Image
+  *  [2021-09-26 04:37PM] Moved download/filter to speed dial
