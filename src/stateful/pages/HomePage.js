@@ -337,27 +337,6 @@ export default class HomePage extends Component {
             rightPanelWidth={rightPanelWidth}
           />
 
-          <div className="div-source">
-            <table>
-              <tbody>
-                <tr>
-                  <td>
-                    Data by{" "}
-                    <a href={URL_STARTUPSL_LK} target="_blank" rel="noreferrer">
-                      startupsl.lk
-                    </a>
-                    · Visualization by{" "}
-                    <a href={URL_NUUUWAN} target="_blank" rel="noreferrer">
-                      @nuuuwan
-                    </a>
-                  </td>
-                  <td>
-                    <QRCode url={URL_NUUUWAN} />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
 
         <Drawer
