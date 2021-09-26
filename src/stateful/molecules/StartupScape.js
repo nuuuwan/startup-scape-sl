@@ -4,7 +4,7 @@ import Startups from "../../core/Startups.js";
 import TreeMap from "../../nonstate/molecules/TreeMap.js";
 
 import "./StartupScape.css";
-const WIDHT_PADDING = 24;
+const WIDTH_PADDING = 100;
 const HEIGHT_HEADER = 100;
 const HEIGHT_FOOTER = 110;
 
@@ -15,19 +15,22 @@ export default class StartupScape extends Component {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       onClickImage,
-      rightPanelWidth,
     } = this.props;
     const treemapData = Startups.getTreeMapData(
       categoryToIsSelected,
       startupStageToIsSelected,
       fundingStageToIsSelected
     );
+    const top = HEIGHT_HEADER;
+    const left = WIDTH_PADDING;
     const height = window.innerHeight - HEIGHT_FOOTER - HEIGHT_HEADER;
-    const width = window.innerWidth - WIDHT_PADDING * 2 - rightPanelWidth;
+    const width = window.innerWidth - WIDTH_PADDING * 2;
     return (
       <div className="div-startup-scape">
         <TreeMap
           data={treemapData}
+          top={top}
+          left={left}
           height={height}
           width={width}
           onClickImage={onClickImage}

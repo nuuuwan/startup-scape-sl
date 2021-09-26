@@ -4,27 +4,25 @@ import html2canvas from "html2canvas";
 import AppBar from "@mui/material/AppBar";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import Button from "@mui/material/Button";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 import Drawer from "@mui/material/Drawer";
+import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import GavelIcon from "@mui/icons-material/Gavel";
 import LanguageIcon from "@mui/icons-material/Language";
 import Paper from "@mui/material/Paper";
+import Snackbar from "@mui/material/Snackbar";
+import SpeedDial from "@mui/material/SpeedDial";
+import SpeedDialAction from "@mui/material/SpeedDialAction";
+import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import Toolbar from "@mui/material/Toolbar";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
-import SpeedDial from "@mui/material/SpeedDial";
-import SpeedDialIcon from "@mui/material/SpeedDialIcon";
-import SpeedDialAction from "@mui/material/SpeedDialAction";
-import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import Snackbar from "@mui/material/Snackbar";
-import GavelIcon from '@mui/icons-material/Gavel';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Button from '@mui/material/Button';
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
@@ -40,7 +38,11 @@ import "./HomePage.css";
 const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
 const URL_NUUUWAN = "https://twitter.com/nuuuwan";
 // const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL&f=top";
-const MIN_WINDOW_INNER_WIDTH = 840;
+const MIN_WINDOW_INNER_WIDTH = 800;
+const STARTUPSCAPE_TOP = 40;
+const STARTUPSCAPE_BOTTOM = 100;
+const STARTUPSCAPE_LEFT = 90;
+const STARTUPSCAPE_RIGHT = 100;
 
 function getGenericToIsSelected(values, isSelected) {
   return values.reduce(function (valueToIsSelected, value) {
@@ -91,7 +93,6 @@ export default class HomePage extends Component {
       showTermsDialog,
     };
 
-
     window.addEventListener("resize", this.onWindowResize.bind(this));
   }
 
@@ -136,8 +137,10 @@ export default class HomePage extends Component {
         html2canvas(this.ref.current, {
           allowTaint: true,
           useCORs: true,
-          width: window.innerWidth,
-          height: window.innerHeight,
+          x: STARTUPSCAPE_LEFT,
+          y: STARTUPSCAPE_TOP,
+          width: window.innerWidth - STARTUPSCAPE_LEFT - STARTUPSCAPE_RIGHT,
+          height: window.innerHeight - STARTUPSCAPE_TOP - STARTUPSCAPE_BOTTOM,
           scale: 5,
         }).then((canvas) => {
           const dataURL = canvas.toDataURL("image/svg+xml");
@@ -174,16 +177,16 @@ export default class HomePage extends Component {
       case "website":
         window.open(URL_STARTUPSL_LK);
         break;
-        case "terms":
-          this.setState({showTermsDialog: true})
-          break;
+      case "terms":
+        this.setState({ showTermsDialog: true });
+        break;
       default:
         break;
     }
   }
 
   onCloseTermsDialog() {
-    this.setState({showTermsDialog: false});
+    this.setState({ showTermsDialog: false });
   }
 
   renderTitle() {
@@ -319,7 +322,7 @@ export default class HomePage extends Component {
             top: 60,
             left: 0,
             right: 0,
-            bottom: 40,
+            bottom: STARTUPSCAPE_TOP,
             padding: 1,
           }}
           elevation={3}
@@ -437,9 +440,8 @@ export default class HomePage extends Component {
             </DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-description">
-                Categories, startup status and funding status are self-reported by the startups.
-
-                This listing might not be exhaustive.
+                Categories, startup status and funding status are self-reported
+                by the startups. This listing might not be exhaustive.
               </DialogContentText>
             </DialogContent>
             <DialogActions>

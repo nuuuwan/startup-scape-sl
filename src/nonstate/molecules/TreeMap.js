@@ -9,10 +9,15 @@ import InputLabel from "@mui/material/InputLabel";
 import { CATEGORY_TO_COLOR } from "../../constants/CategoryConstants.js";
 
 const TREEMAP_PADDING_INNER = 9;
-const HEADER_GAP = 24;
-const CATEGORY_PADDING = 6;
 
-export default function TreeMap({ data, width, height, onClickImage }) {
+export default function TreeMap({
+  data,
+  top,
+  left,
+  width,
+  height,
+  onClickImage,
+}) {
   if (data.children.length === 0) {
     return null;
   }
@@ -29,7 +34,7 @@ export default function TreeMap({ data, width, height, onClickImage }) {
   const treemapRoot = treemap(root);
 
   return (
-    <>
+    <Paper sx={{ top, left, position: "fixed" }}>
       {treemapRoot.children.map(function (categoryElement) {
         const { x0, y0, x1, y1 } = categoryElement;
         const [left, top] = [x0, y0];
@@ -37,9 +42,10 @@ export default function TreeMap({ data, width, height, onClickImage }) {
         const categoryName = categoryElement.data.name;
         const categoryStartups = categoryElement.children.map((d) => d.data);
         const nStartups = categoryStartups.length;
-        const effectiveCategoryHeight =
-          categoryHeight - HEADER_GAP - CATEGORY_PADDING * 2;
-        const effectiveCategoryWidth = categoryWidth - CATEGORY_PADDING * 2;
+
+        const effectiveCategoryHeight = categoryHeight - 36;
+        const effectiveCategoryWidth = categoryWidth - 12;
+
         const imgDim = parseInt(
           Math.sqrt(
             (effectiveCategoryWidth * effectiveCategoryHeight) / nStartups
@@ -47,8 +53,8 @@ export default function TreeMap({ data, width, height, onClickImage }) {
         );
         const nCols = parseInt(effectiveCategoryWidth / imgDim);
         const nRows = parseInt(nStartups / nCols) + 1;
-        const startupWidth = effectiveCategoryWidth / nCols;
-        const startupHeight = effectiveCategoryHeight / nRows;
+        const startupWidth = (0.8 * effectiveCategoryWidth) / nCols;
+        const startupHeight = (0.8 * effectiveCategoryHeight) / nRows;
         const categoryLabel = `${categoryName} (${nStartups})`;
 
         const color = CATEGORY_TO_COLOR[categoryName];
@@ -72,11 +78,12 @@ export default function TreeMap({ data, width, height, onClickImage }) {
             >
               <InputLabel
                 sx={{
-                  maxWidth: categoryWidth,
-                  paddingTop: 0.5,
-                  paddingLeft: 1,
                   color,
+                  paddingTop: 0.5,
+                  paddingLeft: 0.5,
+                  paddingRight: 0.5,
                 }}
+                shrink
               >
                 {categoryLabel}
               </InputLabel>
@@ -85,7 +92,8 @@ export default function TreeMap({ data, width, height, onClickImage }) {
                 sx={{
                   width: effectiveCategoryWidth,
                   height: effectiveCategoryHeight,
-                  margin: 1,
+                  marginTop: 0,
+                  padding: 0.5,
                 }}
                 cols={nCols}
                 rowHeight={startupHeight}
@@ -108,11 +116,10 @@ export default function TreeMap({ data, width, height, onClickImage }) {
                           alt={startupID}
                           src={imgSrc}
                           style={{
-                            maxHeight: startupHeight * 0.8,
-                            maxWidth: startupWidth * 0.8,
+                            maxHeight: startupHeight,
+                            maxWidth: startupWidth,
                           }}
                           onClick={onClick}
-                          loading="lazy"
                         />
                       </Tooltip>
                     </ImageListItem>
@@ -123,6 +130,6 @@ export default function TreeMap({ data, width, height, onClickImage }) {
           </Box>
         );
       })}
-    </>
+    </Paper>
   );
 }
