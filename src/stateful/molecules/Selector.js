@@ -19,7 +19,11 @@ export default class Selector extends Component {
     const selectedValues = Object.entries(valueToIsSelected)
       .filter(([value, isSelected]) => isSelected)
       .map(([value, isSelected]) => value);
+    const nAll = allValues.length;
     const nSelected = selectedValues.length;
+
+    const areAllSelected = nAll === nSelected;
+    const areNoneSelected = 0 === nSelected;
 
     function onChangeInner(e) {
       const newSelectedValues = e.target.value;
@@ -80,11 +84,16 @@ export default class Selector extends Component {
               </Box>
             )}
           >
-            {menuDisplayValues.map((name) => (
-              <MenuItem key={name} value={name}>
-                {name}
-              </MenuItem>
-            ))}
+            {menuDisplayValues.map(function (name) {
+              let disabled =
+                (name === TEXT_SELECT_ALL && areAllSelected) ||
+                (name === TEXT_UNSELECT_ALL && areNoneSelected);
+              return (
+                <MenuItem key={name} value={name} disabled={disabled}>
+                  {name}
+                </MenuItem>
+              );
+            })}
           </Select>
         </FormControl>
       </Box>
