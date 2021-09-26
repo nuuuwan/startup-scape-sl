@@ -6,9 +6,7 @@ import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
 import LanguageIcon from "@mui/icons-material/Language";
-import MenuIcon from "@mui/icons-material/Menu";
 import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -293,7 +291,7 @@ export default class HomePage extends Component {
           }}
           elevation={3}
         >
-          <AppBar position="static">
+          <AppBar position="static" color="transparent">
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 {this.renderTitle()}
