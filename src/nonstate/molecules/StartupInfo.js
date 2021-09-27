@@ -17,6 +17,8 @@ import TimelineIcon from "@mui/icons-material/Timeline";
 import Typography from "@mui/material/Typography";
 import LanguageIcon from "@mui/icons-material/Language";
 
+import TelephoneNumber from "../atoms/TelephoneNumber.js";
+
 const URL_LINKEDIN_PREFIX =
   "https://www.linkedin.com/search/results/all/?keywords=";
 
@@ -118,7 +120,7 @@ export default function StartupInfo(props) {
                   underline="none"
                   noWrap
                 >
-                  {startup["founder_info"]["phone"]}
+                  <TelephoneNumber value={startup["founder_info"]["phone"]} />
                 </Link>
               </MenuItem>
             ) : null}
