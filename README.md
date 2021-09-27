@@ -140,3 +140,4 @@
   *  [2021-09-27 08:21AM] Pre-Merge
   *  [2021-09-27 08:25AM] Shrunk Selector Menu Items
   *  [2021-09-27 08:31AM] Fixed Title Wrap issue
+  *  [2021-09-27 08:40AM] Added Google Analytics
