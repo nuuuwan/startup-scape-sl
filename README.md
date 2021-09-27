@@ -155,3 +155,5 @@
   *  [2021-09-27 09:17AM] Done
   *  [2021-09-27 09:17AM] Pre-Merge
   *  [2021-09-27 09:22AM] Wrap Startup Info
+* [2021-09-27 09:24AM] Format Telephone NUmbers
+  *  [2021-09-27 09:24AM] Updated README
