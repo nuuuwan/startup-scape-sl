@@ -26,6 +26,7 @@ import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
 import Startups from "../../core/Startups.js";
 
+import Title from '../../nonstate/atoms/Title.js';
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
@@ -192,18 +193,6 @@ export default class HomePage extends Component {
     this.setState({ showTermsDialog: false });
   }
 
-  renderTitle() {
-    return (
-      <span>
-        #<span className="color-maroon">S</span>
-        <span className="color-orange">t</span>
-        <span className="color-yellow">a</span>
-        <span className="color-green">r</span>
-        tupScapeSL
-      </span>
-    );
-  }
-
   renderSubTitle() {
     const {
       categoryToIsSelected,
@@ -308,7 +297,7 @@ export default class HomePage extends Component {
           <AppBar position="static" color="transparent">
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                {this.renderTitle()}
+                <Title/ >
               </Typography>
             </Toolbar>
           </AppBar>
