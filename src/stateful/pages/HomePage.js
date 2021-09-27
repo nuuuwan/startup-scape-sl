@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import html2canvas from "html2canvas";
 
-import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -11,16 +10,14 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Drawer from "@mui/material/Drawer";
 import Paper from "@mui/material/Paper";
 import Snackbar from "@mui/material/Snackbar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 
 import { MIN_WINDOW_INNER_WIDTH } from "../../constants/HomePageConstants.js";
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
 
+import AppBarCustom from "../../nonstate/molecules/AppBarCustom.js";
 import TreeMapTitle from "../../nonstate/molecules/TreeMapTitle.js";
-import Title from "../../nonstate/atoms/Title.js";
 import NotSupported from "../../nonstate/atoms/NotSupported.js";
 import BottomNavigationCustom from "../../nonstate/molecules/BottomNavigationCustom.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
@@ -51,7 +48,9 @@ export default class HomePage extends Component {
       fundingStageToIsSelected: getGenericToIsSelected(FUNDING_STAGES, true),
       categoryToIsSelected: getGenericToIsSelected(CATEGORIES, true),
       activeStartupID: undefined,
+
       width: window.innerWidth,
+
       showFilterPanel: false,
       showStartupInfo: false,
       isDownloading: false,
@@ -143,24 +142,7 @@ export default class HomePage extends Component {
 
     return (
       <div className="div-home-page" ref={this.ref}>
-        <Paper
-          sx={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            textAlign: "center",
-          }}
-          elevation={3}
-        >
-          <AppBar position="static" color="transparent">
-            <Toolbar>
-              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Title />
-              </Typography>
-            </Toolbar>
-          </AppBar>
-        </Paper>
+        <AppBarCustom />
 
         <Paper
           sx={{
