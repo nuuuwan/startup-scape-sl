@@ -77,15 +77,6 @@ export default class HomePage extends Component {
     this.setState({ fundingStageToIsSelected });
   }
 
-  onClickSelectAllCategories() {
-    const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, true);
-    this.setState({ categoryToIsSelected });
-  }
-  onClickUnSelectAllCategories() {
-    const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, false);
-    this.setState({ categoryToIsSelected });
-  }
-
   onClickImage(startupID) {
     this.setState({ activeStartupID: startupID, showStartupInfo: true });
   }
@@ -226,12 +217,6 @@ export default class HomePage extends Component {
             onChangeCategory={this.onChangeCategory.bind(this)}
             onChangeStartupStage={this.onChangeStartupStage.bind(this)}
             onChangeFundingStage={this.onChangeFundingStage.bind(this)}
-            onClickSelectAllCategories={this.onClickSelectAllCategories.bind(
-              this
-            )}
-            onClickUnSelectAllCategories={this.onClickUnSelectAllCategories.bind(
-              this
-            )}
           />
         </Drawer>
 
