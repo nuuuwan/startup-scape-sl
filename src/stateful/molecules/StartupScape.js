@@ -5,7 +5,7 @@ import TreeMap from "../../nonstate/molecules/TreeMap.js";
 
 import "./StartupScape.css";
 const WIDTH_PADDING = 50;
-const HEIGHT_HEADER = 100;
+const HEIGHT_HEADER = 120;
 const HEIGHT_FOOTER = 110;
 
 export default class StartupScape extends Component {

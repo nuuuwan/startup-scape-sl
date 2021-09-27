@@ -2,12 +2,10 @@ import "./App.css";
 
 import HomePage from "./stateful/pages/HomePage.js";
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   typography: {
-    fontFamily: [
-      'Lato',
-    ].join(','),
+    fontFamily: ["Lato"].join(","),
   },
 });
 function App() {

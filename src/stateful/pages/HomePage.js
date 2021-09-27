@@ -254,7 +254,7 @@ export default class HomePage extends Component {
     }
 
     return (
-      <Typography variant="body1" align="center" gutterBottom>
+      <Typography variant="body1" align="center" gutterBottom noWrap>
         {`${n} Startups `}
         {` · ${nCategories} categories${displayCategory}`}
         {` · ${nStartupStages} startup stages${displayStartupStage}`}
