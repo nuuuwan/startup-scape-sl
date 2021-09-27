@@ -159,3 +159,4 @@
   *  [2021-09-27 09:24AM] Updated README
   *  [2021-09-27 09:38AM] Added phone code
   *  [2021-09-27 09:38AM] Pre-Merge
+  *  [2021-09-27 09:41AM] Fonts
