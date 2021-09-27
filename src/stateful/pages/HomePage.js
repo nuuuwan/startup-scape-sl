@@ -47,12 +47,12 @@ export default class HomePage extends Component {
       startupStageToIsSelected: getGenericToIsSelected(STARTUP_STAGES, true),
       fundingStageToIsSelected: getGenericToIsSelected(FUNDING_STAGES, true),
       categoryToIsSelected: getGenericToIsSelected(CATEGORIES, true),
-      activeStartupID: "conscientai",
+      activeStartupID: undefined,
 
       width: window.innerWidth,
 
       showFilterPanel: false,
-      showStartupInfo: true,
+      showStartupInfo: false,
       isDownloading: false,
       showTermsDialog: false,
     };
