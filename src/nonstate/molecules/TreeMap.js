@@ -35,7 +35,7 @@ export default function TreeMap({
 
   return (
     <Paper sx={{ top, left, position: "fixed" }}>
-      {treemapRoot.children.map(function (categoryElement) {
+      {treemapRoot.children.map(function (categoryElement, iCategory) {
         const { x0, y0, x1, y1 } = categoryElement;
         const [left, top] = [x0, y0];
         const [categoryWidth, categoryHeight] = [x1 - x0, y1 - y0];
@@ -43,8 +43,8 @@ export default function TreeMap({
         const categoryStartups = categoryElement.children.map((d) => d.data);
         const nStartups = categoryStartups.length;
 
-        const effectiveCategoryHeight = categoryHeight - 36;
-        const effectiveCategoryWidth = categoryWidth - 12;
+        const effectiveCategoryHeight = Math.max(1, categoryHeight - 36);
+        const effectiveCategoryWidth = Math.max(1, categoryWidth - 12);
 
         const imgDim = parseInt(
           Math.sqrt(
@@ -61,6 +61,7 @@ export default function TreeMap({
 
         return (
           <Box
+            key={`category-${iCategory}`}
             sx={{
               position: "absolute",
               top,
@@ -72,7 +73,6 @@ export default function TreeMap({
             }}
           >
             <Paper
-              elevation={6}
               sx={{ borderColor: color, borderWidth: 3, borderRadius: 3 }}
               variant="outlined"
             >
