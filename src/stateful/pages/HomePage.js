@@ -14,12 +14,14 @@ import Snackbar from "@mui/material/Snackbar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
+import { MIN_WINDOW_INNER_WIDTH } from "../../constants/HomePageConstants.js";
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
 
 import TreeMapTitle from "../../nonstate/molecules/TreeMapTitle.js";
 import Title from "../../nonstate/atoms/Title.js";
+import NotSupported from "../../nonstate/atoms/NotSupported.js";
 import BottomNavigationCustom from "../../nonstate/molecules/BottomNavigationCustom.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 import StartupScape from "../molecules/StartupScape.js";
@@ -28,7 +30,6 @@ import FilterPanel from "../molecules/FilterPanel.js";
 import "./HomePage.css";
 
 // const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL&f=top";
-const MIN_WINDOW_INNER_WIDTH = 480;
 const STARTUPSCAPE_TOP = 40;
 const STARTUPSCAPE_BOTTOM = 100;
 const STARTUPSCAPE_LEFT = 40;
@@ -120,16 +121,6 @@ export default class HomePage extends Component {
   onCloseTermsDialog() {
     this.setState({ showTermsDialog: false });
   }
-
-  renderNotSupported() {
-    return (
-      <Typography variant="body2" gutterBottom align="center">
-        {`This app is not designed for screens less than` +
-          ` ${MIN_WINDOW_INNER_WIDTH}px wide.`}
-      </Typography>
-    );
-  }
-
   render() {
     const isWindowTooSmall = window.innerWidth < MIN_WINDOW_INNER_WIDTH;
 
@@ -183,7 +174,7 @@ export default class HomePage extends Component {
           elevation={3}
         >
           {isWindowTooSmall ? (
-            this.renderNotSupported()
+            <NotSupported />
           ) : (
             <>
               <TreeMapTitle homePage={this} />

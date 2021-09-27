@@ -1,0 +1,1 @@
+export const MIN_WINDOW_INNER_WIDTH = 640;
