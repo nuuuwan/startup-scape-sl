@@ -138,3 +138,4 @@
   *  [2021-09-27 08:12AM] Updated README
   *  [2021-09-27 08:21AM] Changed to Lato
   *  [2021-09-27 08:21AM] Pre-Merge
+  *  [2021-09-27 08:25AM] Shrunk Selector Menu Items

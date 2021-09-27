@@ -97,7 +97,12 @@ export default class Selector extends Component {
                 (name === TEXT_SELECT_ALL && areAllSelected) ||
                 (name === TEXT_UNSELECT_ALL && areNoneSelected);
               return (
-                <MenuItem key={name} value={name} disabled={disabled}>
+                <MenuItem
+                  key={name}
+                  value={name}
+                  disabled={disabled}
+                  dense
+                >
                   {name}
                 </MenuItem>
               );
