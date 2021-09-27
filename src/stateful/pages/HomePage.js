@@ -43,37 +43,18 @@ function getGenericToIsSelected(values, isSelected) {
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
-    const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, true);
-    const startupStageToIsSelected = getGenericToIsSelected(
-      STARTUP_STAGES,
-      true
-    );
-    const fundingStageToIsSelected = getGenericToIsSelected(
-      FUNDING_STAGES,
-      true
-    );
-
-    const activeStartupID = undefined;
     this.ref = React.createRef();
 
-    const width = window.innerWidth;
-    const rightPanelWidth = 0;
-    const showFilterPanel = false;
-    const showStartupInfo = false;
-    const isDownloading = false;
-    const showTermsDialog = false;
-
     this.state = {
-      startupStageToIsSelected,
-      fundingStageToIsSelected,
-      categoryToIsSelected,
-      activeStartupID,
-      width,
-      rightPanelWidth,
-      showFilterPanel,
-      showStartupInfo,
-      isDownloading,
-      showTermsDialog,
+      startupStageToIsSelected: getGenericToIsSelected(STARTUP_STAGES, true),
+      fundingStageToIsSelected: getGenericToIsSelected(FUNDING_STAGES, true),
+      categoryToIsSelected: getGenericToIsSelected(CATEGORIES, true),
+      activeStartupID: undefined,
+      width: window.innerWidth,
+      showFilterPanel: false,
+      showStartupInfo: false,
+      isDownloading: false,
+      showTermsDialog: false,
     };
 
     window.addEventListener("resize", this.onWindowResize.bind(this));
@@ -137,13 +118,6 @@ export default class HomePage extends Component {
     );
   }
 
-  onRightPanelMakeVisible() {
-    this.setState({ rightPanelWidth: 260 });
-  }
-  onRightPanelMakeNotVisible() {
-    this.setState({ rightPanelWidth: 0 });
-  }
-
   onToggleFilter() {
     this.setState({ showFilterPanel: !this.state.showFilterPanel });
   }
@@ -173,7 +147,6 @@ export default class HomePage extends Component {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       activeStartupID,
-      rightPanelWidth,
       showFilterPanel,
       showStartupInfo,
       isDownloading,
@@ -230,7 +203,6 @@ export default class HomePage extends Component {
                 startupStageToIsSelected={startupStageToIsSelected}
                 fundingStageToIsSelected={fundingStageToIsSelected}
                 onClickImage={this.onClickImage.bind(this)}
-                rightPanelWidth={rightPanelWidth}
               />
 
               <Snackbar
@@ -258,10 +230,6 @@ export default class HomePage extends Component {
               this
             )}
             onClickUnSelectAllCategories={this.onClickUnSelectAllCategories.bind(
-              this
-            )}
-            onRightPanelMakeVisible={this.onRightPanelMakeVisible.bind(this)}
-            onRightPanelMakeNotVisible={this.onRightPanelMakeNotVisible.bind(
               this
             )}
           />
