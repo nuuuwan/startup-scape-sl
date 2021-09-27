@@ -141,3 +141,5 @@
   *  [2021-09-27 08:25AM] Shrunk Selector Menu Items
   *  [2021-09-27 08:31AM] Fixed Title Wrap issue
   *  [2021-09-27 08:40AM] Added Google Analytics
+* [2021-09-27 08:49AM] Make HomePage Small
+  *  [2021-09-27 08:49AM] Updated README
