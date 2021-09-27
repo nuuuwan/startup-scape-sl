@@ -87,7 +87,7 @@ export default function StartupInfo(props) {
                 <ListItemIcon>
                   <LinkedInIcon fontSize="small" />
                 </ListItemIcon>
-                <Link href={urlLinkedIn} underline="none">
+                <Link href={urlLinkedIn} underline="none" noWrap>
                   {startup["founder_info"]["name"]}
                 </Link>
               </MenuItem>
@@ -101,6 +101,7 @@ export default function StartupInfo(props) {
                 <Link
                   href={"mailto:" + startup["founder_info"]["email"]}
                   underline="none"
+                  noWrap
                 >
                   {startup["founder_info"]["email"]}
                 </Link>
@@ -115,6 +116,7 @@ export default function StartupInfo(props) {
                 <Link
                   href={"tel:" + startup["founder_info"]["phone"]}
                   underline="none"
+                  noWrap
                 >
                   {startup["founder_info"]["phone"]}
                 </Link>
@@ -126,7 +128,7 @@ export default function StartupInfo(props) {
                 <ListItemIcon>
                   <LanguageIcon fontSize="small" />
                 </ListItemIcon>
-                <Link href={url} underline="none">
+                <Link href={url} underline="none" noWrap>
                   {url}
                 </Link>
               </MenuItem>

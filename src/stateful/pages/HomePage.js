@@ -178,6 +178,7 @@ export default class HomePage extends Component {
             </>
           )}
         </Paper>
+
         <Drawer
           open={showFilterPanel}
           anchor="right"
