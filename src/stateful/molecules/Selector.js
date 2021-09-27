@@ -76,10 +76,18 @@ export default class Selector extends Component {
             label={labelFinal}
             value={selectedValues}
             onChange={onChangeInner}
-            renderValue={(selected) => (
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                {selected.map((value) => (
-                  <Chip label={value} icon={icon} size={"small"} />
+            renderValue={(selected, iSelected) => (
+              <Box
+                key={`selected-${selected}-${iSelected}`}
+                sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}
+              >
+                {selected.map((value, iValue) => (
+                  <Chip
+                    key={`chip-${value}-${iValue}`}
+                    label={value}
+                    icon={icon}
+                    size={"small"}
+                  />
                 ))}
               </Box>
             )}
