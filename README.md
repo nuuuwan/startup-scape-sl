@@ -134,3 +134,5 @@
   *  [2021-09-27 08:07AM] Fixed Tree Map issues
   *  [2021-09-27 08:11AM] Done
   *  [2021-09-27 08:11AM] Pre-Merge
+* [2021-09-27 08:12AM] Changed Default Font
+  *  [2021-09-27 08:12AM] Updated README
