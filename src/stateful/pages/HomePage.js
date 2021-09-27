@@ -17,8 +17,8 @@ import Typography from "@mui/material/Typography";
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
-import Startups from "../../core/Startups.js";
 
+import TreeMapTitle from "../../nonstate/molecules/TreeMapTitle.js";
 import Title from "../../nonstate/atoms/Title.js";
 import BottomNavigationCustom from "../../nonstate/molecules/BottomNavigationCustom.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
@@ -40,13 +40,6 @@ function getGenericToIsSelected(values, isSelected) {
     return valueToIsSelected;
   }, {});
 }
-
-function getSelected(valueToIsSelected) {
-  return Object.entries(valueToIsSelected)
-    .filter(([value, isSelected]) => isSelected)
-    .map(([value, isSelected]) => value);
-}
-
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -163,65 +156,6 @@ export default class HomePage extends Component {
     this.setState({ showTermsDialog: false });
   }
 
-  renderSubTitle() {
-    const {
-      categoryToIsSelected,
-      startupStageToIsSelected,
-      fundingStageToIsSelected,
-    } = this.state;
-
-    const startups = Startups.getFiltered(
-      categoryToIsSelected,
-      startupStageToIsSelected,
-      fundingStageToIsSelected
-    );
-
-    const n = startups.length;
-    const selectedCategories = getSelected(categoryToIsSelected);
-    const selectedStartupStages = getSelected(startupStageToIsSelected);
-    const selectedFundingStages = getSelected(fundingStageToIsSelected);
-
-    const nCategories = selectedCategories.length;
-    const nStartupStages = selectedStartupStages.length;
-    const nFundingStages = selectedFundingStages.length;
-
-    let displayCategory = "";
-    if (nCategories > 0) {
-      if (nCategories === 43) {
-        displayCategory = " (all)";
-      } else if (nCategories < 10) {
-        displayCategory += " (" + selectedCategories.join(", ") + ")";
-      }
-    }
-
-    let displayStartupStage = "";
-    if (nStartupStages > 0) {
-      if (nStartupStages === 6) {
-        displayStartupStage = " (all)";
-      } else {
-        displayStartupStage += " (" + selectedStartupStages.join(", ") + ")";
-      }
-    }
-
-    let displayFundingStage = "";
-    if (nFundingStages > 0) {
-      if (nFundingStages === 9) {
-        displayFundingStage = " (all)";
-      } else {
-        displayFundingStage += " (" + selectedFundingStages.join(", ") + ")";
-      }
-    }
-
-    return (
-      <Typography variant="body1" align="center" gutterBottom noWrap>
-        {`${n} Startups `}
-        {` · ${nCategories} categories${displayCategory}`}
-        {` · ${nStartupStages} startup stages${displayStartupStage}`}
-        {` · ${nFundingStages} funding stages${displayFundingStage}`}
-      </Typography>
-    );
-  }
-
   renderNotSupported() {
     return (
       <Typography variant="body2" gutterBottom align="center">
@@ -288,7 +222,7 @@ export default class HomePage extends Component {
             this.renderNotSupported()
           ) : (
             <>
-              {this.renderSubTitle()}
+              <TreeMapTitle homePage={this} />
               <StartupScape
                 key={key}
                 ref={this.ref}
