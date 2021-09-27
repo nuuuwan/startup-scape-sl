@@ -144,3 +144,4 @@
 * [2021-09-27 08:49AM] Make HomePage Small
   *  [2021-09-27 08:49AM] Updated README
   *  [2021-09-27 08:51AM] Added Title.js
+  *  [2021-09-27 08:57AM] Added BottomNavigationCustom

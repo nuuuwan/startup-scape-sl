@@ -2,23 +2,16 @@ import React, { Component } from "react";
 import html2canvas from "html2canvas";
 
 import AppBar from "@mui/material/AppBar";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import Button from "@mui/material/Button";
-import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Drawer from "@mui/material/Drawer";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import GavelIcon from "@mui/icons-material/Gavel";
-import LanguageIcon from "@mui/icons-material/Language";
 import Paper from "@mui/material/Paper";
 import Snackbar from "@mui/material/Snackbar";
 import Toolbar from "@mui/material/Toolbar";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import Typography from "@mui/material/Typography";
 
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
@@ -26,15 +19,14 @@ import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
 import Startups from "../../core/Startups.js";
 
-import Title from '../../nonstate/atoms/Title.js';
+import Title from "../../nonstate/atoms/Title.js";
+import BottomNavigationCustom from "../../nonstate/molecules/BottomNavigationCustom.js";
 import StartupInfo from "../../nonstate/molecules/StartupInfo.js";
 import StartupScape from "../molecules/StartupScape.js";
 import FilterPanel from "../molecules/FilterPanel.js";
 
 import "./HomePage.css";
 
-const URL_STARTUPSL_LK = "https://www.startupsl.lk/";
-const URL_NUUUWAN = "https://twitter.com/nuuuwan";
 // const URL_STARTUPSCAPE = "https://twitter.com/search?q=%23StartupScapeSL&f=top";
 const MIN_WINDOW_INNER_WIDTH = 480;
 const STARTUPSCAPE_TOP = 40;
@@ -167,28 +159,6 @@ export default class HomePage extends Component {
     this.setState({ showStartupInfo: false });
   }
 
-  onChangeBottomNavigation(event, newValue) {
-    switch (newValue) {
-      case "twitter":
-        window.open(URL_NUUUWAN);
-        break;
-      case "website":
-        window.open(URL_STARTUPSL_LK);
-        break;
-      case "terms":
-        this.setState({ showTermsDialog: true });
-        break;
-      case "download":
-        this.onClickDownload();
-        break;
-      case "filter":
-        this.onToggleFilter();
-        break;
-      default:
-        break;
-    }
-  }
-
   onCloseTermsDialog() {
     this.setState({ showTermsDialog: false });
   }
@@ -297,7 +267,7 @@ export default class HomePage extends Component {
           <AppBar position="static" color="transparent">
             <Toolbar>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Title/ >
+                <Title />
               </Typography>
             </Toolbar>
           </AppBar>
@@ -380,37 +350,7 @@ export default class HomePage extends Component {
           }}
           elevation={3}
         >
-          <BottomNavigation
-            showLabels
-            value={""}
-            onChange={this.onChangeBottomNavigation.bind(this)}
-          >
-            <BottomNavigationAction
-              label="vis by @nuuuwan"
-              value="twitter"
-              icon={<TwitterIcon />}
-            />
-            <BottomNavigationAction
-              label="data from startups.lk"
-              value="website"
-              icon={<LanguageIcon />}
-            />
-            <BottomNavigationAction
-              label="Terms"
-              value="terms"
-              icon={<GavelIcon />}
-            />
-            <BottomNavigationAction
-              label="Download"
-              value="download"
-              icon={<CloudDownloadIcon />}
-            />
-            <BottomNavigationAction
-              label="Filter"
-              value="filter"
-              icon={<FilterAltIcon />}
-            />
-          </BottomNavigation>
+          <BottomNavigationCustom homePage={this} />
 
           <Dialog
             open={showTermsDialog}
