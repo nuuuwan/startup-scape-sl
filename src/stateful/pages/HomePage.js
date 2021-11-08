@@ -15,6 +15,7 @@ import { MIN_WINDOW_INNER_WIDTH } from "../../constants/HomePageConstants.js";
 import { CATEGORIES } from "../../constants/CategoryConstants.js";
 import { STARTUP_STAGES } from "../../constants/StartupStageConstants.js";
 import { FUNDING_STAGES } from "../../constants/FundingStageConstants.js";
+import { NAVIGATION_CODE_DELIMITER } from "../../constants/Constants.js";
 
 import AppBarCustom from "../../nonstate/molecules/AppBarCustom.js";
 import TreeMapTitle from "../../nonstate/molecules/TreeMapTitle.js";
@@ -31,8 +32,6 @@ const STARTUPSCAPE_TOP = 40;
 const STARTUPSCAPE_BOTTOM = 100;
 const STARTUPSCAPE_LEFT = 40;
 const STARTUPSCAPE_RIGHT = 50;
-
-const NAVIGATION_DELIMITER = ".";
 
 function getGenericToIsSelected(values, isSelected) {
   return values.reduce(function (valueToIsSelected, value) {
@@ -58,7 +57,7 @@ function encodeNavigationCode({
       }
     }
   }
-  return tokens.join(NAVIGATION_DELIMITER);
+  return tokens.join(NAVIGATION_CODE_DELIMITER);
 }
 
 export function getDefaultNavigationCode() {
@@ -93,7 +92,7 @@ function decodeNavigationCode(navigationCode) {
     },
   };
 
-  return navigationCode.split(NAVIGATION_DELIMITER).reduce(
+  return navigationCode.split(NAVIGATION_CODE_DELIMITER).reduce(
     function (
       {
         startupStageToIsSelected,

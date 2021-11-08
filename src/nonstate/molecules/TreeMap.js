@@ -6,7 +6,11 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import InputLabel from "@mui/material/InputLabel";
 
-import { CATEGORY_TO_COLOR } from "../../constants/CategoryConstants.js";
+import {
+  CATEGORY_TO_COLOR,
+  CATEGOTY_TO_CATEGORY_I,
+} from "../../constants/CategoryConstants.js";
+import { NAVIGATION_CODE_DELIMITER } from "../../constants/Constants.js";
 
 const TREEMAP_PADDING_INNER = 9;
 
@@ -59,6 +63,21 @@ export default function TreeMap({
 
         const color = CATEGORY_TO_COLOR[categoryName];
 
+        const categoryI = CATEGOTY_TO_CATEGORY_I[categoryName];
+        const url = window.location.href;
+        let tokens = url.split("/");
+        const navigationCode = tokens.pop();
+        const newNavigationCode = navigationCode
+          .split(NAVIGATION_CODE_DELIMITER)
+          .filter(function (token) {
+            const tokenType = token.substring(0, 1);
+            const tokenIndex = parseInt(token.substring(1));
+            return tokenType !== "c" || tokenIndex === categoryI;
+          })
+          .join(NAVIGATION_CODE_DELIMITER);
+        tokens.push(newNavigationCode);
+        const newUrl = tokens.join("/");
+
         return (
           <Box
             key={`category-${iCategory}`}
@@ -76,17 +95,19 @@ export default function TreeMap({
               sx={{ borderColor: color, borderWidth: 3, borderRadius: 3 }}
               variant="outlined"
             >
-              <InputLabel
-                sx={{
-                  color,
-                  paddingTop: 0.5,
-                  paddingLeft: 0.5,
-                  paddingRight: 0.5,
-                }}
-                shrink
-              >
-                {categoryLabel}
-              </InputLabel>
+              <a href={newUrl}>
+                <InputLabel
+                  sx={{
+                    color,
+                    paddingTop: 0.5,
+                    paddingLeft: 0.5,
+                    paddingRight: 0.5,
+                  }}
+                  shrink
+                >
+                  {categoryLabel}
+                </InputLabel>
+              </a>
 
               <ImageList
                 sx={{

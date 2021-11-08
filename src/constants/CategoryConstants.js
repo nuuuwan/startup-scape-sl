@@ -45,3 +45,12 @@ export const CATEGORY_TO_COLOR = {
 };
 
 export const CATEGORIES = Object.keys(CATEGORY_TO_COLOR);
+export const CATEGOTY_TO_CATEGORY_I = CATEGORIES.reduce(function (
+  CATEGOTY_TO_CATEGORY_I,
+  category,
+  i
+) {
+  CATEGOTY_TO_CATEGORY_I[category] = i;
+  return CATEGOTY_TO_CATEGORY_I;
+},
+{});
