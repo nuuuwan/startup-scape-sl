@@ -192,7 +192,7 @@ export default class HomePage extends Component {
     window.history.pushState(
       "object or string",
       "Title",
-      `/startup-scape-sl/${navigationCode}`
+      `/#/startup-scape-sl/${navigationCode}`
     );
 
     this.setState({
@@ -200,6 +200,21 @@ export default class HomePage extends Component {
       fundingStageToIsSelected,
       categoryToIsSelected,
       navigationCode,
+    });
+  }
+
+  onClickCategory(selectedCategoryName) {
+    const newCategoryToIsSelected = Object.keys(
+      this.state.categoryToIsSelected
+    ).reduce(function (categoryToIsSelected, categoryName) {
+      categoryToIsSelected[categoryName] =
+        categoryName === selectedCategoryName;
+      return categoryToIsSelected;
+    }, {});
+    console.debug(this.state.categoryToIsSelected);
+    console.debug(newCategoryToIsSelected);
+    this.onChangeFilters({
+      categoryToIsSelected: newCategoryToIsSelected,
     });
   }
 
@@ -294,6 +309,7 @@ export default class HomePage extends Component {
                 startupStageToIsSelected={startupStageToIsSelected}
                 fundingStageToIsSelected={fundingStageToIsSelected}
                 onClickImage={this.onClickImage.bind(this)}
+                onClickCategory={this.onClickCategory.bind(this)}
               />
 
               <Snackbar

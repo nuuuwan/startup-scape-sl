@@ -15,6 +15,7 @@ export default class StartupScape extends Component {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       onClickImage,
+      onClickCategory,
     } = this.props;
     const treemapData = Startups.getTreeMapData(
       categoryToIsSelected,
@@ -34,6 +35,7 @@ export default class StartupScape extends Component {
           height={height}
           width={width}
           onClickImage={onClickImage}
+          onClickCategory={onClickCategory}
         />
       </div>
     );
