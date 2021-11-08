@@ -21,9 +21,9 @@ function App() {
   const defaultNavigationCode = getDefaultNavigationCode();
   return (
     <ThemeProvider theme={theme}>
-      <Router basename="/startup-scape-sl">
+      <Router basename={`${process.env.PUBLIC_URL}/`}>
         <Switch>
-          <Route path="/:navigationCode" component={HomePage} />
+          <Route exact path="/:navigationCode" component={HomePage} />
           <Route>
             <Redirect to={`/${defaultNavigationCode}`} />
           </Route>
