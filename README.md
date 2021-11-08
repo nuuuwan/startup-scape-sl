@@ -161,3 +161,4 @@
   *  [2021-09-27 09:38AM] Pre-Merge
   *  [2021-09-27 09:41AM] Fonts
   *  [2021-09-27 09:42AM] Reverted test vars
+  *  [2021-11-08 01:52PM] Changed font to Lato

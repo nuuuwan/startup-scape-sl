@@ -5,7 +5,7 @@ import HomePage from "./stateful/pages/HomePage.js";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   typography: {
-    fontFamily: ["Poppins", "sans-serif"].join(","),
+    fontFamily: ["Lato", "sans-serif"].join(","),
   },
 });
 function App() {
