@@ -1,7 +1,14 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import HomePage from "./stateful/pages/HomePage.js";
+import HomePage, {
+  getDefaultNavigationCode,
+} from "./stateful/pages/HomePage.js";
 
 import "./App.css";
 
@@ -11,12 +18,15 @@ const theme = createTheme({
   },
 });
 function App() {
+  const defaultNavigationCode = getDefaultNavigationCode();
   return (
     <ThemeProvider theme={theme}>
       <Router basename="/startup-scape-sl">
         <Switch>
           <Route path="/:navigationCode" component={HomePage} />
-          <Route path="/" component={HomePage} />
+          <Route>
+            <Redirect to={`/${defaultNavigationCode}`} />
+          </Route>
         </Switch>
       </Router>
     </ThemeProvider>

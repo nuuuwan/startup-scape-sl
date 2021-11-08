@@ -32,6 +32,8 @@ const STARTUPSCAPE_BOTTOM = 100;
 const STARTUPSCAPE_LEFT = 40;
 const STARTUPSCAPE_RIGHT = 50;
 
+const NAVIGATION_DELIMITER = ".";
+
 function getGenericToIsSelected(values, isSelected) {
   return values.reduce(function (valueToIsSelected, value) {
     valueToIsSelected[value] = isSelected;
@@ -39,7 +41,39 @@ function getGenericToIsSelected(values, isSelected) {
   }, {});
 }
 
-function parseNavigationCode(navigationCode) {
+function encodeNavigationCode({
+  startupStageToIsSelected,
+  fundingStageToIsSelected,
+  categoryToIsSelected,
+}) {
+  let tokens = [];
+  for (let [tokenType, xToIsSelected] of [
+    ["s", startupStageToIsSelected],
+    ["f", fundingStageToIsSelected],
+    ["c", categoryToIsSelected],
+  ]) {
+    for (let [i, isSelected] of Object.values(xToIsSelected).entries()) {
+      if (isSelected) {
+        tokens.push(`${tokenType}${i}`);
+      }
+    }
+  }
+  return tokens.join(NAVIGATION_DELIMITER);
+}
+
+export function getDefaultNavigationCode() {
+  const startupStageToIsSelected = getGenericToIsSelected(STARTUP_STAGES, true);
+  const fundingStageToIsSelected = getGenericToIsSelected(FUNDING_STAGES, true);
+  const categoryToIsSelected = getGenericToIsSelected(CATEGORIES, true);
+
+  return encodeNavigationCode({
+    startupStageToIsSelected,
+    fundingStageToIsSelected,
+    categoryToIsSelected,
+  });
+}
+
+function decodeNavigationCode(navigationCode) {
   let startupStageToIsSelected = getGenericToIsSelected(STARTUP_STAGES, false);
   let fundingStageToIsSelected = getGenericToIsSelected(FUNDING_STAGES, false);
   let categoryToIsSelected = getGenericToIsSelected(CATEGORIES, false);
@@ -59,7 +93,7 @@ function parseNavigationCode(navigationCode) {
     },
   };
 
-  return navigationCode.split(".").reduce(
+  return navigationCode.split(NAVIGATION_DELIMITER).reduce(
     function (
       {
         startupStageToIsSelected,
@@ -97,7 +131,7 @@ export default class HomePage extends Component {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       categoryToIsSelected,
-    } = parseNavigationCode(this.props.match.params.navigationCode);
+    } = decodeNavigationCode(this.props.match.params.navigationCode);
 
     this.state = {
       startupStageToIsSelected,
@@ -122,15 +156,49 @@ export default class HomePage extends Component {
   }
 
   onChangeCategory(categoryToIsSelected) {
-    this.setState({ categoryToIsSelected });
+    this.onChangeFilters({ categoryToIsSelected });
   }
 
   onChangeStartupStage(startupStageToIsSelected) {
-    this.setState({ startupStageToIsSelected });
+    this.onChangeFilters({ startupStageToIsSelected });
   }
 
   onChangeFundingStage(fundingStageToIsSelected) {
-    this.setState({ fundingStageToIsSelected });
+    this.onChangeFilters({ fundingStageToIsSelected });
+  }
+
+  onChangeFilters({
+    startupStageToIsSelected,
+    fundingStageToIsSelected,
+    categoryToIsSelected,
+  }) {
+    if (!startupStageToIsSelected) {
+      startupStageToIsSelected = this.state.startupStageToIsSelected;
+    }
+    if (!fundingStageToIsSelected) {
+      fundingStageToIsSelected = this.state.fundingStageToIsSelected;
+    }
+    if (!categoryToIsSelected) {
+      categoryToIsSelected = this.state.categoryToIsSelected;
+    }
+
+    const navigationCode = encodeNavigationCode({
+      startupStageToIsSelected,
+      fundingStageToIsSelected,
+      categoryToIsSelected,
+    });
+
+    window.history.pushState(
+      "object or string",
+      "Title",
+      `/startup-scape-sl/${navigationCode}`
+    );
+
+    this.setState({
+      startupStageToIsSelected,
+      fundingStageToIsSelected,
+      categoryToIsSelected,
+    });
   }
 
   onClickImage(startupID) {
