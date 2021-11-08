@@ -38,15 +38,71 @@ function getGenericToIsSelected(values, isSelected) {
     return valueToIsSelected;
   }, {});
 }
+
+function parseNavigationCode(navigationCode) {
+  let startupStageToIsSelected = getGenericToIsSelected(STARTUP_STAGES, false);
+  let fundingStageToIsSelected = getGenericToIsSelected(FUNDING_STAGES, false);
+  let categoryToIsSelected = getGenericToIsSelected(CATEGORIES, false);
+
+  const config = {
+    s: {
+      xToIsSelected: startupStageToIsSelected,
+      xList: STARTUP_STAGES,
+    },
+    f: {
+      xToIsSelected: fundingStageToIsSelected,
+      xList: FUNDING_STAGES,
+    },
+    c: {
+      xToIsSelected: categoryToIsSelected,
+      xList: CATEGORIES,
+    },
+  };
+
+  return navigationCode.split(".").reduce(
+    function (
+      {
+        startupStageToIsSelected,
+        fundingStageToIsSelected,
+        categoryToIsSelected,
+      },
+      token
+    ) {
+      const tokenType = token.substring(0, 1);
+      const tokenIndex = parseInt(token.substring(1));
+      let { xToIsSelected, xList } = config[tokenType];
+
+      xToIsSelected[xList[tokenIndex]] = true;
+
+      return {
+        startupStageToIsSelected,
+        fundingStageToIsSelected,
+        categoryToIsSelected,
+      };
+    },
+    {
+      startupStageToIsSelected,
+      fundingStageToIsSelected,
+      categoryToIsSelected,
+    }
+  );
+}
+
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
 
+    const {
+      startupStageToIsSelected,
+      fundingStageToIsSelected,
+      categoryToIsSelected,
+    } = parseNavigationCode(this.props.match.params.navigationCode);
+
     this.state = {
-      startupStageToIsSelected: getGenericToIsSelected(STARTUP_STAGES, true),
-      fundingStageToIsSelected: getGenericToIsSelected(FUNDING_STAGES, true),
-      categoryToIsSelected: getGenericToIsSelected(CATEGORIES, true),
+      startupStageToIsSelected,
+      fundingStageToIsSelected,
+      categoryToIsSelected,
       activeStartupID: undefined,
 
       width: window.innerWidth,
