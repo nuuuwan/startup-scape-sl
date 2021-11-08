@@ -126,16 +126,18 @@ export default class HomePage extends Component {
     super(props);
     this.ref = React.createRef();
 
+    const navigationCode = this.props.match.params.navigationCode;
     const {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       categoryToIsSelected,
-    } = decodeNavigationCode(this.props.match.params.navigationCode);
+    } = decodeNavigationCode(navigationCode);
 
     this.state = {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       categoryToIsSelected,
+      navigationCode,
       activeStartupID: undefined,
 
       width: window.innerWidth,
@@ -197,6 +199,7 @@ export default class HomePage extends Component {
       startupStageToIsSelected,
       fundingStageToIsSelected,
       categoryToIsSelected,
+      navigationCode,
     });
   }
 
@@ -209,6 +212,7 @@ export default class HomePage extends Component {
   }
 
   onClickDownload() {
+    const fileName = `startup-scape-sl.${this.state.navigationCode}.png`;
     this.setState(
       { isDownloading: true },
       function () {
@@ -224,7 +228,7 @@ export default class HomePage extends Component {
           const dataURL = canvas.toDataURL("image/svg+xml");
           let a = document.createElement("a");
           a.href = dataURL;
-          a.download = "startups_lk.png";
+          a.download = fileName;
           a.click();
           this.setState({ isDownloading: false });
         });
